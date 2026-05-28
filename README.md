@@ -27,11 +27,9 @@ cloud machine, so it will not load unless the port is forwarded.
 ## GitHub Pages
 
 This repository includes a GitHub Actions workflow that deploys the static app
-to GitHub Pages from `main` and Cursor feature branches. The expected site URL is:
+to GitHub Pages from `main` and Cursor feature branches.
 
-```text
-https://kwonseokhyun1-jpg.github.io/joblingo/
-```
+Expected live site: [https://kwonseokhyun1-jpg.github.io/joblingo/](https://kwonseokhyun1-jpg.github.io/joblingo/)
 
 If that URL returns 404, check the repository settings in GitHub:
 
