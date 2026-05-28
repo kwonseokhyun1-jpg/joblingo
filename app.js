@@ -842,6 +842,331 @@ const careers = [
   },
 ];
 
+const additionalCareerBlueprints = [
+  {
+    id: "physician-assistant",
+    title: "Physician Assistant",
+    field: "Healthcare",
+    summary: "Examines patients, diagnoses common conditions, orders tests, and supports treatment under physician collaboration.",
+    fit: "You want hands-on medical work, patient relationships, and a faster route than becoming a physician.",
+    traits: ["empathetic", "analytical", "resilient", "communicator"],
+    skills: ["Clinical assessment", "Diagnosis", "Patient education", "Team coordination"],
+    workStyle: "Patient-facing clinical care with documentation and medical-team collaboration",
+    startingPoint: "Shadow a PA or volunteer in a clinic to observe patient flow and medical decision making.",
+    setting: "clinics, hospitals, urgent care centers, and specialty practices",
+    problem: "a patient arrives with symptoms that could have several causes",
+    deliverable: "a short patient-case summary with symptoms, questions, likely next tests, and education points"
+  },
+  {
+    id: "physical-therapist",
+    title: "Physical Therapist",
+    field: "Healthcare",
+    summary: "Helps people recover movement, reduce pain, and rebuild strength after injury, illness, or surgery.",
+    fit: "You like anatomy, coaching, practical progress, and helping people improve over time.",
+    traits: ["empathetic", "hands-on", "structured", "communicator"],
+    skills: ["Movement assessment", "Exercise planning", "Patient coaching", "Progress tracking"],
+    workStyle: "Hands-on sessions, exercise plans, patient encouragement, and measurable rehabilitation goals",
+    startingPoint: "Observe a rehab session or design a basic mobility routine with safety notes.",
+    setting: "rehabilitation clinics, hospitals, sports settings, and home health",
+    problem: "a patient needs to regain function safely without reinjury",
+    deliverable: "a sample rehab plan with goal, baseline movement, exercises, safety notes, and progress measure"
+  },
+  {
+    id: "pharmacist",
+    title: "Pharmacist",
+    field: "Healthcare",
+    summary: "Ensures medicines are safe, appropriate, and understood by patients and healthcare teams.",
+    fit: "You like chemistry, details, patient questions, and preventing mistakes before they happen.",
+    traits: ["analytical", "structured", "communicator", "empathetic"],
+    skills: ["Medication knowledge", "Safety checking", "Patient counseling", "Detail accuracy"],
+    workStyle: "Precise medication review, patient counseling, documentation, and healthcare coordination",
+    startingPoint: "Learn how one common medicine works and write a plain-language counseling note.",
+    setting: "community pharmacies, hospitals, clinics, research settings, and public health programs",
+    problem: "a patient takes multiple medicines that may interact or be misunderstood",
+    deliverable: "a medication safety checklist with purpose, timing, side effects, interactions, and questions"
+  },
+  {
+    id: "civil-engineer",
+    title: "Civil Engineer",
+    field: "Engineering",
+    summary: "Designs and improves infrastructure such as roads, bridges, water systems, buildings, and transit networks.",
+    fit: "You care about how communities work and enjoy practical math, safety, and large physical systems.",
+    traits: ["analytical", "builder", "practical", "structured"],
+    skills: ["Structural thinking", "Site analysis", "CAD", "Project documentation"],
+    workStyle: "Design calculations, site constraints, safety reviews, and coordination with public or construction teams",
+    startingPoint: "Study one bridge, road, or drainage problem near you and sketch the constraints.",
+    setting: "engineering firms, construction sites, transportation agencies, and city infrastructure teams",
+    problem: "a community needs a safe structure or system under budget, site, and environmental constraints",
+    deliverable: "a site-observation brief with users, constraints, risks, design idea, and questions for an engineer"
+  },
+  {
+    id: "graphic-designer",
+    title: "Graphic Designer",
+    field: "Design",
+    summary: "Creates visual communication for brands, products, campaigns, publications, and digital experiences.",
+    fit: "You notice typography, color, layout, and how visuals change what people understand or feel.",
+    traits: ["creative", "visual", "communicator", "curious"],
+    skills: ["Layout", "Typography", "Brand systems", "Visual critique"],
+    workStyle: "Creative briefs, design iterations, feedback, production files, and visual problem solving",
+    startingPoint: "Redesign a poster or social graphic and explain your layout choices.",
+    setting: "design studios, marketing teams, agencies, nonprofits, media companies, and freelance projects",
+    problem: "a message needs to be understood quickly by a specific audience",
+    deliverable: "a before-and-after design with audience, goal, hierarchy, color choices, and feedback notes"
+  },
+  {
+    id: "journalist",
+    title: "Journalist",
+    field: "Media",
+    summary: "Finds, verifies, writes, and explains stories that help people understand events, issues, and communities.",
+    fit: "You ask good questions, care about truth, and like turning messy information into clear stories.",
+    traits: ["curious", "communicator", "resilient", "analytical"],
+    skills: ["Interviewing", "Fact-checking", "Writing", "Source evaluation"],
+    workStyle: "Research, interviews, deadlines, editing, and responsible public communication",
+    startingPoint: "Interview someone about a local issue and write a balanced 500-word story.",
+    setting: "newsrooms, podcasts, magazines, local media, newsletters, and independent reporting",
+    problem: "the public needs accurate context about an event, decision, trend, or conflict",
+    deliverable: "a reported story outline with angle, sources, verified facts, unanswered questions, and headline"
+  },
+  {
+    id: "translator-interpreter",
+    title: "Translator or Interpreter",
+    field: "Language & Communication",
+    summary: "Converts meaning between languages in written documents or live conversations while preserving context and tone.",
+    fit: "You enjoy languages, cultural nuance, precision, and helping people understand each other.",
+    traits: ["communicator", "empathetic", "structured", "curious"],
+    skills: ["Bilingual fluency", "Cultural context", "Listening", "Terminology research"],
+    workStyle: "Careful language work across documents, meetings, healthcare, legal, education, or community settings",
+    startingPoint: "Translate a short public information notice and compare your wording with an official version.",
+    setting: "schools, hospitals, courts, businesses, conferences, publishers, and remote language services",
+    problem: "important meaning could be lost if words, tone, or cultural context are misunderstood",
+    deliverable: "a glossary and translated sample with notes explaining difficult choices"
+  },
+  {
+    id: "real-estate-agent",
+    title: "Real Estate Agent",
+    field: "Business",
+    summary: "Helps people buy, sell, or rent property by guiding pricing, showings, negotiations, and paperwork.",
+    fit: "You like people, local markets, negotiation, and helping clients make big practical decisions.",
+    traits: ["communicator", "practical", "resilient", "empathetic"],
+    skills: ["Client advising", "Market analysis", "Negotiation", "Follow-up"],
+    workStyle: "Client meetings, property research, showings, paperwork, and relationship-based sales",
+    startingPoint: "Compare three local listings and explain what affects their price.",
+    setting: "brokerages, property tours, client meetings, local neighborhoods, and online listing platforms",
+    problem: "a client must make a high-stakes property decision with incomplete information",
+    deliverable: "a property comparison sheet with price, location, condition, tradeoffs, and client recommendation"
+  },
+  {
+    id: "commercial-pilot",
+    title: "Commercial Pilot",
+    field: "Transportation",
+    summary: "Operates aircraft safely by planning flights, monitoring systems, communicating, and making disciplined decisions.",
+    fit: "You like responsibility, procedures, technology, travel, and staying calm under pressure.",
+    traits: ["structured", "resilient", "analytical", "practical"],
+    skills: ["Flight planning", "Situational awareness", "Communication", "Safety procedures"],
+    workStyle: "Checklist-driven operations, weather judgment, crew coordination, and continuous training",
+    startingPoint: "Take an introductory flight lesson or study how pilots read weather and flight checklists.",
+    setting: "airlines, cargo carriers, charter companies, flight schools, and specialized aviation operations",
+    problem: "a flight must be completed safely despite weather, equipment, timing, and airspace constraints",
+    deliverable: "a mock preflight brief with route, weather risk, checklist items, and go/no-go decision"
+  },
+  {
+    id: "firefighter",
+    title: "Firefighter",
+    field: "Public Safety",
+    summary: "Responds to fires, medical emergencies, rescues, hazards, and community safety needs.",
+    fit: "You want physically active service work that requires teamwork, courage, preparation, and calm execution.",
+    traits: ["hands-on", "resilient", "practical", "communicator"],
+    skills: ["Emergency response", "Physical readiness", "Team communication", "Safety procedures"],
+    workStyle: "Shift work, training drills, emergency calls, equipment checks, and close team coordination",
+    startingPoint: "Learn CPR basics and research firefighter candidate physical ability requirements.",
+    setting: "fire stations, emergency scenes, community education events, and training facilities",
+    problem: "people, property, or environments are in danger and decisions must be made quickly and safely",
+    deliverable: "an emergency response checklist with scene safety, communication, equipment, and after-action review"
+  },
+  {
+    id: "police-officer",
+    title: "Police Officer",
+    field: "Public Safety",
+    summary: "Protects public safety, responds to calls, investigates incidents, writes reports, and supports community order.",
+    fit: "You care about public service, communication, rules, de-escalation, and handling unpredictable situations.",
+    traits: ["resilient", "communicator", "structured", "practical"],
+    skills: ["De-escalation", "Observation", "Report writing", "Decision making"],
+    workStyle: "Patrol, public interaction, incident response, documentation, and ongoing training",
+    startingPoint: "Attend a community safety meeting or research local academy requirements.",
+    setting: "communities, patrol areas, schools, events, courts, and emergency response scenes",
+    problem: "a situation needs safety, facts, fairness, documentation, and careful communication",
+    deliverable: "a neutral incident report practice with observations, timeline, actions, and follow-up questions"
+  },
+  {
+    id: "paralegal",
+    title: "Paralegal",
+    field: "Law & Public Service",
+    summary: "Supports lawyers by organizing cases, researching facts, drafting documents, and managing legal details.",
+    fit: "You like law, research, organization, writing, and helping complex cases stay on track.",
+    traits: ["structured", "analytical", "communicator", "practical"],
+    skills: ["Legal research", "Document drafting", "Case organization", "Detail accuracy"],
+    workStyle: "Research, deadlines, document review, client information, and attorney support",
+    startingPoint: "Summarize a simple legal article and identify facts, rule, issue, and conclusion.",
+    setting: "law firms, corporate legal teams, courts, government offices, and nonprofits",
+    problem: "a legal team needs accurate facts and organized documents before decisions can be made",
+    deliverable: "a case file checklist with timeline, parties, documents, missing facts, and research questions"
+  },
+  {
+    id: "supply-chain-manager",
+    title: "Supply Chain Manager",
+    field: "Business",
+    summary: "Coordinates how products, materials, information, and suppliers move from source to customer.",
+    fit: "You like systems, logistics, problem solving, and making messy operations run smoothly.",
+    traits: ["structured", "analytical", "practical", "communicator"],
+    skills: ["Logistics", "Inventory planning", "Supplier coordination", "Risk management"],
+    workStyle: "Planning, tracking, vendor communication, data review, and fast problem solving when disruptions happen",
+    startingPoint: "Map how one product reaches a store or your home, from raw material to delivery.",
+    setting: "warehouses, manufacturers, retailers, logistics companies, hospitals, and operations teams",
+    problem: "a product must arrive on time despite demand changes, delays, cost limits, and supplier risk",
+    deliverable: "a supply-chain map with steps, bottlenecks, risks, and improvement ideas"
+  },
+  {
+    id: "sales-representative",
+    title: "Sales Representative",
+    field: "Business",
+    summary: "Helps customers understand products or services, builds relationships, and guides buying decisions.",
+    fit: "You like talking with people, solving needs, persuasion, goals, and learning what motivates decisions.",
+    traits: ["communicator", "resilient", "empathetic", "practical"],
+    skills: ["Discovery questions", "Product knowledge", "Persuasion", "Follow-up"],
+    workStyle: "Customer conversations, demos, outreach, relationship tracking, and performance goals",
+    startingPoint: "Practice explaining a product you like by matching features to customer needs.",
+    setting: "retail, software companies, medical sales, real estate, services, and business-to-business teams",
+    problem: "a customer has a need but must trust that the solution is worth the cost and change",
+    deliverable: "a sales conversation plan with customer profile, questions, value points, objections, and follow-up"
+  },
+  {
+    id: "veterinarian",
+    title: "Veterinarian",
+    field: "Healthcare",
+    summary: "Diagnoses, treats, and protects animal health while communicating with owners and supporting public health.",
+    fit: "You care about animals, science, problem solving, and emotionally honest client conversations.",
+    traits: ["empathetic", "analytical", "hands-on", "resilient"],
+    skills: ["Animal assessment", "Medical knowledge", "Client communication", "Surgical basics"],
+    workStyle: "Clinical exams, diagnostics, treatment plans, procedures, and owner education",
+    startingPoint: "Volunteer at an animal shelter or clinic and observe how animal behavior and health are documented.",
+    setting: "animal hospitals, farms, shelters, research labs, zoos, and public health organizations",
+    problem: "an animal cannot explain symptoms, so clues must come from examination, owner history, and tests",
+    deliverable: "a mock animal case note with history, observations, possible causes, tests, and owner guidance"
+  },
+  {
+    id: "biomedical-engineer",
+    title: "Biomedical Engineer",
+    field: "Engineering",
+    summary: "Designs medical devices, tools, software, or systems that improve healthcare and patient outcomes.",
+    fit: "You like biology, engineering, design, and solving health problems with technology.",
+    traits: ["analytical", "builder", "curious", "practical"],
+    skills: ["Medical-device design", "Testing", "Biology basics", "Technical documentation"],
+    workStyle: "Research, prototypes, lab testing, regulatory thinking, and collaboration with clinicians",
+    startingPoint: "Study one medical device and explain the user need, safety concern, and design tradeoff.",
+    setting: "medical device companies, hospitals, research labs, startups, and regulatory environments",
+    problem: "a healthcare problem needs a safe, usable, tested technical solution",
+    deliverable: "a device concept brief with user, problem, constraints, risks, test plan, and improvement idea"
+  },
+  {
+    id: "cloud-engineer",
+    title: "Cloud Engineer",
+    field: "Technology",
+    summary: "Builds and maintains cloud infrastructure that helps apps run reliably, securely, and at scale.",
+    fit: "You like systems, automation, reliability, security, and understanding how apps work behind the scenes.",
+    traits: ["analytical", "builder", "structured", "independent"],
+    skills: ["Cloud platforms", "Networking", "Automation", "Reliability"],
+    workStyle: "Infrastructure design, scripting, monitoring, incident response, and security-minded operations",
+    startingPoint: "Deploy a tiny static website or API and document the cloud services involved.",
+    setting: "software companies, IT teams, startups, enterprises, and infrastructure consulting groups",
+    problem: "an application needs to stay available, secure, fast, and affordable as usage changes",
+    deliverable: "a simple architecture diagram with hosting, storage, network, monitoring, and security notes"
+  },
+  {
+    id: "machine-learning-engineer",
+    title: "Machine Learning Engineer",
+    field: "Technology",
+    summary: "Builds systems that use data and models to make predictions, recommendations, or automated decisions.",
+    fit: "You like math, code, experiments, data, and asking whether a model actually works in the real world.",
+    traits: ["analytical", "builder", "curious", "structured"],
+    skills: ["Python", "Model training", "Data preparation", "Evaluation"],
+    workStyle: "Coding, experiments, data checks, model evaluation, and collaboration with product or research teams",
+    startingPoint: "Train a simple model on a public dataset and write what it predicts well and poorly.",
+    setting: "technology companies, research labs, product teams, healthcare, finance, and data platforms",
+    problem: "a pattern in data could support a useful prediction, but errors and bias must be measured",
+    deliverable: "a model report with dataset, target, baseline, metric, result, limitations, and ethical concern"
+  },
+  {
+    id: "event-planner",
+    title: "Event Planner",
+    field: "Hospitality",
+    summary: "Designs and coordinates events by managing goals, guests, budgets, vendors, timelines, and on-site details.",
+    fit: "You like organization, creativity, people, logistics, and making experiences feel smooth.",
+    traits: ["structured", "creative", "communicator", "resilient"],
+    skills: ["Timeline planning", "Vendor coordination", "Budgeting", "Guest experience"],
+    workStyle: "Planning documents, vendor communication, client updates, checklists, and event-day problem solving",
+    startingPoint: "Plan a small event with budget, timeline, supplies, roles, and backup plans.",
+    setting: "venues, conferences, weddings, nonprofits, campuses, hotels, and corporate events",
+    problem: "an experience must happen at a specific time with many people, vendors, and details aligned",
+    deliverable: "an event plan with goals, audience, schedule, budget, risks, roles, and day-of checklist"
+  },
+  {
+    id: "urban-planner",
+    title: "Urban Planner",
+    field: "Law & Public Service",
+    summary: "Helps communities decide how land, transportation, housing, parks, and public spaces should develop.",
+    fit: "You care about cities, fairness, maps, policy, design, and long-term community choices.",
+    traits: ["analytical", "communicator", "practical", "curious"],
+    skills: ["Community engagement", "Policy analysis", "Mapping", "Long-range planning"],
+    workStyle: "Research, public meetings, maps, policy documents, and coordination with community stakeholders",
+    startingPoint: "Study one street or neighborhood and list safety, access, housing, and transportation issues.",
+    setting: "city governments, planning agencies, consulting firms, nonprofits, and transportation teams",
+    problem: "a community must balance growth, access, safety, environment, cost, and resident needs",
+    deliverable: "a neighborhood observation memo with map notes, stakeholders, tradeoffs, and recommendation"
+  }
+];
+
+function buildCareerFromBlueprint(blueprint) {
+  return {
+    id: blueprint.id,
+    title: blueprint.title,
+    field: blueprint.field,
+    summary: blueprint.summary,
+    fit: blueprint.fit,
+    traits: blueprint.traits,
+    skills: blueprint.skills,
+    workStyle: blueprint.workStyle,
+    startingPoint: blueprint.startingPoint,
+    lessons: [
+      {
+        title: `What ${blueprint.title}s really do`,
+        objective: `Understand the daily responsibilities, settings, and decisions that define ${blueprint.title}.`,
+        activity: `List three places ${blueprint.title}s work, then choose one and describe what a normal day might include.`,
+        takeaway: `${blueprint.title}s create value in ${blueprint.setting} by combining skill, judgment, and communication.`
+      },
+      {
+        title: "Core skills and tools",
+        objective: `Connect this career to practical skills such as ${blueprint.skills.slice(0, 3).join(", ")}.`,
+        activity: `Pick one skill from ${blueprint.skills.join(", ")} and find a beginner exercise that would let you practice it this week.`,
+        takeaway: `Career confidence grows when you can name the skill, practice it, and explain how it helps solve real problems.`
+      },
+      {
+        title: "Solving a real workplace problem",
+        objective: `Practice how a ${blueprint.title} might think through ${blueprint.problem}.`,
+        activity: `Write the problem, what information you need, who is affected, two possible options, and one risk to watch.`,
+        takeaway: `Most careers involve structured judgment: gathering facts, weighing tradeoffs, and choosing a responsible next step.`
+      },
+      {
+        title: "First project or proof of interest",
+        objective: `Create a concrete artifact that shows you understand the basics of ${blueprint.title}.`,
+        activity: `Build ${blueprint.deliverable}, then ask someone for feedback on clarity and usefulness.`,
+        takeaway: `A small finished artifact helps you test interest and gives you something real to discuss with mentors, teachers, or employers.`
+      }
+    ]
+  };
+}
+
+careers.push(...additionalCareerBlueprints.map(buildCareerFromBlueprint));
+
 const quizQuestions = [
   {
     text: "When you get a big assignment, what part do you enjoy most?",
@@ -1013,6 +1338,129 @@ const careerPrerequisites = {
     start: "Create a small spatial redesign study with observations, sketches, constraints, user needs, and a final concept."
   }
 };
+
+Object.assign(careerPrerequisites, {
+  "physician-assistant": {
+    education: "Requires a bachelor's degree, prerequisite science courses, patient-care experience, and an accredited PA master's program.",
+    timeline: "Commonly 4 years undergraduate study plus 2-3 years in PA school, with patient-care hours before applying.",
+    credentials: "PA program clinical rotations, PANCE certification, state licensure, continuing medical education, and specialty experience later.",
+    start: "Research PA program prerequisites and begin planning science coursework, patient-care exposure, and shadowing hours."
+  },
+  "physical-therapist": {
+    education: "Requires a bachelor's degree followed by a Doctor of Physical Therapy program from an accredited school.",
+    timeline: "Typically 4 years undergraduate study plus about 3 years for a DPT program and licensing preparation.",
+    credentials: "DPT degree, clinical rotations, NPTE licensing exam, state licensure, CPR/BLS, and optional specialties later.",
+    start: "Shadow a physical therapist and track prerequisite courses such as anatomy, physiology, biology, and statistics."
+  },
+  pharmacist: {
+    education: "Requires prerequisite undergraduate coursework and a Doctor of Pharmacy degree from an accredited pharmacy program.",
+    timeline: "Often 2-4 years of prerequisites plus 4 years of pharmacy school, depending on program structure.",
+    credentials: "PharmD degree, licensing exams, state licensure, rotations, immunization training, and residency for some specialties.",
+    start: "Learn one medication category and research PharmD prerequisites, admission tests if required, and pharmacy experience options."
+  },
+  "civil-engineer": {
+    education: "A bachelor's degree in civil engineering or a related engineering field is usually required.",
+    timeline: "Typically 4 years for the degree, with additional supervised experience and exams for professional engineer licensure.",
+    credentials: "FE exam, internships, CAD or design tools, engineering projects, and PE licensure for higher-responsibility roles.",
+    start: "Document a local infrastructure issue and connect it to a civil engineering topic such as structures, water, or transportation."
+  },
+  "graphic-designer": {
+    education: "A degree in graphic design or visual communication helps, but a strong portfolio can matter as much as formal education.",
+    timeline: "2-4 years through school or 6-18 months of focused portfolio building for entry-level freelance or junior roles.",
+    credentials: "Design portfolio, software skills, typography/layout samples, brand projects, client briefs, and critique experience.",
+    start: "Create three versions of the same poster and explain hierarchy, typography, color, and audience choices."
+  },
+  journalist: {
+    education: "Journalism, communications, English, political science, or subject-area degrees can help, but clips and reporting skill are essential.",
+    timeline: "Often 4 years for a degree path, or months to years of building published clips, internships, and reporting experience.",
+    credentials: "Published work, interview samples, fact-checking discipline, audio/video skills, internships, and source-development experience.",
+    start: "Report one local story with at least two sources and a fact-checking note for every major claim."
+  },
+  "translator-interpreter": {
+    education: "Requires strong bilingual ability; degrees or certificates in translation, interpretation, linguistics, or a specialty field can help.",
+    timeline: "Language fluency can take years; professional certificate preparation may take months to 2 years depending on setting.",
+    credentials: "Language proficiency evidence, translation samples, interpreting certificates, medical/legal credentials for specialized roles.",
+    start: "Build a glossary for one topic and translate a short document with notes about context and word-choice decisions."
+  },
+  "real-estate-agent": {
+    education: "Usually requires state-approved pre-licensing coursework and passing a real estate licensing exam.",
+    timeline: "Often a few months for coursework, exam preparation, licensing, and joining a brokerage, depending on state rules.",
+    credentials: "State real estate license, sponsoring brokerage, continuing education, local market knowledge, and client-service skills.",
+    start: "Look up your state's pre-licensing hours and compare three local listings to practice market analysis."
+  },
+  "commercial-pilot": {
+    education: "A college degree may help for airline roles, but flight training, ratings, medical clearance, and logged hours are required.",
+    timeline: "Often 1-2 years for initial commercial training, with many more hours needed for airline transport roles.",
+    credentials: "FAA medical certificate, private pilot license, instrument rating, commercial pilot certificate, flight hours, and ATP later.",
+    start: "Take a discovery flight or study the requirements for private pilot, instrument, commercial, and ATP certificates."
+  },
+  firefighter: {
+    education: "Usually requires a high school diploma or equivalent; EMT training, fire academy, and physical testing are commonly required.",
+    timeline: "Preparation can take months to 2 years depending on EMT certification, academy timing, testing, and hiring cycles.",
+    credentials: "EMT or paramedic certification, fire academy completion, CPAT or physical ability test, background checks, and CPR/BLS.",
+    start: "Research local department hiring requirements and begin a fitness, CPR, and EMT-readiness plan."
+  },
+  "police-officer": {
+    education: "Usually requires a high school diploma or equivalent; some departments prefer college coursework or military/public service experience.",
+    timeline: "Hiring and academy training often take months to over a year, followed by field training and probationary periods.",
+    credentials: "Police academy, state certification, background checks, physical testing, psychological evaluation, and ongoing training.",
+    start: "Review local academy requirements and practice neutral observation by writing fact-only incident summaries."
+  },
+  paralegal: {
+    education: "Many roles prefer a paralegal certificate, associate degree, bachelor's degree, or legal studies coursework.",
+    timeline: "Certificate programs may take months; associate or bachelor's paths take 2-4 years depending on route.",
+    credentials: "Paralegal certificate, legal research/writing samples, document management skill, internships, and optional professional certifications.",
+    start: "Create a case timeline from a public legal article and identify parties, facts, issues, and missing information."
+  },
+  "supply-chain-manager": {
+    education: "A bachelor's degree in supply chain, operations, business, analytics, or logistics is common for management-track roles.",
+    timeline: "Typically 4 years for a degree plus several years of operations, logistics, purchasing, or analyst experience.",
+    credentials: "Internships, spreadsheet/data skills, ERP exposure, APICS/ASCM credentials later, and process-improvement projects.",
+    start: "Map the supply chain for one product and identify where delays, cost, quality, or inventory problems could happen."
+  },
+  "sales-representative": {
+    education: "Requirements vary widely; many roles value communication, product knowledge, and results more than a specific degree.",
+    timeline: "Entry roles can start quickly, with months of product training and years of experience for complex or enterprise sales.",
+    credentials: "Sales results, CRM experience, product demos, industry knowledge, communication samples, and sometimes technical certifications.",
+    start: "Practice a discovery call script and write how your product solves a specific customer pain."
+  },
+  veterinarian: {
+    education: "Requires prerequisite undergraduate science coursework and a Doctor of Veterinary Medicine degree.",
+    timeline: "Usually 4 years undergraduate preparation plus 4 years of veterinary school, with additional training for specialties.",
+    credentials: "DVM degree, NAVLE licensing exam, state licensure, clinical rotations, animal-handling experience, and specialty internships/residencies if desired.",
+    start: "Volunteer with animals and track vet-school prerequisite courses, animal experience hours, and shadowing opportunities."
+  },
+  "biomedical-engineer": {
+    education: "A bachelor's degree in biomedical engineering, mechanical engineering, electrical engineering, or bioengineering is common.",
+    timeline: "Typically 4 years for entry-level roles; research or advanced device roles may require graduate study.",
+    credentials: "Design projects, lab experience, CAD/testing skills, internships, regulatory awareness, and technical documentation samples.",
+    start: "Study one medical device and write how user needs, safety, testing, and design constraints shape it."
+  },
+  "cloud-engineer": {
+    education: "Degrees in computer science or IT help, but many people enter through help desk, systems, networking, labs, and cloud certifications.",
+    timeline: "Often 6-18 months to build fundamentals for junior roles, or 2-4 years through a degree or IT pathway.",
+    credentials: "Cloud certifications, networking/Linux knowledge, infrastructure projects, scripting, security basics, and deployment experience.",
+    start: "Deploy a small project and diagram the compute, storage, network, permissions, and monitoring pieces."
+  },
+  "machine-learning-engineer": {
+    education: "Usually requires strong programming, math, statistics, and machine-learning fundamentals; many roles prefer a CS or data-related degree.",
+    timeline: "Typically 4 years for a degree path, with additional months or years building ML projects and production engineering skill.",
+    credentials: "Python projects, model reports, data-cleaning work, math foundations, internships, research, and deployed ML demos.",
+    start: "Train a simple model and write a short report explaining data, metric, result, limitation, and ethical concern."
+  },
+  "event-planner": {
+    education: "Hospitality, communications, business, or event-management education can help, but experience planning real events is key.",
+    timeline: "Entry roles can begin with volunteer or coordinator experience; 2-4 years of experience often leads to larger events.",
+    credentials: "Event portfolio, vendor contacts, budget samples, timelines, venue experience, and optional event-planning certifications.",
+    start: "Plan a small event with a budget, guest list, timeline, vendor list, risk plan, and day-of checklist."
+  },
+  "urban-planner": {
+    education: "A bachelor's degree in planning, geography, public policy, environmental studies, or design can lead in; many planners earn a master's.",
+    timeline: "Usually 4 years for entry roles, with 1-2 additional years for a planning master's or specialized public-sector roles.",
+    credentials: "GIS/maps, policy writing, public engagement experience, planning internships, research samples, and AICP later for some roles.",
+    start: "Create a neighborhood observation memo with safety, housing, transportation, public-space, and accessibility notes."
+  }
+});
 
 const defaultPrerequisites = {
   education: "Research whether this path expects a degree, certificate, apprenticeship, license, portfolio, or on-the-job training.",
