@@ -41,6 +41,7 @@ If that URL returns 404, check the repository settings in GitHub:
 4. Re-run the **Deploy JobLingo to GitHub Pages** workflow or push to `main`.
 
 The site will not be available until GitHub Pages is enabled and a deployment run completes successfully.
+If the workflow log says `Resource not accessible by integration`, the repository owner must enable Pages manually in settings because the automation token is not allowed to create the Pages site.
 
 ## Validate
 
