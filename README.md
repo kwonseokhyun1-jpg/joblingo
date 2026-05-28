@@ -20,6 +20,21 @@ npm start
 
 Then open `http://localhost:4173`.
 
+In Cursor Cloud, open the forwarded/preview URL for port `4173`. Typing
+`http://127.0.0.1:4173` in your own browser points at your computer, not the
+cloud machine, so it will not load unless the port is forwarded.
+
+## GitHub Pages
+
+This repository includes a GitHub Actions workflow that deploys the static app
+to GitHub Pages whenever changes land on `main`.
+
+After this branch is merged, the live site should be available at:
+
+```text
+https://kwonseokhyun1-jpg.github.io/joblingo/
+```
+
 ## Validate
 
 ```bash
