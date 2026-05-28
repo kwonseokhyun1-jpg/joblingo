@@ -1,0 +1,10 @@
+{
+  "name": "joblingo",
+  "version": "1.0.0",
+  "description": "An interactive career exploration app with personality matching and job lessons.",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "check": "node --check app.js"
+  }
+}
