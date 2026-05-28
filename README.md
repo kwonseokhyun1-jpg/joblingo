@@ -18,10 +18,10 @@ career paths, and complete short class-style lessons for each role.
 npm start
 ```
 
-Then open `http://localhost:4173`.
+Then open `http://localhost:8088`.
 
-In Cursor Cloud, open the forwarded/preview URL for port `4173`. Typing
-`http://127.0.0.1:4173` in your own browser points at your computer, not the
+In Cursor Cloud, open the forwarded/preview URL for port `8088`. Typing
+`http://127.0.0.1:8088` in your own browser points at your computer, not the
 cloud machine, so it will not load unless the port is forwarded.
 
 ## GitHub Pages

@@ -4,7 +4,7 @@
   "description": "An interactive career exploration app with personality matching and job lessons.",
   "private": true,
   "scripts": {
-    "start": "python3 -m http.server 4173",
+    "start": "python3 -m http.server 8088",
     "check": "node --check app.js"
   }
 }
