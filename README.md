@@ -8,7 +8,7 @@ career paths, and complete short class-style lessons for each role.
 
 - Browse 20 career paths by field, skills, traits, or keywords.
 - Take a personality quiz to get suggested starting points.
-- Learn through 80 more useful mini classes with reflection prompts and proof-of-learning activities.
+- Learn through 100 useful mini classes, including prerequisite guidance, reflection prompts, and proof-of-learning activities.
 - Track class progress locally in the browser.
 - Run as a dependency-free static web app.
 

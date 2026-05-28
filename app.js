@@ -890,6 +890,158 @@ const quizQuestions = [
   }
 ];
 
+
+const careerPrerequisites = {
+  "software-developer": {
+    education: "Bachelor's degree in computer science is common, but bootcamps, certificates, self-study, and strong projects can also open doors.",
+    timeline: "3-4 years for a bachelor's degree, 3-12 months for intensive beginner training, plus ongoing project practice.",
+    credentials: "Portfolio projects, GitHub work, internships, coding assessments, and sometimes cloud or language certificates.",
+    start: "Build and publish one small project, then explain the problem, users, code choices, and what you would improve."
+  },
+  "ux-designer": {
+    education: "Degrees in design, psychology, human-computer interaction, or communications help, but a strong case-study portfolio matters most.",
+    timeline: "2-4 years through college or 3-12 months through focused portfolio training and practice projects.",
+    credentials: "UX portfolio, usability testing examples, Figma or prototyping skills, research notes, and internship or freelance work.",
+    start: "Redesign one confusing experience and document the user problem, research, sketches, prototype, test feedback, and final changes."
+  },
+  "data-analyst": {
+    education: "A bachelor's degree in business, statistics, economics, computer science, or a related field is common; certificates can help career changers.",
+    timeline: "2-4 years for a degree path, or 3-9 months to build entry-level spreadsheet, SQL, dashboard, and portfolio skills.",
+    credentials: "SQL projects, spreadsheet analysis, dashboard samples, analytics certificates, and clear written recommendations.",
+    start: "Analyze a public dataset and publish a short report with one question, one chart, one insight, and one recommendation."
+  },
+  nurse: {
+    education: "Requires an approved nursing program such as an ADN or BSN, followed by licensing. Some people begin as nursing assistants first.",
+    timeline: "About 2 years for an associate nursing degree, 4 years for a BSN, plus licensing exam preparation.",
+    credentials: "NCLEX-RN licensure for registered nurses, clinical hours, CPR/BLS, and optional specialty certifications later.",
+    start: "Explore CNA, volunteer, shadowing, or basic first-aid opportunities to test whether patient-care environments fit you."
+  },
+  electrician: {
+    education: "Usually requires a high school diploma or equivalent and a paid apprenticeship rather than a traditional college degree.",
+    timeline: "Commonly 4-5 years of apprenticeship hours, classroom instruction, supervised work, and licensing preparation.",
+    credentials: "Apprenticeship registration, state or local licensing, safety training, and continuing education for code updates.",
+    start: "Research one local apprenticeship program and note the age, education, application, testing, and tool requirements."
+  },
+  teacher: {
+    education: "Public school teachers usually need a bachelor's degree, teacher preparation program, student teaching, and state certification.",
+    timeline: "Typically 4 years for a bachelor's path, plus certification exams and supervised classroom experience.",
+    credentials: "State teaching license, background checks, student-teaching evaluations, and endorsements for grade level or subject.",
+    start: "Tutor, mentor, coach, or lead a small lesson so you can test whether explaining and supporting learners energizes you."
+  },
+  "digital-marketer": {
+    education: "Degrees in marketing, communications, business, or media are helpful, but practical campaign results and platform skills can matter more.",
+    timeline: "2-4 years through college, or 3-9 months to build entry-level content, SEO, ads, analytics, and portfolio experience.",
+    credentials: "Campaign samples, analytics reports, SEO/content projects, Google/Meta/HubSpot-style certificates, and writing samples.",
+    start: "Create a simple campaign for a club, cause, or small business with audience, channel, content, budget, and results."
+  },
+  "cybersecurity-analyst": {
+    education: "A degree in cybersecurity, IT, or computer science helps, but many people start through IT support, labs, and certifications.",
+    timeline: "2-4 years for a degree, or 6-18 months to build networking, operating-system, security, and lab fundamentals.",
+    credentials: "Security+, Network+, home labs, capture-the-flag practice, incident writeups, and eventually cloud or vendor certifications.",
+    start: "Secure your own accounts and devices, then write a checklist explaining risks, controls, and what changed."
+  },
+  "project-manager": {
+    education: "Degrees in business or a project field can help, but many project managers grow from team coordination experience.",
+    timeline: "Entry paths vary: months of project coordination practice, or several years of experience before senior PM roles.",
+    credentials: "Project plans, schedules, risk logs, stakeholder updates, CAPM/PMP later, and proof you can organize delivery.",
+    start: "Lead a small project and document scope, tasks, owners, timeline, risks, decisions, and final result."
+  },
+  "environmental-scientist": {
+    education: "A bachelor's degree in environmental science, biology, chemistry, geology, or a related field is commonly expected.",
+    timeline: "Usually 4 years for entry-level roles; research-heavy or specialized roles may require graduate study.",
+    credentials: "Field sampling experience, lab skills, GIS/data analysis, research reports, internships, and safety training.",
+    start: "Join a citizen-science or cleanup project and document observations, methods, data, and environmental questions."
+  },
+  "product-manager": {
+    education: "No single required degree; business, computer science, design, economics, or domain experience can all be relevant.",
+    timeline: "Often 2-5 years of adjacent experience in design, engineering, analytics, operations, or customer work before PM roles.",
+    credentials: "Product briefs, user research notes, roadmap exercises, shipped projects, analytics thinking, and strong communication samples.",
+    start: "Write a product brief for one feature with user problem, goals, tradeoffs, risks, and success metrics."
+  },
+  "mechanical-engineer": {
+    education: "A bachelor's degree in mechanical engineering or a closely related engineering field is usually required.",
+    timeline: "Typically 4 years for the degree; professional engineering licensure can take additional supervised experience and exams.",
+    credentials: "CAD projects, lab reports, design projects, internships, FE/PE path for some roles, and technical documentation.",
+    start: "Create a small design project with sketches, measurements, prototype photos, test results, and next improvements."
+  },
+  accountant: {
+    education: "A bachelor's degree in accounting or finance is common; CPA-track roles often require additional credit hours.",
+    timeline: "Usually 4 years for a degree, with extra coursework and exam preparation for CPA licensure where required.",
+    credentials: "Bookkeeping practice, spreadsheet skill, accounting software exposure, internships, CPA/CMA later depending on path.",
+    start: "Build a sample budget or bookkeeping file and explain categories, reconciliations, and what the numbers reveal."
+  },
+  lawyer: {
+    education: "Requires a bachelor's degree, law school, and bar admission for licensed attorney work in the United States.",
+    timeline: "Typically 4 years undergraduate study, 3 years of law school, then bar exam preparation and admission requirements.",
+    credentials: "JD degree, bar license, writing samples, clinics, internships, moot court, journals, or legal research experience.",
+    start: "Summarize a legal issue in plain language and practice making a balanced argument with facts and counterpoints."
+  },
+  "social-worker": {
+    education: "A bachelor's in social work or a related field can lead to some roles; clinical roles usually require an MSW and licensure.",
+    timeline: "About 4 years for a BSW, 1-2 more years for an MSW, plus supervised hours for clinical licensure.",
+    credentials: "Field placements, supervised hours, state licensure for clinical practice, crisis training, and case documentation experience.",
+    start: "Volunteer with a community organization and write what needs you saw, what resources helped, and what boundaries mattered."
+  },
+  chef: {
+    education: "Culinary school can help, but many chefs learn through kitchen experience, apprenticeships, and progressive responsibility.",
+    timeline: "Months to 2 years for culinary training, with several years of kitchen experience to move into lead or chef roles.",
+    credentials: "Food handler certification, culinary portfolio, station experience, references, and sometimes hospitality or safety credentials.",
+    start: "Cook one dish repeatedly, gather feedback, track changes, and document how technique improved the result."
+  },
+  "financial-planner": {
+    education: "A bachelor's degree in finance, business, economics, or a related field is common; planning credentials often require specific coursework.",
+    timeline: "Usually 4 years for a degree, plus experience and exam preparation for credentials such as CFP depending on role.",
+    credentials: "Client-service experience, financial planning coursework, licensing where required, CFP path, and ethical communication skills.",
+    start: "Create a sample financial plan with goals, budget, emergency fund, debt questions, and risk considerations."
+  },
+  "video-game-designer": {
+    education: "Game design, computer science, interactive media, art, or writing programs can help, but playable projects are essential.",
+    timeline: "2-4 years through school or self-directed project building, plus repeated prototypes and team experience.",
+    credentials: "Playable prototypes, design documents, level designs, playtest notes, engine skills, and a portfolio explaining decisions.",
+    start: "Make a small playable or paper prototype and record what players understood, enjoyed, and struggled with."
+  },
+  "human-resources-specialist": {
+    education: "Degrees in human resources, business, psychology, or communications are common, though operations experience can also lead in.",
+    timeline: "Often 2-4 years of education or entry-level coordinator experience before specialist responsibilities.",
+    credentials: "Hiring coordination, onboarding materials, policy communication samples, HRIS exposure, SHRM/HRCI credentials later.",
+    start: "Design an onboarding plan with first-day steps, key contacts, training needs, and feedback check-ins."
+  },
+  architect: {
+    education: "Licensed architects usually need an accredited architecture degree, supervised experience, and licensing exams.",
+    timeline: "Often 5 years for a B.Arch or 4 years plus graduate study, followed by experience hours and exams.",
+    credentials: "Design portfolio, studio projects, internships, architecture experience program hours, exams, and state licensure.",
+    start: "Create a small spatial redesign study with observations, sketches, constraints, user needs, and a final concept."
+  }
+};
+
+const defaultPrerequisites = {
+  education: "Research whether this path expects a degree, certificate, apprenticeship, license, portfolio, or on-the-job training.",
+  timeline: "Preparation time varies by location, employer, and level of responsibility.",
+  credentials: "Look for proof employers request: projects, supervised hours, exams, licenses, references, or portfolio work.",
+  start: "Find three job postings and compare their education, experience, and skill requirements."
+};
+
+function getPrerequisites(career) {
+  return careerPrerequisites[career.id] || defaultPrerequisites;
+}
+
+function buildPrerequisiteLesson(career) {
+  const prerequisites = getPrerequisites(career);
+
+  return {
+    type: "prerequisites",
+    title: "Prerequisites: education, credentials, and timeline",
+    objective: `Understand what it usually takes to become a ${career.title}, including school, training, credentials, and realistic preparation time.`,
+    activity: `Compare three entry-level ${career.title} postings. Write down required education, preferred experience, tools, credentials, and anything that appears more than once.`,
+    takeaway: `Prerequisites are not just boxes to check; they show how the field builds trust, safety, skill, and readiness before someone does the work independently.`,
+    prerequisites
+  };
+}
+
+function getCareerLessons(career) {
+  return [buildPrerequisiteLesson(career), ...career.lessons];
+}
+
 const progressKey = "joblingo.lessonProgress";
 let activeCareerId = careers[0].id;
 let lessonProgress = readProgress();
@@ -987,7 +1139,7 @@ function renderCareers() {
 
 function renderCareerCard(career) {
   const completed = getCompletedLessons(career.id).length;
-  const total = career.lessons.length;
+  const total = getCareerLessons(career).length;
 
   return `
     <article class="career-card">
@@ -1139,9 +1291,22 @@ const lessonGuideTemplates = [
 ];
 
 function getLessonGuide(career, lesson, index) {
-  const template = lessonGuideTemplates[index] || lessonGuideTemplates[lessonGuideTemplates.length - 1];
-  const skill = career.skills[index % career.skills.length];
-  const secondarySkill = career.skills[(index + 1) % career.skills.length];
+  if (lesson.type === "prerequisites") {
+    const prerequisites = lesson.prerequisites;
+
+    return {
+      focus: "Prerequisites",
+      skill: "Path planning",
+      why: `Education: ${prerequisites.education} Timeline: ${prerequisites.timeline}`,
+      reflection: `Which prerequisite feels most realistic for you right now, and which one would require the most planning or support?`,
+      proof: `Save a prerequisite checklist for ${career.title}: education path, timeline, credentials, first step, and three job-posting requirements you verified.`
+    };
+  }
+
+  const templateIndex = Math.max(index - 1, 0);
+  const template = lessonGuideTemplates[templateIndex] || lessonGuideTemplates[lessonGuideTemplates.length - 1];
+  const skill = career.skills[templateIndex % career.skills.length];
+  const secondarySkill = career.skills[(templateIndex + 1) % career.skills.length];
 
   return {
     focus: template.focus,
@@ -1155,14 +1320,15 @@ function getLessonGuide(career, lesson, index) {
 function renderLessons() {
   const career = byActiveCareer();
   const completedLessons = getCompletedLessons(career.id);
-  const progress = Math.round((completedLessons.length / career.lessons.length) * 100);
+  const lessons = getCareerLessons(career);
+  const progress = Math.round((completedLessons.length / lessons.length) * 100);
 
   lessonCareerTitle.textContent = `${career.title} class path`;
   lessonCareerSummary.textContent = `${career.summary} Start here: ${career.startingPoint}`;
   progressLabel.textContent = `${progress}%`;
   pathProgressBar.style.width = `${progress}%`;
 
-  lessonList.innerHTML = career.lessons
+  lessonList.innerHTML = lessons
     .map((lesson, index) => {
       const lessonId = `${career.id}-${index}`;
       const isComplete = completedLessons.includes(index);
@@ -1186,6 +1352,24 @@ function renderLessons() {
               <dt>Try this</dt>
               <dd>${lesson.activity}</dd>
             </div>
+            ${lesson.type === "prerequisites" ? `
+              <div>
+                <dt>Education path</dt>
+                <dd>${lesson.prerequisites.education}</dd>
+              </div>
+              <div>
+                <dt>Typical timeline</dt>
+                <dd>${lesson.prerequisites.timeline}</dd>
+              </div>
+              <div>
+                <dt>Credentials to know</dt>
+                <dd>${lesson.prerequisites.credentials}</dd>
+              </div>
+              <div>
+                <dt>Beginner first step</dt>
+                <dd>${lesson.prerequisites.start}</dd>
+              </div>
+            ` : ""}
             <div>
               <dt>Reflect</dt>
               <dd>${guide.reflection}</dd>
@@ -1237,7 +1421,7 @@ function toggleLesson(index) {
 
 function initialize() {
   careerCount.textContent = careers.length;
-  miniClassCount.textContent = careers.reduce((total, career) => total + career.lessons.length, 0);
+  miniClassCount.textContent = careers.reduce((total, career) => total + getCareerLessons(career).length, 0);
   renderFields();
   renderCareerOptions();
   renderQuiz();
