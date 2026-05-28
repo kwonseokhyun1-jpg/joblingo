@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="PathDiscover helps people explore practical career paths and discover jobs that match their interests, skills, and next steps."
+    >
+    <title>PathDiscover | Explore Career Paths</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --background: #f7f8fb;
+        --card: #ffffff;
+        --ink: #172033;
+        --muted: #647084;
+        --primary: #3157d5;
+        --primary-dark: #2445ad;
+        --border: #dce2ee;
+        --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      .page {
+        min-height: 100vh;
+      }
+
+      .hero {
+        background:
+          radial-gradient(circle at top left, rgba(49, 87, 213, 0.20), transparent 35rem),
+          linear-gradient(135deg, #ffffff 0%, #eef3ff 100%);
+        border-bottom: 1px solid var(--border);
+        padding: 4.5rem 1.25rem 3.5rem;
+      }
+
+      .hero-inner,
+      .content {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 0 1rem;
+        color: var(--primary-dark);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin: 0;
+        font-size: clamp(2.5rem, 8vw, 5.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.07em;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+        margin: 1.5rem 0 0;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2vw, 1.3rem);
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .stat {
+        min-width: 150px;
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.72);
+        padding: 1rem;
+        box-shadow: 0 10px 28px rgba(23, 32, 51, 0.06);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.7rem;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .content {
+        padding: 2rem 1.25rem 4rem;
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1.25rem;
+      }
+
+      .search {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--card);
+        color: var(--ink);
+        font: inherit;
+        padding: 0.95rem 1.2rem;
+        box-shadow: 0 10px 28px rgba(23, 32, 51, 0.05);
+      }
+
+      .search:focus {
+        border-color: var(--primary);
+        outline: 3px solid rgba(49, 87, 213, 0.16);
+      }
+
+      .job-count {
+        color: var(--muted);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .jobs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+
+      .job-card {
+        border: 1px solid var(--border);
+        border-radius: 1.2rem;
+        background: var(--card);
+        padding: 1.2rem;
+        box-shadow: var(--shadow);
+      }
+
+      .job-card h2 {
+        margin: 0;
+        font-size: 1.15rem;
+        letter-spacing: -0.02em;
+      }
+
+      .company {
+        margin: 0.35rem 0 1rem;
+        color: var(--muted);
+      }
+
+      .details {
+        display: grid;
+        gap: 0.35rem;
+        margin: 0 0 1rem;
+        padding: 0;
+        color: var(--muted);
+        list-style: none;
+        font-size: 0.94rem;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+
+      .tag {
+        border-radius: 999px;
+        background: #eef3ff;
+        color: var(--primary-dark);
+        padding: 0.28rem 0.65rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .empty,
+      .error {
+        grid-column: 1 / -1;
+        border: 1px dashed var(--border);
+        border-radius: 1rem;
+        background: var(--card);
+        color: var(--muted);
+        padding: 2rem;
+        text-align: center;
+      }
+
+      @media (max-width: 680px) {
+        .hero {
+          padding-top: 3rem;
+        }
+
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .job-count {
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">PathDiscover</p>
+          <h1>Explore practical career paths with real job options.</h1>
+          <p class="hero-copy">
+            Browse roles across industries, compare next steps, and discover work
+            that matches your skills, interests, and momentum.
+          </p>
+          <div class="stats" aria-label="PathDiscover catalog summary">
+            <div class="stat">
+              <strong id="totalJobs">50</strong>
+              <span>starter jobs</span>
+            </div>
+            <div class="stat">
+              <strong>Remote</strong>
+              <span>and local options</span>
+            </div>
+            <div class="stat">
+              <strong>Paths</strong>
+              <span>from entry to growth roles</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content" aria-labelledby="jobsHeading">
+        <div class="toolbar">
+          <label>
+            <span class="eyebrow" id="jobsHeading">Job catalog</span>
+            <input
+              id="search"
+              class="search"
+              type="search"
+              placeholder="Search by title, company, location, or skill..."
+              autocomplete="off"
+            >
+          </label>
+          <div class="job-count" id="jobCount">Loading jobs...</div>
+        </div>
+        <div class="jobs" id="jobs"></div>
+      </section>
+    </main>
+
+    <script>
+      const jobsContainer = document.querySelector("#jobs");
+      const searchInput = document.querySelector("#search");
+      const jobCount = document.querySelector("#jobCount");
+      const totalJobs = document.querySelector("#totalJobs");
+      let jobs = [];
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function jobMatchesSearch(job, query) {
+        if (!query) {
+          return true;
+        }
+
+        const searchableText = [
+          job.title,
+          job.company,
+          job.location,
+          job.type,
+          job.salaryRange,
+          ...job.tags,
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return searchableText.includes(query);
+      }
+
+      function renderJobs() {
+        const query = searchInput.value.trim().toLowerCase();
+        const matches = jobs.filter((job) => jobMatchesSearch(job, query));
+
+        jobCount.textContent =
+          matches.length === 1 ? "1 job shown" : `${matches.length} jobs shown`;
+
+        if (!matches.length) {
+          jobsContainer.innerHTML =
+            '<p class="empty">No jobs match that search yet.</p>';
+          return;
+        }
+
+        jobsContainer.innerHTML = matches
+          .map(
+            (job) => `
+              <article class="job-card">
+                <h2>${escapeHtml(job.title)}</h2>
+                <p class="company">${escapeHtml(job.company)}</p>
+                <ul class="details">
+                  <li>${escapeHtml(job.location)}</li>
+                  <li>${escapeHtml(job.type)}</li>
+                  <li>${escapeHtml(job.salaryRange)}</li>
+                </ul>
+                <div class="tags">
+                  ${job.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
+                </div>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      async function loadJobs() {
+        try {
+          const response = await fetch("data/jobs.json");
+
+          if (!response.ok) {
+            throw new Error(`Unable to load jobs: ${response.status}`);
+          }
+
+          jobs = await response.json();
+          totalJobs.textContent = jobs.length;
+          renderJobs();
+        } catch (error) {
+          jobCount.textContent = "Jobs unavailable";
+          jobsContainer.innerHTML =
+            '<p class="error">The job catalog could not be loaded.</p>';
+          console.error(error);
+        }
+      }
+
+      searchInput.addEventListener("input", renderJobs);
+      loadJobs();
+    </script>
+  </body>
+</html>
