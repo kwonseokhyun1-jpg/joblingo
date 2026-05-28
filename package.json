@@ -1,7 +1,7 @@
 {
-  "name": "joblingo",
+  "name": "pathdiscover",
   "version": "1.0.0",
-  "description": "An interactive career exploration app with personality matching and job lessons.",
+  "description": "An interactive career exploration app with personality matching and career lessons.",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 8088",

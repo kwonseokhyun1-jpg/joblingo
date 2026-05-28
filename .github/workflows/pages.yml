@@ -1,4 +1,4 @@
-name: Deploy JobLingo to GitHub Pages
+name: Deploy PathDiscover to GitHub Pages
 
 on:
   push:
