@@ -2414,6 +2414,7 @@ const matchButton = document.querySelector("#match-button");
 const matchResults = document.querySelector("#match-results");
 const careerCount = document.querySelector("#career-count");
 const miniClassCount = document.querySelector("#mini-class-count");
+const exploreCount = document.querySelector("#explore-count");
 
 function readProgress() {
   try {
@@ -2494,19 +2495,35 @@ function renderCareers() {
 function renderCareerCard(career) {
   const completed = getCompletedLessons(career.id).length;
   const total = getCareerLessons(career).length;
+  const progressPercent = Math.round((completed / total) * 100);
+  const initials = career.title
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("");
 
   return `
     <article class="career-card">
-      <div class="card-meta">
-        <span class="tag">${career.field}</span>
-        <span class="tag">${total} classes</span>
+      <div class="career-card-top">
+        <span class="career-icon" aria-hidden="true">${initials}</span>
+        <div class="card-meta">
+          <span class="tag field-tag">${career.field}</span>
+          <span class="tag">${total} classes</span>
+        </div>
       </div>
       <h3>${career.title}</h3>
       <p>${career.summary}</p>
+      <div class="skill-strip" aria-label="${career.title} starter skills">
+        ${career.skills.slice(0, 3).map((skill) => `<span>${skill}</span>`).join("")}
+      </div>
       <div class="career-details" aria-label="${career.title} details">
         <div><span>Good fit if</span><strong>${career.traits.slice(0, 2).join(", ")}</strong></div>
-        <div><span>Work style</span><strong>${career.workStyle}</strong></div>
+        <div><span>First move</span><strong>${career.startingPoint}</strong></div>
         <div><span>Progress</span><strong>${completed}/${total} classes</strong></div>
+      </div>
+      <div class="card-progress" aria-label="${career.title} class progress">
+        <span style="width: ${progressPercent}%"></span>
       </div>
       <button class="button secondary" type="button" data-career-id="${career.id}">
         Start this path
@@ -2671,6 +2688,51 @@ function getLessonGuide(career, lesson, index) {
   };
 }
 
+function getClassDeepDive(career, lesson, guide, index) {
+  if (lesson.type === "prerequisites") {
+    return `Before choosing ${career.title}, study the path into the work like a map. Look for the education or training people usually complete, the credentials employers trust, the timeline, and the first low-risk way to test interest. This class should leave you with a realistic picture of what preparation costs in time, attention, and support.`;
+  }
+
+  const practiceContext = index === 1
+    ? "daily reality"
+    : index === 2
+      ? "core skill building"
+      : index === 3
+        ? "workplace judgment"
+        : "proof of interest";
+
+  return `This class goes deeper than a definition. In ${career.title}, the ${practiceContext} is shaped by ${career.workStyle.toLowerCase()}. As you work through it, connect the lesson objective to one real person, one real setting, and one decision you would need to make. The goal is to understand how the role feels in practice, not just memorize what the title means.`;
+}
+
+function getPracticePlan(career, lesson, guide, index) {
+  const primarySkill = guide.skill || career.skills[0];
+
+  return [
+    `Read the objective and restate it in your own words as a question about ${career.title}.`,
+    `Spend 10 minutes finding one real example from ${career.field.toLowerCase()} work: a job post, day-in-the-life video, article, tool, or workflow.`,
+    `Complete the activity using ${primarySkill.toLowerCase()} as your focus skill, then write what felt natural and what felt confusing.`,
+    `Save one sentence explaining whether this class made ${career.title} more interesting, less interesting, or still uncertain.`
+  ];
+}
+
+function getLessonVocabulary(career, guide) {
+  const skill = guide.skill || career.skills[0];
+
+  return [
+    `${skill}: a practical ability you can practice and show through a small example.`,
+    `${career.field}: the broader work area this role belongs to, with adjacent paths you can compare.`,
+    "Tradeoff: a decision where improving one thing may make another thing harder."
+  ];
+}
+
+function getReadinessChecklist(career, lesson, guide) {
+  return [
+    `I can explain what this class teaches about ${career.title} without using jargon.`,
+    `I can name one task, one tool or skill, and one person affected by this work.`,
+    "I have one saved note, sketch, checklist, or example that proves I tried the activity."
+  ];
+}
+
 function renderLessons() {
   const career = byActiveCareer();
   const completedLessons = getCompletedLessons(career.id);
@@ -2698,6 +2760,10 @@ function renderLessons() {
           </div>
           <p>${lesson.objective}</p>
           <dl>
+            <div class="wide-note">
+              <dt>Class deep dive</dt>
+              <dd>${getClassDeepDive(career, lesson, guide, index)}</dd>
+            </div>
             <div>
               <dt>Why it matters</dt>
               <dd>${guide.why}</dd>
@@ -2705,6 +2771,14 @@ function renderLessons() {
             <div>
               <dt>Try this</dt>
               <dd>${lesson.activity}</dd>
+            </div>
+            <div class="wide-note">
+              <dt>Practice plan</dt>
+              <dd>
+                <ol class="lesson-steps">
+                  ${getPracticePlan(career, lesson, guide, index).map((step) => `<li>${step}</li>`).join("")}
+                </ol>
+              </dd>
             </div>
             ${lesson.type === "prerequisites" ? `
               <div>
@@ -2725,12 +2799,28 @@ function renderLessons() {
               </div>
             ` : ""}
             <div>
+              <dt>Vocabulary to know</dt>
+              <dd>
+                <ul class="lesson-steps compact">
+                  ${getLessonVocabulary(career, guide).map((term) => `<li>${term}</li>`).join("")}
+                </ul>
+              </dd>
+            </div>
+            <div>
               <dt>Reflect</dt>
               <dd>${guide.reflection}</dd>
             </div>
             <div>
               <dt>Proof to save</dt>
               <dd>${guide.proof}</dd>
+            </div>
+            <div>
+              <dt>Ready to move on when</dt>
+              <dd>
+                <ul class="lesson-steps compact">
+                  ${getReadinessChecklist(career, lesson, guide).map((item) => `<li>${item}</li>`).join("")}
+                </ul>
+              </dd>
             </div>
             <div>
               <dt>Career insight</dt>
@@ -2775,6 +2865,7 @@ function toggleLesson(index) {
 
 function initialize() {
   careerCount.textContent = careers.length;
+  exploreCount.textContent = careers.length;
   miniClassCount.textContent = careers.reduce((total, career) => total + getCareerLessons(career).length, 0);
   renderFields();
   renderCareerOptions();
