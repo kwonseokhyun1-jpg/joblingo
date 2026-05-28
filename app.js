@@ -1123,6 +1123,148 @@ const additionalCareerBlueprints = [
     problem: "a community must balance growth, access, safety, environment, cost, and resident needs",
     deliverable: "a neighborhood observation memo with map notes, stakeholders, tradeoffs, and recommendation"
   }
+
+  ,
+  {
+    id: "dentist",
+    title: "Dentist",
+    field: "Healthcare",
+    summary: "Diagnoses and treats teeth, gums, and oral health issues while helping patients prevent future problems.",
+    fit: "You like science, precise hands-on work, patient care, and helping people feel more confident and healthy.",
+    traits: ["empathetic", "hands-on", "analytical", "structured"],
+    skills: ["Oral diagnosis", "Manual precision", "Patient education", "Treatment planning"],
+    workStyle: "Clinical exams, procedures, patient explanations, prevention planning, and detailed documentation",
+    startingPoint: "Shadow a dental office or learn how one common oral-health problem is prevented and treated.",
+    setting: "dental clinics, hospitals, community health programs, specialty practices, and public health settings",
+    problem: "a patient has pain or oral-health risk that needs diagnosis, treatment options, and prevention guidance",
+    deliverable: "a sample oral-health education handout with cause, prevention steps, treatment options, and patient questions"
+  },
+  {
+    id: "psychologist",
+    title: "Psychologist",
+    field: "Human Services",
+    summary: "Studies thoughts, emotions, behavior, and mental health to support people through assessment, therapy, research, or consulting.",
+    fit: "You are curious about people, careful with sensitive topics, and interested in evidence-based support.",
+    traits: ["empathetic", "analytical", "communicator", "curious"],
+    skills: ["Assessment", "Research methods", "Therapeutic communication", "Ethical judgment"],
+    workStyle: "Listening, assessment, treatment planning, research, documentation, and professional boundaries",
+    startingPoint: "Read about one therapy approach and summarize what problem it helps with and what evidence supports it.",
+    setting: "clinics, schools, hospitals, research labs, private practices, organizations, and community programs",
+    problem: "a person or group needs support understanding behavior, emotions, learning, or mental-health patterns",
+    deliverable: "a support-plan outline with concern, context, assessment questions, ethical boundaries, and referral options"
+  },
+  {
+    id: "occupational-therapist",
+    title: "Occupational Therapist",
+    field: "Healthcare",
+    summary: "Helps people build or regain the daily-life skills they need for school, work, self-care, and independence.",
+    fit: "You like practical problem solving, adaptive tools, patient coaching, and helping people participate in life.",
+    traits: ["empathetic", "hands-on", "creative", "practical"],
+    skills: ["Activity analysis", "Adaptive strategies", "Patient coaching", "Goal planning"],
+    workStyle: "Client assessments, practical exercises, adaptive equipment, progress notes, and team collaboration",
+    startingPoint: "Choose a daily task and redesign it for someone with limited hand strength or mobility.",
+    setting: "hospitals, schools, rehab centers, homes, mental-health programs, and community clinics",
+    problem: "a person cannot complete an important daily task safely or independently yet",
+    deliverable: "an adaptation plan with task steps, barrier, tool or strategy, practice plan, and progress measure"
+  },
+  {
+    id: "medical-laboratory-scientist",
+    title: "Medical Laboratory Scientist",
+    field: "Healthcare",
+    summary: "Tests blood, tissue, and other samples to help healthcare teams diagnose and monitor disease.",
+    fit: "You like biology, precision, lab work, quality control, and being an important behind-the-scenes problem solver.",
+    traits: ["analytical", "structured", "independent", "practical"],
+    skills: ["Lab testing", "Quality control", "Specimen handling", "Data accuracy"],
+    workStyle: "Careful sample processing, instrument checks, result validation, safety procedures, and documentation",
+    startingPoint: "Learn how one common lab test works and why sample handling affects the result.",
+    setting: "hospital labs, reference labs, public health labs, research facilities, and diagnostic companies",
+    problem: "a care team needs accurate lab results before diagnosis or treatment decisions can be made",
+    deliverable: "a lab-test explainer with specimen type, what is measured, quality risks, and what results can indicate"
+  },
+  {
+    id: "data-scientist",
+    title: "Data Scientist",
+    field: "Technology",
+    summary: "Uses statistics, programming, and domain knowledge to uncover patterns and build predictive or explanatory models.",
+    fit: "You like asking questions with data, coding experiments, math, and explaining uncertainty clearly.",
+    traits: ["analytical", "curious", "structured", "communicator"],
+    skills: ["Statistics", "Python", "Experiment design", "Data storytelling"],
+    workStyle: "Data exploration, modeling, evaluation, communication, and collaboration with product or business teams",
+    startingPoint: "Analyze a public dataset and compare a simple statistical summary with a predictive model.",
+    setting: "technology companies, healthcare, finance, retail, research labs, government, and product analytics teams",
+    problem: "a decision could improve if patterns, uncertainty, and model limitations were understood",
+    deliverable: "a data-science notebook summary with question, data, method, metric, insight, limitation, and recommendation"
+  },
+  {
+    id: "robotics-engineer",
+    title: "Robotics Engineer",
+    field: "Engineering",
+    summary: "Designs, builds, and tests robots that sense, decide, move, and interact with the physical world.",
+    fit: "You like machines, coding, electronics, physics, and seeing software affect real movement.",
+    traits: ["builder", "analytical", "hands-on", "curious"],
+    skills: ["Mechanical design", "Controls", "Sensors", "Programming"],
+    workStyle: "Prototype building, debugging, simulations, hardware tests, and cross-discipline engineering teamwork",
+    startingPoint: "Build or simulate a tiny robot behavior, such as following a line or avoiding an obstacle.",
+    setting: "manufacturing, research labs, warehouses, healthcare, defense, agriculture, and automation companies",
+    problem: "a physical task needs a machine that can sense conditions and act reliably in the real world",
+    deliverable: "a robot concept brief with task, sensors, movement, control logic, failure risks, and test plan"
+  },
+  {
+    id: "aerospace-engineer",
+    title: "Aerospace Engineer",
+    field: "Engineering",
+    summary: "Designs, tests, and improves aircraft, spacecraft, satellites, propulsion systems, or flight technologies.",
+    fit: "You enjoy physics, advanced math, high-stakes design, testing, and systems that must be extremely reliable.",
+    traits: ["analytical", "builder", "structured", "curious"],
+    skills: ["Aerodynamics", "Simulation", "Testing", "Systems engineering"],
+    workStyle: "Design reviews, modeling, tests, documentation, safety analysis, and collaboration across technical teams",
+    startingPoint: "Compare two wing or rocket designs and explain how shape affects performance and stability.",
+    setting: "aircraft companies, space agencies, defense contractors, satellite firms, research labs, and propulsion teams",
+    problem: "a flight system must perform safely under extreme forces, constraints, and reliability requirements",
+    deliverable: "a flight-design note with mission goal, constraints, forces, design tradeoffs, and testing questions"
+  },
+  {
+    id: "interior-designer",
+    title: "Interior Designer",
+    field: "Design",
+    summary: "Plans interior spaces so they are functional, safe, comfortable, and visually aligned with user needs.",
+    fit: "You notice rooms, materials, lighting, furniture, mood, and how spaces affect behavior.",
+    traits: ["creative", "visual", "practical", "empathetic"],
+    skills: ["Space planning", "Materials", "Lighting", "Client communication"],
+    workStyle: "Client briefs, mood boards, floor plans, material choices, budgets, and installation coordination",
+    startingPoint: "Redesign a room for a specific user and explain layout, lighting, storage, and accessibility choices.",
+    setting: "homes, offices, hotels, restaurants, healthcare spaces, retail stores, and design studios",
+    problem: "a space needs to support people's activities, safety, budget, comfort, and visual goals",
+    deliverable: "a room concept board with user needs, floor plan, materials, lighting plan, budget tradeoffs, and rationale"
+  },
+  {
+    id: "librarian",
+    title: "Librarian",
+    field: "Education",
+    summary: "Helps people find, evaluate, organize, and use information through collections, programs, research support, and community services.",
+    fit: "You like learning, organizing knowledge, helping people, digital tools, and making information easier to access.",
+    traits: ["curious", "communicator", "structured", "empathetic"],
+    skills: ["Research support", "Information organization", "Digital literacy", "Program planning"],
+    workStyle: "Reference help, collection management, community programming, teaching, and technology support",
+    startingPoint: "Create a research guide for a topic with reliable sources, search tips, and evaluation notes.",
+    setting: "public libraries, schools, universities, archives, companies, museums, and community organizations",
+    problem: "someone needs trustworthy information but may not know where to search or how to evaluate sources",
+    deliverable: "a research guide with search terms, source list, credibility checks, and user-friendly instructions"
+  },
+  {
+    id: "film-editor",
+    title: "Film Editor",
+    field: "Media",
+    summary: "Shapes raw footage into a clear story by choosing shots, rhythm, sound, transitions, and emotional pacing.",
+    fit: "You like storytelling, detail, music, timing, visual choices, and making meaning through sequence.",
+    traits: ["creative", "visual", "structured", "curious"],
+    skills: ["Story pacing", "Video editing", "Sound choices", "Visual continuity"],
+    workStyle: "Reviewing footage, assembling cuts, feedback cycles, technical exports, and collaboration with directors or clients",
+    startingPoint: "Edit a 60-second video from existing clips and explain how each cut affects the story.",
+    setting: "film studios, newsrooms, social media teams, agencies, documentary teams, and freelance production work",
+    problem: "raw footage needs structure, emotion, clarity, and pacing before an audience can understand it",
+    deliverable: "a short edit with a cut list, story goal, pacing choices, sound notes, and revision plan"
+  }
 ];
 
 function buildCareerFromBlueprint(blueprint) {
@@ -1166,6 +1308,7 @@ function buildCareerFromBlueprint(blueprint) {
 }
 
 careers.push(...additionalCareerBlueprints.map(buildCareerFromBlueprint));
+careers.sort((a, b) => a.title.localeCompare(b.title));
 
 const quizQuestions = [
   {
@@ -1459,6 +1602,68 @@ Object.assign(careerPrerequisites, {
     timeline: "Usually 4 years for entry roles, with 1-2 additional years for a planning master's or specialized public-sector roles.",
     credentials: "GIS/maps, policy writing, public engagement experience, planning internships, research samples, and AICP later for some roles.",
     start: "Create a neighborhood observation memo with safety, housing, transportation, public-space, and accessibility notes."
+  }
+
+  ,
+  dentist: {
+    education: "Requires undergraduate prerequisite science coursework and a Doctor of Dental Surgery or Doctor of Dental Medicine degree.",
+    timeline: "Usually 4 years undergraduate preparation plus 4 years of dental school, with extra years for specialties.",
+    credentials: "DDS or DMD degree, dental licensing exams, state licensure, clinical rotations, and specialty residency for advanced paths.",
+    start: "Shadow a dentist, research dental-school prerequisites, and practice explaining one oral-health habit in plain language."
+  },
+  psychologist: {
+    education: "Clinical psychologist roles usually require a doctoral degree; some psychology roles begin with bachelor's or master's-level training.",
+    timeline: "Often 4 years undergraduate study plus 2-7 years of graduate training depending on counseling, research, or clinical path.",
+    credentials: "Graduate degree, supervised clinical hours for therapy roles, state licensure, research experience, and ethics training.",
+    start: "Compare psychologist, therapist, counselor, and psychiatrist requirements in your state or country."
+  },
+  "occupational-therapist": {
+    education: "Requires a master's or doctoral degree in occupational therapy after prerequisite undergraduate coursework.",
+    timeline: "Typically 4 years undergraduate study plus 2-3 years of OT graduate training and licensing preparation.",
+    credentials: "Accredited OT degree, fieldwork, NBCOT exam in the U.S., state licensure, and specialty certifications later.",
+    start: "Observe how someone completes a daily task and list barriers, adaptations, and independence goals."
+  },
+  "medical-laboratory-scientist": {
+    education: "Usually requires a bachelor's degree in medical laboratory science, clinical laboratory science, biology, or a related lab field.",
+    timeline: "Typically 4 years for a degree, including clinical rotations or laboratory practicum requirements.",
+    credentials: "MLS/CLS certification such as ASCP where expected, lab safety training, clinical rotations, and quality-control experience.",
+    start: "Research one certification path and learn how a common lab test moves from specimen collection to result reporting."
+  },
+  "data-scientist": {
+    education: "Many roles expect a bachelor's or master's degree in statistics, computer science, math, economics, data science, or a domain field.",
+    timeline: "Usually 4 years for entry-level degree preparation, with 6-18 additional months of portfolio building for many applicants.",
+    credentials: "Python/R projects, statistics knowledge, notebooks, model reports, SQL, internships, and domain-specific analysis examples.",
+    start: "Build one notebook that answers a real question and clearly explains assumptions, uncertainty, and limitations."
+  },
+  "robotics-engineer": {
+    education: "A bachelor's degree in mechanical, electrical, robotics, computer, or mechatronics engineering is commonly expected.",
+    timeline: "Typically 4 years for entry-level engineering roles, with graduate study helpful for advanced research robotics.",
+    credentials: "Robot projects, CAD, programming, controls, electronics, internships, competitions, and technical documentation.",
+    start: "Build or simulate a small robot behavior and document sensors, actuators, control logic, and test results."
+  },
+  "aerospace-engineer": {
+    education: "A bachelor's degree in aerospace engineering, mechanical engineering, or a closely related field is usually required.",
+    timeline: "Typically 4 years for entry-level roles, with graduate study common for specialized research or advanced design areas.",
+    credentials: "Engineering projects, simulation tools, internships, lab testing, FE/PE path for some roles, and security clearance for some employers.",
+    start: "Create a simple flight-design comparison and explain lift, drag, stability, materials, and testing questions."
+  },
+  "interior-designer": {
+    education: "Interior design degrees or certificates help; some states or commercial roles require formal education and exams.",
+    timeline: "Often 2-4 years of design education plus portfolio work and supervised experience for credentialed paths.",
+    credentials: "Portfolio, CAD/design software, material knowledge, building-code awareness, internships, and NCIDQ for some professional roles.",
+    start: "Redesign one room for a specific user and document constraints, layout, materials, lighting, and accessibility choices."
+  },
+  librarian: {
+    education: "Many professional librarian roles require a master's degree in library and information science; assistant roles may not.",
+    timeline: "Typically 4 years undergraduate study plus 1-2 years for an MLIS for many librarian positions.",
+    credentials: "MLIS for many roles, research support experience, cataloging or digital systems skill, teaching/programming examples, and subject expertise.",
+    start: "Create a research guide for a topic and compare public, school, academic, and special librarian requirements."
+  },
+  "film-editor": {
+    education: "Film, media, communications, or digital production programs can help, but an editing reel and practical projects are essential.",
+    timeline: "2-4 years through school or self-directed production work, with ongoing portfolio building through projects and assistant roles.",
+    credentials: "Editing reel, software skill, storytelling samples, assistant editor experience, file workflow knowledge, and client/director feedback examples.",
+    start: "Edit a short sequence and save versions showing how pacing, sound, and shot order changed the story."
   }
 });
 
