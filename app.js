@@ -1967,6 +1967,130 @@ const additionalCareerBlueprints = [
   }
 ];
 
+const supplementalCareerRows = [
+  ["actuary", "Actuary", "Finance", ["analytical", "structured", "independent", "practical"], ["Risk modeling", "Statistics", "Financial analysis", "Communication"]],
+  ["auditor", "Auditor", "Finance", ["analytical", "structured", "practical", "independent"], ["Internal controls", "Evidence review", "Financial records", "Reporting"]],
+  ["tax-preparer", "Tax Preparer", "Finance", ["structured", "analytical", "communicator", "practical"], ["Tax forms", "Client intake", "Accuracy", "Deadline management"]],
+  ["loan-officer", "Loan Officer", "Finance", ["communicator", "analytical", "empathetic", "practical"], ["Credit review", "Client advising", "Documentation", "Risk assessment"]],
+  ["compliance-analyst", "Compliance Analyst", "Business", ["analytical", "structured", "practical", "communicator"], ["Policy review", "Risk checks", "Documentation", "Process improvement"]],
+  ["risk-analyst", "Risk Analyst", "Business", ["analytical", "curious", "structured", "independent"], ["Risk scoring", "Research", "Data analysis", "Scenario planning"]],
+  ["investment-analyst", "Investment Analyst", "Finance", ["analytical", "curious", "structured", "independent"], ["Market research", "Valuation", "Financial modeling", "Written analysis"]],
+  ["payroll-specialist", "Payroll Specialist", "Human Resources", ["structured", "analytical", "practical", "communicator"], ["Payroll systems", "Timekeeping", "Compliance", "Employee support"]],
+  ["billing-specialist", "Billing Specialist", "Business", ["structured", "practical", "analytical", "communicator"], ["Invoices", "Account reconciliation", "Payment tracking", "Customer communication"]],
+  ["medical-coder", "Medical Coder", "Healthcare", ["structured", "analytical", "independent", "practical"], ["Medical terminology", "Coding systems", "Accuracy", "Records review"]],
+  ["health-information-technician", "Health Information Technician", "Healthcare", ["structured", "analytical", "practical", "independent"], ["Health records", "Privacy rules", "Data quality", "Clinical documentation"]],
+  ["epidemiologist", "Epidemiologist", "Healthcare", ["analytical", "curious", "structured", "communicator"], ["Public health data", "Study design", "Statistics", "Reporting"]],
+  ["dietitian", "Dietitian", "Healthcare", ["empathetic", "analytical", "communicator", "practical"], ["Nutrition planning", "Patient counseling", "Assessment", "Health education"]],
+  ["speech-language-pathologist", "Speech-Language Pathologist", "Healthcare", ["empathetic", "communicator", "structured", "curious"], ["Assessment", "Therapy planning", "Communication support", "Progress tracking"]],
+  ["respiratory-therapist", "Respiratory Therapist", "Healthcare", ["hands-on", "empathetic", "structured", "resilient"], ["Respiratory care", "Patient monitoring", "Equipment use", "Emergency response"]],
+  ["surgical-technologist", "Surgical Technologist", "Healthcare", ["hands-on", "structured", "resilient", "practical"], ["Sterile technique", "Surgical tools", "Team coordination", "Safety checks"]],
+  ["emergency-medical-technician", "Emergency Medical Technician", "Healthcare", ["resilient", "hands-on", "communicator", "practical"], ["Emergency care", "Assessment", "Safety", "Team communication"]],
+  ["massage-therapist", "Massage Therapist", "Healthcare", ["hands-on", "empathetic", "practical", "communicator"], ["Anatomy basics", "Client assessment", "Manual therapy", "Professional boundaries"]],
+  ["fitness-trainer", "Fitness Trainer", "Human Services", ["hands-on", "communicator", "empathetic", "practical"], ["Exercise planning", "Coaching", "Safety", "Motivation"]],
+  ["animal-care-technician", "Animal Care Technician", "Science", ["hands-on", "empathetic", "structured", "practical"], ["Animal handling", "Feeding routines", "Observation", "Cleaning protocols"]],
+  ["zookeeper", "Zookeeper", "Science", ["hands-on", "empathetic", "structured", "curious"], ["Animal behavior", "Habitat care", "Public education", "Record keeping"]],
+  ["marine-biologist", "Marine Biologist", "Science", ["curious", "analytical", "hands-on", "independent"], ["Field research", "Ecology", "Data collection", "Scientific writing"]],
+  ["geologist", "Geologist", "Science", ["curious", "analytical", "hands-on", "practical"], ["Rock analysis", "Field mapping", "Data interpretation", "Report writing"]],
+  ["meteorologist", "Meteorologist", "Science", ["analytical", "curious", "communicator", "structured"], ["Weather data", "Forecasting", "Models", "Public communication"]],
+  ["chemist", "Chemist", "Science", ["analytical", "curious", "structured", "independent"], ["Lab techniques", "Chemical analysis", "Safety", "Experiment design"]],
+  ["food-scientist", "Food Scientist", "Science", ["analytical", "curious", "practical", "structured"], ["Food safety", "Testing", "Product development", "Quality control"]],
+  ["forensic-scientist", "Forensic Scientist", "Science", ["analytical", "structured", "curious", "practical"], ["Evidence handling", "Lab analysis", "Documentation", "Scientific reasoning"]],
+  ["statistician", "Statistician", "Science", ["analytical", "structured", "independent", "curious"], ["Statistical modeling", "Study design", "Data analysis", "Communication"]],
+  ["market-research-analyst", "Market Research Analyst", "Business", ["analytical", "curious", "communicator", "structured"], ["Survey design", "Consumer research", "Data analysis", "Presentation"]],
+  ["economist", "Economist", "Business", ["analytical", "curious", "structured", "communicator"], ["Economic modeling", "Research", "Policy analysis", "Writing"]],
+  ["research-assistant", "Research Assistant", "Science", ["curious", "structured", "analytical", "independent"], ["Literature review", "Data collection", "Experiment support", "Documentation"]],
+  ["laboratory-manager", "Laboratory Manager", "Science", ["structured", "communicator", "analytical", "practical"], ["Lab operations", "Safety compliance", "Scheduling", "Quality systems"]],
+  ["product-designer", "Product Designer", "Design", ["creative", "empathetic", "analytical", "visual"], ["User flows", "Prototyping", "Interaction design", "Product thinking"]],
+  ["industrial-designer", "Industrial Designer", "Design", ["creative", "visual", "builder", "practical"], ["Sketching", "Prototyping", "Materials", "User needs"]],
+  ["fashion-designer", "Fashion Designer", "Design", ["creative", "visual", "practical", "curious"], ["Trend research", "Pattern ideas", "Textiles", "Visual storytelling"]],
+  ["art-director", "Art Director", "Design", ["creative", "visual", "communicator", "structured"], ["Creative direction", "Visual critique", "Brand systems", "Team leadership"]],
+  ["photographer", "Photographer", "Media", ["creative", "visual", "hands-on", "independent"], ["Composition", "Lighting", "Editing", "Client communication"]],
+  ["animator", "Animator", "Media", ["creative", "visual", "builder", "independent"], ["Motion", "Storyboarding", "Timing", "Digital tools"]],
+  ["illustrator", "Illustrator", "Media", ["creative", "visual", "independent", "curious"], ["Drawing", "Style development", "Composition", "Client briefs"]],
+  ["music-producer", "Music Producer", "Media", ["creative", "hands-on", "communicator", "curious"], ["Arrangement", "Recording", "Sound design", "Collaboration"]],
+  ["sound-engineer", "Sound Engineer", "Media", ["hands-on", "analytical", "creative", "practical"], ["Audio mixing", "Recording equipment", "Signal flow", "Problem solving"]],
+  ["podcast-producer", "Podcast Producer", "Media", ["creative", "communicator", "structured", "curious"], ["Interview planning", "Audio editing", "Story structure", "Publishing"]],
+  ["content-strategist", "Content Strategist", "Marketing", ["creative", "analytical", "communicator", "structured"], ["Content planning", "Audience research", "SEO", "Editorial calendars"]],
+  ["editor", "Editor", "Language & Communication", ["communicator", "structured", "curious", "analytical"], ["Line editing", "Story structure", "Feedback", "Clarity"]],
+  ["proofreader", "Proofreader", "Language & Communication", ["structured", "independent", "analytical", "practical"], ["Grammar", "Consistency", "Attention to detail", "Style guides"]],
+  ["technical-support-engineer", "Technical Support Engineer", "Technology", ["analytical", "communicator", "resilient", "practical"], ["Technical troubleshooting", "Logs", "Customer communication", "Escalation"]],
+  ["systems-analyst", "Systems Analyst", "Technology", ["analytical", "structured", "communicator", "curious"], ["Systems mapping", "Requirements", "Process analysis", "Technical documentation"]],
+  ["it-project-coordinator", "IT Project Coordinator", "Technology", ["structured", "communicator", "practical", "resilient"], ["Project tracking", "Technical coordination", "Status reporting", "Scheduling"]],
+  ["security-engineer", "Security Engineer", "Technology", ["analytical", "builder", "structured", "resilient"], ["Security architecture", "Threat modeling", "Controls", "Automation"]],
+  ["penetration-tester", "Penetration Tester", "Technology", ["curious", "analytical", "independent", "builder"], ["Ethical hacking", "Vulnerability testing", "Reporting", "Security tools"]],
+  ["data-engineer", "Data Engineer", "Technology", ["builder", "analytical", "structured", "independent"], ["Data pipelines", "Databases", "ETL", "Cloud data tools"]],
+  ["backend-developer", "Backend Developer", "Technology", ["builder", "analytical", "structured", "independent"], ["APIs", "Databases", "Server logic", "Testing"]],
+  ["full-stack-developer", "Full-Stack Developer", "Technology", ["builder", "creative", "analytical", "independent"], ["Frontend", "Backend", "Databases", "Debugging"]],
+  ["game-developer", "Game Developer", "Technology", ["builder", "creative", "analytical", "visual"], ["Game engines", "Programming", "Physics", "Iteration"]],
+  ["ar-vr-developer", "AR/VR Developer", "Technology", ["creative", "builder", "visual", "analytical"], ["3D interaction", "Game engines", "Spatial design", "Prototyping"]],
+  ["gis-analyst", "GIS Analyst", "Technology", ["analytical", "visual", "structured", "curious"], ["Mapping", "Spatial data", "Data analysis", "Cartography"]],
+  ["cad-technician", "CAD Technician", "Engineering", ["visual", "structured", "practical", "builder"], ["CAD software", "Technical drawings", "Measurement", "Detail accuracy"]],
+  ["surveyor", "Surveyor", "Engineering", ["hands-on", "analytical", "practical", "structured"], ["Measurement", "Field equipment", "Mapping", "Legal descriptions"]],
+  ["building-inspector", "Building Inspector", "Skilled Trades", ["practical", "structured", "analytical", "communicator"], ["Code review", "Site inspection", "Safety", "Documentation"]],
+  ["safety-manager", "Safety Manager", "Operations", ["structured", "practical", "communicator", "resilient"], ["Risk assessment", "Training", "Incident review", "Policy implementation"]],
+  ["energy-auditor", "Energy Auditor", "Science", ["analytical", "practical", "hands-on", "communicator"], ["Energy analysis", "Building systems", "Efficiency recommendations", "Reporting"]],
+  ["solar-installer", "Solar Installer", "Skilled Trades", ["hands-on", "builder", "practical", "structured"], ["Panel installation", "Electrical safety", "Roof work", "System testing"]],
+  ["wind-turbine-technician", "Wind Turbine Technician", "Skilled Trades", ["hands-on", "resilient", "practical", "analytical"], ["Mechanical repair", "Electrical systems", "Safety", "Climbing"]],
+  ["water-treatment-operator", "Water Treatment Operator", "Science", ["practical", "structured", "analytical", "hands-on"], ["Water testing", "Equipment monitoring", "Safety", "Regulatory records"]],
+  ["wastewater-technician", "Wastewater Technician", "Science", ["hands-on", "practical", "structured", "resilient"], ["Sampling", "Treatment systems", "Maintenance", "Compliance"]],
+  ["sustainability-coordinator", "Sustainability Coordinator", "Operations", ["communicator", "analytical", "practical", "curious"], ["Sustainability reporting", "Program coordination", "Data tracking", "Stakeholder engagement"]],
+  ["park-ranger", "Park Ranger", "Public Safety", ["hands-on", "communicator", "practical", "resilient"], ["Public education", "Resource protection", "Safety", "Patrol"]],
+  ["conservation-scientist", "Conservation Scientist", "Science", ["curious", "analytical", "hands-on", "communicator"], ["Land management", "Ecology", "Data collection", "Planning"]],
+  ["agriculture-technician", "Agriculture Technician", "Science", ["hands-on", "practical", "curious", "structured"], ["Crop testing", "Equipment", "Field records", "Soil sampling"]],
+  ["farm-manager", "Farm Manager", "Operations", ["practical", "hands-on", "structured", "resilient"], ["Crop planning", "Staff coordination", "Equipment management", "Budgeting"]],
+  ["horticulturist", "Horticulturist", "Science", ["hands-on", "curious", "practical", "creative"], ["Plant care", "Soil knowledge", "Propagation", "Pest management"]],
+  ["landscape-designer", "Landscape Designer", "Design", ["creative", "visual", "practical", "hands-on"], ["Plant selection", "Site planning", "Sketching", "Client communication"]],
+  ["urban-farmer", "Urban Farmer", "Agriculture", ["hands-on", "practical", "community-minded", "resilient"], ["Growing systems", "Composting", "Community outreach", "Harvest planning"]],
+  ["hotel-front-desk-agent", "Hotel Front Desk Agent", "Hospitality", ["communicator", "empathetic", "structured", "resilient"], ["Guest service", "Reservations", "Problem solving", "Local knowledge"]],
+  ["concierge", "Concierge", "Hospitality", ["communicator", "empathetic", "creative", "practical"], ["Guest advising", "Local research", "Problem solving", "Service recovery"]],
+  ["travel-agent", "Travel Agent", "Hospitality", ["communicator", "structured", "curious", "empathetic"], ["Itinerary planning", "Booking systems", "Customer advising", "Research"]],
+  ["tour-guide", "Tour Guide", "Hospitality", ["communicator", "curious", "empathetic", "resilient"], ["Storytelling", "Group management", "Local history", "Safety"]],
+  ["event-technician", "Event Technician", "Media", ["hands-on", "practical", "resilient", "communicator"], ["Audio visual setup", "Lighting", "Troubleshooting", "Run of show"]],
+  ["catering-manager", "Catering Manager", "Hospitality", ["structured", "communicator", "practical", "resilient"], ["Event planning", "Food service", "Staff coordination", "Client communication"]],
+  ["barista", "Barista", "Hospitality", ["hands-on", "communicator", "practical", "resilient"], ["Drink preparation", "Customer service", "Speed", "Cleanliness"]],
+  ["baker", "Baker", "Hospitality", ["hands-on", "structured", "creative", "practical"], ["Baking techniques", "Timing", "Food safety", "Recipe consistency"]],
+  ["food-service-worker", "Food Service Worker", "Hospitality", ["hands-on", "practical", "communicator", "resilient"], ["Food prep", "Sanitation", "Teamwork", "Customer service"]],
+  ["retail-store-manager", "Retail Store Manager", "Business", ["communicator", "practical", "structured", "resilient"], ["Staff leadership", "Sales tracking", "Inventory", "Customer experience"]],
+  ["visual-merchandiser", "Visual Merchandiser", "Design", ["visual", "creative", "practical", "analytical"], ["Store displays", "Brand presentation", "Product placement", "Sales awareness"]],
+  ["inventory-analyst", "Inventory Analyst", "Operations", ["analytical", "structured", "practical", "independent"], ["Inventory data", "Forecasting", "Replenishment", "Reporting"]],
+  ["merchandising-assistant", "Merchandising Assistant", "Business", ["structured", "visual", "practical", "communicator"], ["Product tracking", "Vendor support", "Assortment planning", "Reporting"]],
+  ["ecommerce-specialist", "Ecommerce Specialist", "Marketing", ["analytical", "creative", "practical", "structured"], ["Product listings", "Analytics", "Online merchandising", "Conversion testing"]],
+  ["customer-experience-manager", "Customer Experience Manager", "Customer Experience", ["empathetic", "communicator", "analytical", "structured"], ["Journey mapping", "Feedback analysis", "Service design", "Team coaching"]],
+  ["call-center-representative", "Call Center Representative", "Customer Experience", ["communicator", "empathetic", "resilient", "structured"], ["Phone support", "Active listening", "CRM notes", "De-escalation"]],
+  ["collections-specialist", "Collections Specialist", "Finance", ["communicator", "resilient", "structured", "practical"], ["Account review", "Negotiation", "Documentation", "Customer communication"]],
+  ["legal-assistant", "Legal Assistant", "Legal", ["structured", "communicator", "practical", "analytical"], ["Legal documents", "Scheduling", "Case files", "Client communication"]],
+  ["court-reporter", "Court Reporter", "Legal", ["structured", "independent", "analytical", "practical"], ["Transcription", "Listening accuracy", "Legal procedure", "Realtime records"]],
+  ["mediator", "Mediator", "Legal", ["communicator", "empathetic", "structured", "resilient"], ["Conflict resolution", "Neutral facilitation", "Listening", "Agreement drafting"]],
+  ["policy-analyst", "Policy Analyst", "Government", ["analytical", "communicator", "structured", "curious"], ["Policy research", "Writing", "Data interpretation", "Stakeholder analysis"]],
+  ["legislative-aide", "Legislative Aide", "Government", ["communicator", "structured", "curious", "resilient"], ["Constituent service", "Research", "Scheduling", "Policy notes"]],
+  ["public-administrator", "Public Administrator", "Government", ["structured", "communicator", "practical", "analytical"], ["Public programs", "Budget awareness", "Service delivery", "Policy implementation"]],
+  ["emergency-management-specialist", "Emergency Management Specialist", "Public Safety", ["structured", "resilient", "communicator", "practical"], ["Preparedness planning", "Incident coordination", "Risk assessment", "Public communication"]],
+  ["dispatcher-911", "911 Dispatcher", "Public Safety", ["resilient", "communicator", "structured", "empathetic"], ["Emergency calls", "Radio communication", "Prioritization", "Calm under pressure"]],
+  ["security-guard", "Security Guard", "Public Safety", ["practical", "resilient", "communicator", "structured"], ["Observation", "Patrol", "Incident reporting", "Access control"]],
+  ["correctional-officer", "Correctional Officer", "Public Safety", ["resilient", "structured", "communicator", "practical"], ["Safety procedures", "Conflict management", "Observation", "Report writing"]]
+];
+
+function buildSupplementalCareer([id, title, field, traits, skills]) {
+  const primarySkill = skills[0];
+
+  return {
+    id,
+    title,
+    field,
+    summary: `Uses ${primarySkill.toLowerCase()} and practical judgment to solve real problems in ${field.toLowerCase()} settings.`,
+    fit: `You may like this path if you enjoy ${traits.slice(0, 2).join(" and ")} work and want a role with clear real-world impact.`,
+    traits,
+    skills,
+    workStyle: `${primarySkill}, collaboration, documentation, and steady improvement across changing priorities`,
+    startingPoint: `Find one entry-level ${title} posting and list the skills, tools, credentials, and first project you could practice.`,
+    setting: `${field.toLowerCase()} teams, service organizations, public agencies, private companies, and specialized workplaces`,
+    problem: `a person or organization needs ${title} support to make a safer, clearer, faster, or more reliable decision`,
+    deliverable: `a ${title} starter brief with user need, key tasks, tools, risks, success measure, and next step`
+  };
+}
+
+additionalCareerBlueprints.push(...supplementalCareerRows.map(buildSupplementalCareer));
+
 function buildCareerFromBlueprint(blueprint) {
   return {
     id: blueprint.id,
@@ -2054,6 +2178,69 @@ const quizQuestions = [
       { text: "Watch people, ask questions, and discuss", traits: ["communicator", "empathetic"] },
       { text: "Read, compare, and test my understanding", traits: ["analytical", "independent"] },
       { text: "Experiment until I find a style that works", traits: ["creative", "curious"] }
+    ]
+  },
+  {
+    text: "When a plan changes suddenly, what do you do first?",
+    answers: [
+      { text: "Rebuild the steps and priorities", traits: ["structured", "resilient"] },
+      { text: "Check what people need from me", traits: ["empathetic", "communicator"] },
+      { text: "Look for the root cause or missing data", traits: ["analytical", "curious"] },
+      { text: "Try a practical workaround quickly", traits: ["practical", "hands-on"] }
+    ]
+  },
+  {
+    text: "Which school or work project would you pick?",
+    answers: [
+      { text: "Build a useful tool or prototype", traits: ["builder", "hands-on"] },
+      { text: "Design a poster, interface, room, or story", traits: ["creative", "visual"] },
+      { text: "Analyze a dataset and explain the pattern", traits: ["analytical", "structured"] },
+      { text: "Interview people and turn needs into a plan", traits: ["communicator", "empathetic"] }
+    ]
+  },
+  {
+    text: "What kind of responsibility feels most motivating?",
+    answers: [
+      { text: "Keeping people safe or supported", traits: ["empathetic", "resilient"] },
+      { text: "Making a system reliable and organized", traits: ["structured", "practical"] },
+      { text: "Finding the smartest answer with evidence", traits: ["analytical", "curious"] },
+      { text: "Creating something people can see or use", traits: ["creative", "builder"] }
+    ]
+  },
+  {
+    text: "How do you like to spend most of your working time?",
+    answers: [
+      { text: "Mostly independent focus with clear goals", traits: ["independent", "analytical"] },
+      { text: "Moving around, fixing, building, or helping hands-on", traits: ["hands-on", "practical"] },
+      { text: "Talking with people, guiding, or coordinating", traits: ["communicator", "empathetic"] },
+      { text: "Exploring ideas, visuals, experiments, or stories", traits: ["creative", "curious"] }
+    ]
+  },
+  {
+    text: "Which detail do you notice before other people?",
+    answers: [
+      { text: "A risk, mistake, or inconsistency", traits: ["structured", "analytical"] },
+      { text: "A confusing experience someone is having", traits: ["empathetic", "communicator"] },
+      { text: "A better way to arrange or present something", traits: ["visual", "creative"] },
+      { text: "A tool, machine, or process that could work better", traits: ["hands-on", "builder"] }
+    ]
+  },
+  {
+    text: "What pace sounds most sustainable for you?",
+    answers: [
+      { text: "Fast, active days with urgent problems", traits: ["resilient", "hands-on"] },
+      { text: "Steady routines with room for accuracy", traits: ["structured", "practical"] },
+      { text: "Deep research or analysis before decisions", traits: ["analytical", "independent"] },
+      { text: "Project cycles with feedback and iteration", traits: ["creative", "communicator"] }
+    ]
+  },
+  {
+    text: "If someone asked for your help, what would you prefer to improve?",
+    answers: [
+      { text: "Their confidence, care, or next step", traits: ["empathetic", "communicator"] },
+      { text: "Their workflow, checklist, or operations", traits: ["structured", "practical"] },
+      { text: "Their numbers, evidence, or decision logic", traits: ["analytical", "curious"] },
+      { text: "Their product, message, design, or experience", traits: ["creative", "visual"] }
     ]
   }
 ];
