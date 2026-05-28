@@ -27,13 +27,20 @@ cloud machine, so it will not load unless the port is forwarded.
 ## GitHub Pages
 
 This repository includes a GitHub Actions workflow that deploys the static app
-to GitHub Pages whenever changes land on `main`.
-
-After this branch is merged, the live site should be available at:
+to GitHub Pages from `main` and Cursor feature branches. The expected site URL is:
 
 ```text
 https://kwonseokhyun1-jpg.github.io/joblingo/
 ```
+
+If that URL returns 404, check the repository settings in GitHub:
+
+1. Open **Settings > Pages**.
+2. Set **Build and deployment > Source** to **GitHub Actions**.
+3. If the repository is private, make sure your GitHub plan and Pages visibility settings allow the site to be viewed.
+4. Re-run the **Deploy JobLingo to GitHub Pages** workflow or push to `main`.
+
+The site will not be available until GitHub Pages is enabled and a deployment run completes successfully.
 
 ## Validate
 
