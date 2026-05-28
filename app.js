@@ -418,7 +418,428 @@ const careers = [
           "Environmental work spans labs, field sites, offices, and public programs."
       }
     ]
-  }
+  },
+
+  {
+    id: "product-manager",
+    title: "Product Manager",
+    field: "Technology",
+    summary:
+      "Decides what a product team should build next by connecting user needs, business goals, and technical reality.",
+    fit: "You like organizing ideas, asking why, and helping different people agree on what matters most.",
+    traits: ["structured", "communicator", "curious", "practical"],
+    skills: ["User research", "Prioritization", "Roadmapping", "Decision writing"],
+    workStyle: "Cross-functional planning with research, tradeoffs, and follow-through",
+    startingPoint: "Write a one-page product idea for an app feature you wish existed.",
+    lessons: [
+      {
+        title: "What product managers decide",
+        objective: "Understand how product managers turn messy needs into clear product choices.",
+        activity: "Choose one app feature and write the user problem, business reason, and success metric behind it.",
+        takeaway:
+          "Product management is about making thoughtful tradeoffs, not simply collecting feature ideas."
+      },
+      {
+        title: "Listening to users",
+        objective: "Learn how user interviews, feedback, and behavior data shape product direction.",
+        activity: "Ask three people what frustrates them about a tool they use and group the answers by theme.",
+        takeaway:
+          "Strong product decisions are grounded in patterns from real users, not the loudest opinion."
+      },
+      {
+        title: "Prioritizing what to build",
+        objective: "Practice comparing impact, effort, risk, and timing before choosing a direction.",
+        activity: "Rank five possible features using impact and effort, then explain your top choice.",
+        takeaway:
+          "Prioritization makes limited time visible so a team can focus on the most valuable next step."
+      },
+      {
+        title: "Writing a product brief",
+        objective: "Create a concise plan that helps design, engineering, and stakeholders align.",
+        activity: "Draft a brief with problem, audience, goal, non-goals, risks, and launch measure.",
+        takeaway:
+          "A clear product brief is a decision document that reduces confusion before work begins."
+      }
+    ]
+  },
+  {
+    id: "mechanical-engineer",
+    title: "Mechanical Engineer",
+    field: "Engineering",
+    summary:
+      "Designs, tests, and improves physical systems such as machines, tools, vehicles, and manufacturing equipment.",
+    fit: "You enjoy understanding how things move, break, fit together, and become safer or more efficient.",
+    traits: ["builder", "analytical", "hands-on", "structured"],
+    skills: ["CAD", "Physics", "Testing", "Technical documentation"],
+    workStyle: "Design analysis mixed with prototypes, tests, and engineering reviews",
+    startingPoint: "Take apart a simple object safely and sketch how its parts work together.",
+    lessons: [
+      {
+        title: "How engineers define problems",
+        objective: "Learn why engineering starts with constraints, requirements, and failure modes.",
+        activity: "Describe a water bottle using requirements like weight, durability, cost, and user needs.",
+        takeaway:
+          "Mechanical engineers solve physical problems by defining success before designing solutions."
+      },
+      {
+        title: "From sketch to model",
+        objective: "Understand the path from concept sketch to CAD model and prototype.",
+        activity: "Sketch a phone stand, label the forces on it, and identify one weak point.",
+        takeaway:
+          "Models help engineers reason about shape, motion, materials, and manufacturability before building."
+      },
+      {
+        title: "Testing and iteration",
+        objective: "See why engineers expect prototypes to reveal problems.",
+        activity: "Design a simple paper bridge test and decide what data would prove it improved.",
+        takeaway:
+          "Testing turns guesses into evidence and helps engineers improve designs safely."
+      },
+      {
+        title: "Building an engineering portfolio",
+        objective: "Identify beginner projects that show design thinking and measurement.",
+        activity: "Write a project note with problem, constraints, prototype, test result, and next revision.",
+        takeaway:
+          "Engineering portfolios are strongest when they show tradeoffs, data, and iteration."
+      }
+    ]
+  },
+  {
+    id: "accountant",
+    title: "Accountant",
+    field: "Finance",
+    summary:
+      "Organizes financial information so people and organizations understand money, obligations, and performance.",
+    fit: "You like accuracy, patterns, rules, and helping people make calm decisions with numbers.",
+    traits: ["analytical", "structured", "practical", "independent"],
+    skills: ["Bookkeeping", "Financial statements", "Tax basics", "Attention to detail"],
+    workStyle: "Detailed records, deadlines, reconciliations, and advisory conversations",
+    startingPoint: "Track a simple monthly budget and categorize every transaction.",
+    lessons: [
+      {
+        title: "What accounting explains",
+        objective: "Understand how accounting turns transactions into a story about financial health.",
+        activity: "List five transactions for a small business and decide whether each is income, expense, asset, or debt.",
+        takeaway:
+          "Accounting creates trusted records that show what happened and what decisions are possible."
+      },
+      {
+        title: "Reading financial statements",
+        objective: "Learn the basic purpose of income statements, balance sheets, and cash flow statements.",
+        activity: "Match common questions to the statement that would answer them.",
+        takeaway:
+          "Different statements answer different questions about profit, resources, and cash movement."
+      },
+      {
+        title: "Accuracy and controls",
+        objective: "See why accountants check, reconcile, and document their work.",
+        activity: "Find the mistake in a small set of transactions that does not balance.",
+        takeaway:
+          "Trustworthy financial work depends on repeatable checks, not memory or assumptions."
+      },
+      {
+        title: "First steps in accounting",
+        objective: "Compare bookkeeping, tax, audit, corporate accounting, and advisory paths.",
+        activity: "Choose one accounting path and list the credentials, tools, and first project you would try.",
+        takeaway:
+          "Accounting offers many paths for people who like structured thinking and useful precision."
+      }
+    ]
+  },
+  {
+    id: "lawyer",
+    title: "Lawyer",
+    field: "Law & Public Service",
+    summary:
+      "Uses legal rules, evidence, writing, and argument to advise clients and resolve conflicts.",
+    fit: "You enjoy reading closely, debating carefully, and helping people navigate complicated situations.",
+    traits: ["analytical", "communicator", "resilient", "structured"],
+    skills: ["Legal research", "Writing", "Argumentation", "Client communication"],
+    workStyle: "Research, writing, negotiation, preparation, and high-stakes communication",
+    startingPoint: "Read a short court opinion or legal explainer and summarize the main issue in plain language.",
+    lessons: [
+      {
+        title: "What lawyers actually do",
+        objective: "Move past courtroom stereotypes and understand advice, documents, negotiation, and advocacy.",
+        activity: "Choose a common conflict and list what legal questions would need to be answered.",
+        takeaway:
+          "Lawyers help people understand rights, risks, obligations, and choices under rules."
+      },
+      {
+        title: "Reading rules and facts",
+        objective: "Learn how lawyers connect specific facts to legal standards.",
+        activity: "Write a fact list for a dispute and separate facts you know from facts you would need to prove.",
+        takeaway:
+          "Legal reasoning depends on careful distinctions between claims, evidence, and rules."
+      },
+      {
+        title: "Writing persuasive arguments",
+        objective: "Practice making a clear claim with reasons and support.",
+        activity: "Write one paragraph that argues for a school policy change using facts and a counterargument.",
+        takeaway:
+          "Strong legal writing is structured, precise, and honest about the other side."
+      },
+      {
+        title: "Exploring legal careers",
+        objective: "Compare litigation, corporate, public interest, policy, and compliance work.",
+        activity: "Pick one legal issue you care about and identify three roles that work on it.",
+        takeaway:
+          "Legal training can lead to many kinds of advocacy, advisory, and public-service work."
+      }
+    ]
+  },
+  {
+    id: "social-worker",
+    title: "Social Worker",
+    field: "Human Services",
+    summary:
+      "Supports people and communities through counseling, advocacy, resource navigation, and crisis support.",
+    fit: "You care about people's circumstances and want practical ways to help them move toward stability.",
+    traits: ["empathetic", "communicator", "resilient", "practical"],
+    skills: ["Active listening", "Case planning", "Advocacy", "Resource coordination"],
+    workStyle: "People-centered support with documentation, boundaries, and teamwork",
+    startingPoint: "Volunteer with a community organization and observe how needs are assessed and supported.",
+    lessons: [
+      {
+        title: "What support can look like",
+        objective: "Understand social work as both emotional support and practical systems navigation.",
+        activity: "Map the resources a family might need after losing housing.",
+        takeaway:
+          "Social workers connect human needs with services, rights, plans, and relationships."
+      },
+      {
+        title: "Listening without taking over",
+        objective: "Learn why empowerment and consent matter in helping professions.",
+        activity: "Rewrite advice as open-ended questions that let someone choose their next step.",
+        takeaway:
+          "Helpful support respects people's agency instead of treating them like problems to fix."
+      },
+      {
+        title: "Case plans and documentation",
+        objective: "See how goals, referrals, notes, and follow-ups keep support accountable.",
+        activity: "Create a sample plan with one goal, two resources, and one follow-up question.",
+        takeaway:
+          "Documentation protects continuity of care and helps teams coordinate responsibly."
+      },
+      {
+        title: "Taking care while helping",
+        objective: "Explore boundaries, supervision, and resilience in emotionally demanding work.",
+        activity: "List three boundaries that help a helper stay effective and ethical.",
+        takeaway:
+          "Sustainable helping requires compassion, structure, and support for the helper too."
+      }
+    ]
+  },
+  {
+    id: "chef",
+    title: "Chef",
+    field: "Hospitality",
+    summary:
+      "Creates food experiences by planning menus, preparing dishes, leading kitchen flow, and managing quality.",
+    fit: "You like hands-on creativity, fast feedback, teamwork, and making something people experience immediately.",
+    traits: ["creative", "hands-on", "resilient", "practical"],
+    skills: ["Knife skills", "Flavor building", "Kitchen timing", "Food safety"],
+    workStyle: "Fast-paced preparation, service pressure, teamwork, and constant refinement",
+    startingPoint: "Cook one simple dish three times and improve one variable each attempt.",
+    lessons: [
+      {
+        title: "What chefs balance",
+        objective: "Understand food work as creativity plus timing, cost, safety, and consistency.",
+        activity: "Choose a dish and list what could go wrong with taste, timing, safety, and presentation.",
+        takeaway:
+          "Chefs create experiences while managing constraints that guests may never see."
+      },
+      {
+        title: "Building flavor intentionally",
+        objective: "Learn how salt, acid, fat, heat, texture, and aroma shape a dish.",
+        activity: "Taste a simple food before and after adding acid or seasoning, then describe the difference.",
+        takeaway:
+          "Cooking skill grows when you can explain why a dish tastes better, not just follow a recipe."
+      },
+      {
+        title: "Kitchen teamwork",
+        objective: "See how prep, stations, communication, and timing keep service moving.",
+        activity: "Plan the order of tasks for making dinner so everything finishes hot at the same time.",
+        takeaway:
+          "A kitchen succeeds through preparation, communication, and disciplined timing."
+      },
+      {
+        title: "Creating a food portfolio",
+        objective: "Turn practice into evidence of technique, taste, and growth.",
+        activity: "Photograph a dish and write notes on ingredients, method, feedback, and next improvement.",
+        takeaway:
+          "Food careers reward both craft and the ability to learn from each service."
+      }
+    ]
+  },
+  {
+    id: "financial-planner",
+    title: "Financial Planner",
+    field: "Finance",
+    summary:
+      "Helps people set money goals, understand options, and make plans for saving, investing, debt, and risk.",
+    fit: "You like explaining numbers in a human way and helping people make steady long-term choices.",
+    traits: ["analytical", "empathetic", "communicator", "structured"],
+    skills: ["Budgeting", "Goal planning", "Risk basics", "Client education"],
+    workStyle: "Client conversations, analysis, planning documents, and long-term follow-up",
+    startingPoint: "Build a personal money plan with goals, monthly budget, emergency savings, and questions.",
+    lessons: [
+      {
+        title: "What financial planning solves",
+        objective: "Understand planning as aligning money decisions with life goals and constraints.",
+        activity: "Create three sample goals for a client: short-term, medium-term, and long-term.",
+        takeaway:
+          "Financial planning is about choices over time, not just picking investments."
+      },
+      {
+        title: "Budgeting without shame",
+        objective: "Learn how planners use cash flow to create options instead of judgment.",
+        activity: "Sort expenses into needs, commitments, wants, and future goals.",
+        takeaway:
+          "A budget is useful when it helps people see tradeoffs and act with less stress."
+      },
+      {
+        title: "Risk and uncertainty",
+        objective: "Explore emergency funds, insurance, diversification, and changing life events.",
+        activity: "List three financial risks for a young adult and one possible protection for each.",
+        takeaway:
+          "Good plans prepare for uncertainty instead of pretending the future is perfectly predictable."
+      },
+      {
+        title: "Practicing client guidance",
+        objective: "Turn financial knowledge into clear, ethical recommendations.",
+        activity: "Write a plain-language explanation of compound interest for someone your age.",
+        takeaway:
+          "Financial planners need trust, clarity, and responsibility as much as technical knowledge."
+      }
+    ]
+  },
+  {
+    id: "video-game-designer",
+    title: "Video Game Designer",
+    field: "Creative Technology",
+    summary:
+      "Designs game rules, levels, systems, and player experiences that make games engaging and understandable.",
+    fit: "You like games, storytelling, systems, feedback loops, and testing how people react to experiences.",
+    traits: ["creative", "builder", "analytical", "curious"],
+    skills: ["Game mechanics", "Level design", "Playtesting", "Systems thinking"],
+    workStyle: "Creative iteration with prototypes, feedback, tuning, and collaboration",
+    startingPoint: "Make a paper prototype of a tiny game with one rule, one goal, and one twist.",
+    lessons: [
+      {
+        title: "What game designers design",
+        objective: "Understand mechanics, goals, rules, feedback, difficulty, and player emotion.",
+        activity: "Pick a favorite game and identify its core loop: action, reward, and next choice.",
+        takeaway:
+          "Game designers shape decisions and feelings, not just characters or graphics."
+      },
+      {
+        title: "Prototyping before polish",
+        objective: "Learn why rough versions are useful for testing fun and clarity early.",
+        activity: "Create a no-code prototype using cards, paper, dice, or a simple board.",
+        takeaway:
+          "A prototype answers whether an idea works before time is spent making it beautiful."
+      },
+      {
+        title: "Playtesting honestly",
+        objective: "Practice observing players without explaining or defending the design.",
+        activity: "Have someone play your prototype and write what confused them, surprised them, and motivated them.",
+        takeaway:
+          "Playtesting shows the game players actually experience, not the game in the designer's head."
+      },
+      {
+        title: "Making a design portfolio",
+        objective: "Document your design decisions and iterations clearly.",
+        activity: "Write a one-page game design postmortem: goal, rules, test results, changes, and lesson.",
+        takeaway:
+          "Game portfolios should show your thinking, testing, and improvement process."
+      }
+    ]
+  },
+  {
+    id: "human-resources-specialist",
+    title: "Human Resources Specialist",
+    field: "Business",
+    summary:
+      "Supports hiring, employee questions, workplace policies, training, and healthy team practices.",
+    fit: "You like helping people understand systems, resolving sensitive issues, and improving workplaces.",
+    traits: ["communicator", "empathetic", "structured", "practical"],
+    skills: ["Hiring coordination", "Policy communication", "Conflict support", "Training"],
+    workStyle: "People-focused operations with confidentiality, process, and careful documentation",
+    startingPoint: "Design an onboarding checklist for a new club member or teammate.",
+    lessons: [
+      {
+        title: "What HR protects",
+        objective: "Understand HR as support for employees, managers, policy, fairness, and compliance.",
+        activity: "List what a new employee needs in their first week to feel prepared and included.",
+        takeaway:
+          "HR helps workplaces function more clearly, fairly, and consistently."
+      },
+      {
+        title: "Hiring as a structured process",
+        objective: "Learn how job descriptions, interviews, and evaluation criteria reduce confusion and bias.",
+        activity: "Write three interview questions that connect directly to a role's responsibilities.",
+        takeaway:
+          "Better hiring comes from clear criteria, not gut feelings alone."
+      },
+      {
+        title: "Handling sensitive conversations",
+        objective: "Explore confidentiality, empathy, boundaries, and documentation.",
+        activity: "Rewrite a vague complaint as neutral notes with facts, impact, and next question.",
+        takeaway:
+          "HR communication must be compassionate, specific, and responsible."
+      },
+      {
+        title: "Improving employee experience",
+        objective: "Identify small systems that make teams healthier and easier to navigate.",
+        activity: "Create a feedback survey with five questions for improving a club, class, or workplace.",
+        takeaway:
+          "HR work can improve culture by turning feedback into practical changes."
+      }
+    ]
+  },
+  {
+    id: "architect",
+    title: "Architect",
+    field: "Design",
+    summary:
+      "Designs buildings and spaces by balancing human needs, beauty, safety, rules, and construction realities.",
+    fit: "You notice spaces, enjoy visual thinking, and like solving practical problems with design.",
+    traits: ["creative", "visual", "structured", "practical"],
+    skills: ["Spatial design", "Drawing", "Building systems", "Client communication"],
+    workStyle: "Design concepts, drawings, client feedback, codes, and construction coordination",
+    startingPoint: "Sketch a room you know and redesign it for a different user need.",
+    lessons: [
+      {
+        title: "What architects balance",
+        objective: "Understand architecture as design shaped by people, site, budget, safety, and codes.",
+        activity: "Pick a public space and list who uses it, what works, and what feels difficult.",
+        takeaway:
+          "Architecture turns human activities into spaces that must also be buildable and safe."
+      },
+      {
+        title: "Reading a space",
+        objective: "Learn how circulation, light, sound, materials, and accessibility affect experience.",
+        activity: "Walk through a room and note where people pause, move, gather, or avoid.",
+        takeaway:
+          "Good spatial design starts by observing how people actually use places."
+      },
+      {
+        title: "Drawing ideas clearly",
+        objective: "See how plans, sections, elevations, and models communicate different information.",
+        activity: "Draw a simple room from above and label doors, windows, furniture, and movement paths.",
+        takeaway:
+          "Architectural drawings are thinking tools as well as communication tools."
+      },
+      {
+        title: "Your first design study",
+        objective: "Build a mini portfolio piece around a real spatial problem.",
+        activity: "Document before, user need, sketch options, chosen solution, and tradeoffs.",
+        takeaway:
+          "Architecture portfolios show observation, reasoning, constraints, and visual clarity."
+      }
+    ]
+  },
 ];
 
 const quizQuestions = [
@@ -486,6 +907,7 @@ const matchForm = document.querySelector("#match-form");
 const matchButton = document.querySelector("#match-button");
 const matchResults = document.querySelector("#match-results");
 const careerCount = document.querySelector("#career-count");
+const miniClassCount = document.querySelector("#mini-class-count");
 
 function readProgress() {
   try {
@@ -676,6 +1098,60 @@ function renderMatches() {
   });
 }
 
+
+const lessonGuideTemplates = [
+  {
+    focus: "Career reality",
+    why: (career) =>
+      `This class separates the job title from the daily work: ${career.workStyle.toLowerCase()}. It helps you decide whether the role sounds interesting in real life, not just on paper.`,
+    reflection: (career) =>
+      `Which part of this role sounds energizing to you, and which part might drain you? Use this clue: ${career.fit}`,
+    proof: (career) =>
+      `Save a short "day in the life" summary for ${career.title} using three real tasks and one misconception you corrected.`
+  },
+  {
+    focus: "Core skills",
+    why: (career, lesson, skill) =>
+      `This class connects the role to a skill you can actually practice: ${skill}. Naming the skill makes the career less mysterious and gives you a concrete next step.`,
+    reflection: (career, lesson, skill) =>
+      `Where have you already used a version of ${skill.toLowerCase()} at school, work, home, or in a hobby?`,
+    proof: (career, lesson, skill) =>
+      `Keep one small artifact that shows ${skill.toLowerCase()}: notes, a sketch, a spreadsheet, a script, a checklist, or a before-and-after example.`
+  },
+  {
+    focus: "Decision making",
+    why: (career) =>
+      `Every career has judgment calls. This class shows how ${career.title}s think through tradeoffs, evidence, people, constraints, and consequences.`,
+    reflection: (career) =>
+      `What kind of decision in this role would make you curious enough to investigate instead of guessing?`,
+    proof: (career) =>
+      `Write a decision note with the problem, options, tradeoffs, recommendation, and what you would measure next.`
+  },
+  {
+    focus: "First portfolio move",
+    why: (career) =>
+      `The final class turns curiosity into evidence. A tiny finished project helps you test whether ${career.title} is worth exploring further.`,
+    reflection: (career) =>
+      `After these classes, what is one question you still have before choosing ${career.title} as a serious path?`,
+    proof: (career) =>
+      `Create a one-page career snapshot: what the job does, skills to build, why it fits you, and your first experiment: ${career.startingPoint}`
+  }
+];
+
+function getLessonGuide(career, lesson, index) {
+  const template = lessonGuideTemplates[index] || lessonGuideTemplates[lessonGuideTemplates.length - 1];
+  const skill = career.skills[index % career.skills.length];
+  const secondarySkill = career.skills[(index + 1) % career.skills.length];
+
+  return {
+    focus: template.focus,
+    skill,
+    why: template.why(career, lesson, skill, secondarySkill),
+    reflection: template.reflection(career, lesson, skill, secondarySkill),
+    proof: template.proof(career, lesson, skill, secondarySkill)
+  };
+}
+
 function renderLessons() {
   const career = byActiveCareer();
   const completedLessons = getCompletedLessons(career.id);
@@ -690,19 +1166,36 @@ function renderLessons() {
     .map((lesson, index) => {
       const lessonId = `${career.id}-${index}`;
       const isComplete = completedLessons.includes(index);
+      const guide = getLessonGuide(career, lesson, index);
 
       return `
         <article class="lesson-card ${isComplete ? "completed" : ""}">
           <p class="eyebrow">Class ${index + 1}</p>
           <h3>${lesson.title}</h3>
+          <div class="lesson-tags" aria-label="Lesson focus">
+            <span class="tag">Focus: ${guide.focus}</span>
+            <span class="tag">Skill: ${guide.skill}</span>
+          </div>
           <p>${lesson.objective}</p>
           <dl>
+            <div>
+              <dt>Why it matters</dt>
+              <dd>${guide.why}</dd>
+            </div>
             <div>
               <dt>Try this</dt>
               <dd>${lesson.activity}</dd>
             </div>
             <div>
-              <dt>Remember</dt>
+              <dt>Reflect</dt>
+              <dd>${guide.reflection}</dd>
+            </div>
+            <div>
+              <dt>Proof to save</dt>
+              <dd>${guide.proof}</dd>
+            </div>
+            <div>
+              <dt>Career insight</dt>
               <dd>${lesson.takeaway}</dd>
             </div>
           </dl>
@@ -744,6 +1237,7 @@ function toggleLesson(index) {
 
 function initialize() {
   careerCount.textContent = careers.length;
+  miniClassCount.textContent = careers.reduce((total, career) => total + career.lessons.length, 0);
   renderFields();
   renderCareerOptions();
   renderQuiz();

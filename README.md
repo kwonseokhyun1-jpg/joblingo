@@ -6,9 +6,9 @@ career paths, and complete short class-style lessons for each role.
 
 ## Features
 
-- Browse career paths by field, skills, traits, or keywords.
+- Browse 20 career paths by field, skills, traits, or keywords.
 - Take a personality quiz to get suggested starting points.
-- Learn through four mini classes per career path.
+- Learn through 80 more useful mini classes with reflection prompts and proof-of-learning activities.
 - Track class progress locally in the browser.
 - Run as a dependency-free static web app.
 

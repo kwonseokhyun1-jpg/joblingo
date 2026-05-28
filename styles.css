@@ -575,7 +575,14 @@ select:focus,
   margin: 18px 0;
 }
 
-.lesson-card div {
+.lesson-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.lesson-card dl > div {
   padding: 14px;
   border-radius: 14px;
   background: #f8f4ee;
