@@ -29,7 +29,7 @@ cloud machine, so it will not load unless the port is forwarded.
 This repository includes a GitHub Actions workflow that deploys the static app
 to GitHub Pages from `main` and Cursor feature branches.
 
-Expected live site: [https://kwonseokhyun1-jpg.github.io/joblingo/](https://kwonseokhyun1-jpg.github.io/joblingo/)
+Expected live site: [https://kwonseokhyun1-jpg.github.io/pathdiscover/](https://kwonseokhyun1-jpg.github.io/pathdiscover/)
 
 If that URL returns 404, check the repository settings in GitHub:
 
