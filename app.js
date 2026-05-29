@@ -2067,7 +2067,107 @@ const supplementalCareerRows = [
   ["emergency-management-specialist", "Emergency Management Specialist", "Public Safety", ["structured", "resilient", "communicator", "practical"], ["Preparedness planning", "Incident coordination", "Risk assessment", "Public communication"]],
   ["dispatcher-911", "911 Dispatcher", "Public Safety", ["resilient", "communicator", "structured", "empathetic"], ["Emergency calls", "Radio communication", "Prioritization", "Calm under pressure"]],
   ["security-guard", "Security Guard", "Public Safety", ["practical", "resilient", "communicator", "structured"], ["Observation", "Patrol", "Incident reporting", "Access control"]],
-  ["correctional-officer", "Correctional Officer", "Public Safety", ["resilient", "structured", "communicator", "practical"], ["Safety procedures", "Conflict management", "Observation", "Report writing"]]
+  ["correctional-officer", "Correctional Officer", "Public Safety", ["resilient", "structured", "communicator", "practical"], ["Safety procedures", "Conflict management", "Observation", "Report writing"]],
+  ["probation-officer", "Probation Officer", "Public Safety", ["communicator", "structured", "empathetic", "resilient"], ["Case management", "Court reports", "Motivational interviewing", "Risk monitoring"]],
+  ["victim-advocate", "Victim Advocate", "Human Services", ["empathetic", "communicator", "resilient", "structured"], ["Crisis support", "Resource navigation", "Safety planning", "Documentation"]],
+  ["school-counselor", "School Counselor", "Education", ["empathetic", "communicator", "structured", "resilient"], ["Student advising", "Crisis response", "Group facilitation", "Career planning"]],
+  ["academic-advisor", "Academic Advisor", "Education", ["communicator", "empathetic", "structured", "practical"], ["Degree planning", "Student support", "Policy knowledge", "Goal setting"]],
+  ["admissions-counselor", "Admissions Counselor", "Education", ["communicator", "empathetic", "structured", "resilient"], ["Student recruitment", "Application review", "Presentation", "Follow-up"]],
+  ["financial-aid-advisor", "Financial Aid Advisor", "Education", ["structured", "communicator", "empathetic", "analytical"], ["Aid rules", "Student advising", "Document review", "Problem solving"]],
+  ["registrar-coordinator", "Registrar Coordinator", "Education", ["structured", "practical", "communicator", "analytical"], ["Student records", "Scheduling", "Policy compliance", "Data accuracy"]],
+  ["curriculum-developer", "Curriculum Developer", "Education", ["creative", "structured", "communicator", "analytical"], ["Learning objectives", "Lesson design", "Assessment", "Content organization"]],
+  ["instructional-designer", "Instructional Designer", "Education", ["creative", "structured", "empathetic", "analytical"], ["Learning design", "Storyboarding", "Assessment", "E-learning tools"]],
+  ["corporate-trainer", "Corporate Trainer", "Education", ["communicator", "empathetic", "structured", "creative"], ["Workshop facilitation", "Coaching", "Training materials", "Feedback"]],
+  ["childcare-worker", "Childcare Worker", "Education", ["empathetic", "hands-on", "communicator", "resilient"], ["Child supervision", "Activity planning", "Safety", "Family communication"]],
+  ["preschool-teacher", "Preschool Teacher", "Education", ["empathetic", "creative", "structured", "communicator"], ["Early learning", "Classroom routines", "Play-based teaching", "Observation"]],
+  ["special-education-teacher", "Special Education Teacher", "Education", ["empathetic", "structured", "resilient", "communicator"], ["IEP support", "Adapted instruction", "Behavior support", "Collaboration"]],
+  ["esl-teacher", "ESL Teacher", "Education", ["communicator", "empathetic", "creative", "structured"], ["Language instruction", "Lesson planning", "Cultural awareness", "Assessment"]],
+  ["tutor", "Tutor", "Education", ["communicator", "empathetic", "analytical", "structured"], ["Explanation", "Practice planning", "Assessment", "Encouragement"]],
+  ["museum-educator", "Museum Educator", "Education", ["communicator", "creative", "curious", "empathetic"], ["Public programs", "Storytelling", "Group facilitation", "Content research"]],
+  ["archivist", "Archivist", "Education", ["structured", "curious", "analytical", "independent"], ["Preservation", "Cataloging", "Research support", "Digital collections"]],
+  ["records-manager", "Records Manager", "Operations", ["structured", "analytical", "practical", "independent"], ["Records policy", "Retention schedules", "Information governance", "Compliance"]],
+  ["knowledge-manager", "Knowledge Manager", "Operations", ["structured", "communicator", "analytical", "curious"], ["Knowledge bases", "Process documentation", "Searchability", "Content governance"]],
+  ["office-manager", "Office Manager", "Operations", ["structured", "communicator", "practical", "resilient"], ["Office operations", "Vendor coordination", "Scheduling", "Team support"]],
+  ["executive-assistant", "Executive Assistant", "Operations", ["structured", "communicator", "resilient", "practical"], ["Calendar management", "Executive communication", "Travel planning", "Prioritization"]],
+  ["personal-assistant", "Personal Assistant", "Operations", ["structured", "practical", "communicator", "resilient"], ["Scheduling", "Errand coordination", "Confidentiality", "Problem solving"]],
+  ["virtual-assistant", "Virtual Assistant", "Operations", ["independent", "structured", "communicator", "practical"], ["Remote administration", "Email management", "Scheduling", "Online tools"]],
+  ["data-coordinator", "Data Coordinator", "Operations", ["structured", "analytical", "practical", "independent"], ["Data tracking", "Quality checks", "Spreadsheets", "Reporting"]],
+  ["reporting-analyst", "Reporting Analyst", "Business", ["analytical", "structured", "communicator", "independent"], ["Dashboards", "Metrics", "Data cleaning", "Business reporting"]],
+  ["pricing-analyst", "Pricing Analyst", "Business", ["analytical", "structured", "curious", "practical"], ["Pricing models", "Market research", "Spreadsheet analysis", "Recommendation writing"]],
+  ["revenue-operations-analyst", "Revenue Operations Analyst", "Business", ["analytical", "structured", "communicator", "practical"], ["CRM data", "Sales process", "Forecasting", "Dashboarding"]],
+  ["sales-operations-specialist", "Sales Operations Specialist", "Business", ["structured", "analytical", "communicator", "practical"], ["Pipeline tracking", "Sales tools", "Process improvement", "Reporting"]],
+  ["business-development-representative", "Business Development Representative", "Sales", ["communicator", "resilient", "curious", "structured"], ["Prospecting", "Outreach", "Discovery calls", "CRM notes"]],
+  ["partnerships-manager", "Partnerships Manager", "Business", ["communicator", "strategic", "empathetic", "structured"], ["Relationship building", "Negotiation", "Program planning", "Follow-up"]],
+  ["channel-manager", "Channel Manager", "Business", ["communicator", "analytical", "structured", "resilient"], ["Partner enablement", "Sales strategy", "Reporting", "Relationship management"]],
+  ["customer-onboarding-specialist", "Customer Onboarding Specialist", "Customer Experience", ["communicator", "empathetic", "structured", "practical"], ["Onboarding plans", "Product training", "Customer goals", "Follow-up"]],
+  ["implementation-specialist", "Implementation Specialist", "Customer Experience", ["structured", "communicator", "analytical", "practical"], ["Configuration", "Project coordination", "Customer training", "Troubleshooting"]],
+  ["solutions-consultant", "Solutions Consultant", "Technology", ["communicator", "analytical", "practical", "curious"], ["Demos", "Requirements", "Technical discovery", "Solution design"]],
+  ["sales-engineer", "Sales Engineer", "Technology", ["communicator", "analytical", "builder", "practical"], ["Technical demos", "Customer discovery", "Product knowledge", "Solution mapping"]],
+  ["product-marketing-manager", "Product Marketing Manager", "Marketing", ["communicator", "creative", "analytical", "structured"], ["Positioning", "Launch planning", "Messaging", "Market research"]],
+  ["brand-manager", "Brand Manager", "Marketing", ["creative", "communicator", "analytical", "structured"], ["Brand strategy", "Campaign planning", "Customer insight", "Creative briefs"]],
+  ["growth-marketer", "Growth Marketer", "Marketing", ["analytical", "creative", "curious", "structured"], ["Experimentation", "Funnels", "Analytics", "Campaign testing"]],
+  ["affiliate-marketing-manager", "Affiliate Marketing Manager", "Marketing", ["analytical", "communicator", "structured", "practical"], ["Partner tracking", "Campaign reporting", "Negotiation", "Performance analysis"]],
+  ["influencer-marketing-coordinator", "Influencer Marketing Coordinator", "Marketing", ["communicator", "creative", "structured", "curious"], ["Creator outreach", "Campaign briefs", "Social analytics", "Relationship management"]],
+  ["community-outreach-coordinator", "Community Outreach Coordinator", "Nonprofit", ["communicator", "empathetic", "structured", "resilient"], ["Outreach planning", "Partnerships", "Event support", "Resource navigation"]],
+  ["volunteer-coordinator", "Volunteer Coordinator", "Nonprofit", ["communicator", "empathetic", "structured", "practical"], ["Volunteer scheduling", "Training", "Recognition", "Program logistics"]],
+  ["case-manager", "Case Manager", "Human Services", ["empathetic", "structured", "communicator", "resilient"], ["Care coordination", "Resource referrals", "Documentation", "Advocacy"]],
+  ["housing-specialist", "Housing Specialist", "Human Services", ["empathetic", "communicator", "practical", "resilient"], ["Housing resources", "Client intake", "Documentation", "Landlord communication"]],
+  ["employment-specialist", "Employment Specialist", "Human Services", ["communicator", "empathetic", "structured", "practical"], ["Job coaching", "Employer outreach", "Resume support", "Placement tracking"]],
+  ["rehabilitation-counselor", "Rehabilitation Counselor", "Human Services", ["empathetic", "communicator", "structured", "resilient"], ["Vocational planning", "Counseling", "Resource coordination", "Goal setting"]],
+  ["substance-abuse-counselor", "Substance Abuse Counselor", "Human Services", ["empathetic", "resilient", "communicator", "structured"], ["Counseling", "Relapse planning", "Group facilitation", "Documentation"]],
+  ["behavior-technician", "Behavior Technician", "Healthcare", ["empathetic", "structured", "hands-on", "resilient"], ["Behavior support", "Data collection", "Skill practice", "Caregiver communication"]],
+  ["patient-care-technician", "Patient Care Technician", "Healthcare", ["hands-on", "empathetic", "structured", "resilient"], ["Vitals", "Patient assistance", "Safety", "Clinical teamwork"]],
+  ["home-health-aide", "Home Health Aide", "Healthcare", ["empathetic", "hands-on", "practical", "resilient"], ["Daily living support", "Observation", "Safety", "Client communication"]],
+  ["phlebotomist", "Phlebotomist", "Healthcare", ["hands-on", "structured", "empathetic", "practical"], ["Blood draws", "Patient identification", "Specimen handling", "Safety"]],
+  ["sterile-processing-technician", "Sterile Processing Technician", "Healthcare", ["structured", "hands-on", "practical", "resilient"], ["Instrument cleaning", "Sterilization", "Inventory", "Safety protocols"]],
+  ["dental-assistant", "Dental Assistant", "Healthcare", ["hands-on", "empathetic", "structured", "communicator"], ["Chairside support", "Sterilization", "Patient preparation", "Records"]],
+  ["veterinary-technician", "Veterinary Technician", "Healthcare", ["hands-on", "empathetic", "structured", "resilient"], ["Animal nursing", "Lab support", "Client education", "Clinical records"]],
+  ["optician", "Optician", "Healthcare", ["practical", "communicator", "structured", "visual"], ["Eyewear fitting", "Prescription reading", "Customer advising", "Measurements"]],
+  ["medical-sales-representative", "Medical Sales Representative", "Sales", ["communicator", "resilient", "analytical", "practical"], ["Product knowledge", "Relationship building", "Territory planning", "Presentations"]],
+  ["biotech-research-associate", "Biotech Research Associate", "Science", ["analytical", "structured", "curious", "hands-on"], ["Lab experiments", "Data recording", "Protocol work", "Scientific communication"]],
+  ["clinical-research-coordinator", "Clinical Research Coordinator", "Healthcare", ["structured", "communicator", "analytical", "empathetic"], ["Study coordination", "Participant communication", "Regulatory documents", "Data collection"]],
+  ["regulatory-affairs-specialist", "Regulatory Affairs Specialist", "Healthcare", ["structured", "analytical", "communicator", "practical"], ["Regulatory submissions", "Policy review", "Documentation", "Compliance tracking"]],
+  ["quality-control-inspector", "Quality Control Inspector", "Manufacturing", ["structured", "analytical", "practical", "hands-on"], ["Inspection", "Measurement", "Defect reporting", "Standards"]],
+  ["quality-engineer", "Quality Engineer", "Engineering", ["analytical", "structured", "practical", "builder"], ["Root cause analysis", "Process controls", "Testing", "Quality systems"]],
+  ["process-engineer", "Process Engineer", "Engineering", ["analytical", "builder", "structured", "practical"], ["Process mapping", "Optimization", "Data analysis", "Manufacturing systems"]],
+  ["manufacturing-engineer", "Manufacturing Engineer", "Engineering", ["builder", "analytical", "practical", "structured"], ["Production systems", "Lean methods", "Tooling", "Process improvement"]],
+  ["production-supervisor", "Production Supervisor", "Manufacturing", ["communicator", "structured", "practical", "resilient"], ["Shift leadership", "Safety", "Output tracking", "Coaching"]],
+  ["cnc-operator", "CNC Operator", "Manufacturing", ["hands-on", "structured", "practical", "analytical"], ["CNC machines", "Measurement", "Setup", "Quality checks"]],
+  ["assembly-technician", "Assembly Technician", "Manufacturing", ["hands-on", "practical", "structured", "resilient"], ["Assembly work", "Tool use", "Quality checks", "Safety"]],
+  ["electronics-technician", "Electronics Technician", "Technology", ["hands-on", "analytical", "practical", "structured"], ["Circuits", "Testing equipment", "Troubleshooting", "Soldering"]],
+  ["field-service-technician", "Field Service Technician", "Technology", ["hands-on", "communicator", "practical", "resilient"], ["Equipment repair", "Customer support", "Travel readiness", "Diagnostics"]],
+  ["telecommunications-technician", "Telecommunications Technician", "Technology", ["hands-on", "practical", "structured", "analytical"], ["Cabling", "Network equipment", "Signal testing", "Safety"]],
+  ["fiber-optic-technician", "Fiber Optic Technician", "Technology", ["hands-on", "structured", "practical", "analytical"], ["Fiber splicing", "Testing", "Installation", "Troubleshooting"]],
+  ["drone-operator", "Drone Operator", "Technology", ["hands-on", "visual", "practical", "structured"], ["Flight planning", "Safety rules", "Aerial imaging", "Equipment checks"]],
+  ["uav-technician", "UAV Technician", "Technology", ["hands-on", "analytical", "builder", "practical"], ["Drone repair", "Electronics", "Testing", "Maintenance"]],
+  ["3d-printing-technician", "3D Printing Technician", "Manufacturing", ["hands-on", "builder", "structured", "creative"], ["3D printers", "Materials", "Slicing software", "Quality checks"]],
+  ["prototype-technician", "Prototype Technician", "Engineering", ["hands-on", "builder", "creative", "practical"], ["Fabrication", "Testing", "Iteration", "Documentation"]],
+  ["materials-scientist", "Materials Scientist", "Science", ["analytical", "curious", "structured", "builder"], ["Materials testing", "Lab analysis", "Experiment design", "Technical writing"]],
+  ["chemical-engineer", "Chemical Engineer", "Engineering", ["analytical", "builder", "structured", "practical"], ["Process design", "Chemistry", "Safety", "Optimization"]],
+  ["transportation-planner", "Transportation Planner", "Government", ["analytical", "communicator", "structured", "practical"], ["Transit analysis", "Public engagement", "GIS", "Policy writing"]],
+  ["traffic-engineer", "Traffic Engineer", "Engineering", ["analytical", "practical", "structured", "communicator"], ["Traffic modeling", "Safety analysis", "Signal timing", "Design standards"]],
+  ["real-estate-appraiser", "Real Estate Appraiser", "Business", ["analytical", "practical", "structured", "independent"], ["Property valuation", "Market comparison", "Inspection", "Report writing"]],
+  ["property-manager", "Property Manager", "Business", ["communicator", "practical", "structured", "resilient"], ["Tenant relations", "Maintenance coordination", "Leasing", "Budgeting"]],
+  ["leasing-consultant", "Leasing Consultant", "Sales", ["communicator", "empathetic", "practical", "resilient"], ["Property tours", "Follow-up", "Sales", "Customer service"]],
+  ["mortgage-processor", "Mortgage Processor", "Finance", ["structured", "analytical", "communicator", "practical"], ["Loan documents", "Verification", "Deadline tracking", "Customer updates"]],
+  ["escrow-officer", "Escrow Officer", "Finance", ["structured", "communicator", "practical", "analytical"], ["Closing documents", "Funds tracking", "Compliance", "Client coordination"]],
+  ["title-examiner", "Title Examiner", "Legal", ["analytical", "structured", "independent", "practical"], ["Property records", "Legal descriptions", "Document review", "Risk flags"]],
+  ["insurance-underwriter", "Insurance Underwriter", "Finance", ["analytical", "structured", "practical", "independent"], ["Risk review", "Policy terms", "Decision rules", "Documentation"]],
+  ["benefits-specialist", "Benefits Specialist", "Human Resources", ["structured", "communicator", "empathetic", "analytical"], ["Benefits plans", "Employee support", "Compliance", "Vendor coordination"]],
+  ["compensation-analyst", "Compensation Analyst", "Human Resources", ["analytical", "structured", "communicator", "practical"], ["Pay data", "Market pricing", "Spreadsheets", "Policy review"]],
+  ["employee-relations-specialist", "Employee Relations Specialist", "Human Resources", ["communicator", "empathetic", "structured", "resilient"], ["Workplace investigations", "Conflict resolution", "Policy guidance", "Documentation"]],
+  ["talent-acquisition-specialist", "Talent Acquisition Specialist", "Human Resources", ["communicator", "structured", "empathetic", "resilient"], ["Sourcing", "Interview coordination", "Candidate advising", "Hiring strategy"]],
+  ["learning-and-development-manager", "Learning and Development Manager", "Human Resources", ["communicator", "creative", "structured", "empathetic"], ["Training strategy", "Program design", "Facilitation", "Measurement"]],
+  ["diversity-inclusion-specialist", "Diversity and Inclusion Specialist", "Human Resources", ["empathetic", "communicator", "structured", "analytical"], ["Inclusion programs", "Facilitation", "Data review", "Policy support"]],
+  ["change-management-specialist", "Change Management Specialist", "Business", ["communicator", "empathetic", "structured", "resilient"], ["Stakeholder analysis", "Communication plans", "Training", "Adoption tracking"]],
+  ["management-consultant", "Management Consultant", "Business", ["analytical", "communicator", "structured", "curious"], ["Problem framing", "Research", "Presentation", "Recommendation design"]],
+  ["operations-research-analyst", "Operations Research Analyst", "Business", ["analytical", "structured", "curious", "independent"], ["Optimization", "Modeling", "Data analysis", "Decision support"]],
+  ["scrum-master", "Scrum Master", "Technology", ["communicator", "structured", "empathetic", "resilient"], ["Agile facilitation", "Team coaching", "Impediment removal", "Planning"]],
+  ["release-manager", "Release Manager", "Technology", ["structured", "communicator", "practical", "resilient"], ["Release planning", "Coordination", "Risk management", "Deployment tracking"]],
+  ["site-reliability-engineer", "Site Reliability Engineer", "Technology", ["analytical", "builder", "resilient", "structured"], ["Monitoring", "Automation", "Incident response", "Reliability design"]],
+  ["ai-prompt-engineer", "AI Prompt Engineer", "Technology", ["creative", "analytical", "communicator", "curious"], ["Prompt design", "Evaluation", "Workflow design", "Experimentation"]],
+  ["ai-product-analyst", "AI Product Analyst", "Technology", ["analytical", "curious", "communicator", "structured"], ["AI evaluation", "Product metrics", "User research", "Risk analysis"]],
+  ["machine-learning-operations-engineer", "Machine Learning Operations Engineer", "Technology", ["builder", "analytical", "structured", "resilient"], ["Model deployment", "Pipelines", "Monitoring", "Cloud systems"]]
 ];
 
 function buildSupplementalCareer([id, title, field, traits, skills]) {
@@ -2936,6 +3036,41 @@ function getReadinessChecklist(career, lesson, guide) {
   ];
 }
 
+function getRealWorldScenario(career, lesson, guide, index) {
+  if (lesson.type === "prerequisites") {
+    return `Imagine you are comparing two ways into ${career.title}: one formal program and one lower-cost first exposure option. Your job is to decide which path gives you the clearest evidence that the work fits before you spend serious time or money.`;
+  }
+
+  const scenarios = [
+    `A beginner shadows a ${career.title} for one hour and must explain what the role actually does to a friend who has never heard of it.`,
+    `A team asks for help with a small ${career.field.toLowerCase()} problem, and you need to decide which information matters before suggesting a next step.`,
+    `Someone is stuck because ${lesson.activity.toLowerCase()} feels too broad, so you narrow it into a specific example they can finish today.`,
+    `A mentor asks you to prove that you understand ${career.title} beyond the job title, using one artifact and one honest reflection.`
+  ];
+
+  return scenarios[Math.max(index - 1, 0) % scenarios.length];
+}
+
+function getCommonMistakes(career, lesson, guide) {
+  return [
+    `Only reading about ${career.title} instead of trying a small task connected to ${guide.skill.toLowerCase()}.`,
+    "Choosing a path because the title sounds impressive without checking the daily work style.",
+    "Skipping reflection; the point is to notice fit, not to force yourself to like every career."
+  ];
+}
+
+function getMentorQuestions(career, lesson, guide) {
+  return [
+    `What does a strong beginner example of ${guide.skill.toLowerCase()} look like in this field?`,
+    `Which part of ${career.title} surprises most people after they see the real work?`,
+    "What would you tell someone to practice first if they had only one week?"
+  ];
+}
+
+function getClassWrapUp(career, lesson, guide) {
+  return `By the end of this class, you should have one clearer opinion about ${career.title}: what attracts you, what concerns you, and what you would test next. If you are still unsure, that is useful data too; compare this path with another role in ${career.field} and look for the work style that feels more natural.`;
+}
+
 function renderLessons() {
   const career = byActiveCareer();
   const completedLessons = getCompletedLessons(career.id);
@@ -2983,6 +3118,10 @@ function renderLessons() {
                 </ol>
               </dd>
             </div>
+            <div class="wide-note">
+              <dt>Real-world scenario</dt>
+              <dd>${getRealWorldScenario(career, lesson, guide, index)}</dd>
+            </div>
             ${lesson.type === "prerequisites" ? `
               <div>
                 <dt>Education path</dt>
@@ -3002,10 +3141,26 @@ function renderLessons() {
               </div>
             ` : ""}
             <div>
+              <dt>Common mistakes</dt>
+              <dd>
+                <ul class="lesson-steps compact">
+                  ${getCommonMistakes(career, lesson, guide).map((mistake) => `<li>${mistake}</li>`).join("")}
+                </ul>
+              </dd>
+            </div>
+            <div>
               <dt>Vocabulary to know</dt>
               <dd>
                 <ul class="lesson-steps compact">
                   ${getLessonVocabulary(career, guide).map((term) => `<li>${term}</li>`).join("")}
+                </ul>
+              </dd>
+            </div>
+            <div>
+              <dt>Ask a mentor</dt>
+              <dd>
+                <ul class="lesson-steps compact">
+                  ${getMentorQuestions(career, lesson, guide).map((question) => `<li>${question}</li>`).join("")}
                 </ul>
               </dd>
             </div>
@@ -3028,6 +3183,10 @@ function renderLessons() {
             <div>
               <dt>Career insight</dt>
               <dd>${lesson.takeaway}</dd>
+            </div>
+            <div class="wide-note">
+              <dt>Class wrap-up</dt>
+              <dd>${getClassWrapUp(career, lesson, guide)}</dd>
             </div>
           </dl>
           <button
