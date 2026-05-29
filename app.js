@@ -2693,28 +2693,44 @@ function renderCareerCard(career) {
   return `
     <article class="career-card">
       <div class="career-card-top">
-        <span class="career-icon" aria-hidden="true">${initials}</span>
         <div class="card-meta">
           <span class="tag field-tag">${career.field}</span>
           <span class="tag">${total} classes</span>
         </div>
       </div>
-      <h3>${career.title}</h3>
-      <p>${career.summary}</p>
-      <div class="skill-strip" aria-label="${career.title} starter skills">
-        ${career.skills.slice(0, 3).map((skill) => `<span>${skill}</span>`).join("")}
+      <div class="career-title-row">
+        <span class="career-icon" aria-hidden="true">${initials}</span>
+        <h3>${career.title}</h3>
       </div>
-      <div class="career-details" aria-label="${career.title} details">
-        <div><span>Good fit if</span><strong>${career.traits.slice(0, 2).join(", ")}</strong></div>
-        <div><span>First move</span><strong>${career.startingPoint}</strong></div>
-        <div><span>Progress</span><strong>${completed}/${total} classes</strong></div>
+      <p class="career-summary">${career.summary}</p>
+      <div class="career-section" aria-label="${career.title} fit">
+        <span class="mini-label">Best for</span>
+        <div class="fit-chips">
+          ${career.traits.slice(0, 3).map((trait) => `<span>${trait}</span>`).join("")}
+        </div>
       </div>
-      <div class="card-progress" aria-label="${career.title} class progress">
-        <span style="width: ${progressPercent}%"></span>
+      <div class="career-section" aria-label="${career.title} starter skills">
+        <span class="mini-label">Starter skills</span>
+        <div class="skill-strip">
+          ${career.skills.slice(0, 3).map((skill) => `<span>${skill}</span>`).join("")}
+        </div>
       </div>
-      <button class="button secondary" type="button" data-career-id="${career.id}">
-        Start this path
-      </button>
+      <div class="try-first">
+        <span class="mini-label">Try first</span>
+        <p>${career.startingPoint}</p>
+      </div>
+      <div class="career-card-footer">
+        <div class="progress-summary">
+          <span class="mini-label">Progress</span>
+          <strong>${completed}/${total} classes</strong>
+          <div class="card-progress" aria-label="${career.title} class progress">
+            <span style="width: ${progressPercent}%"></span>
+          </div>
+        </div>
+        <button class="button secondary" type="button" data-career-id="${career.id}">
+          Start path
+        </button>
+      </div>
     </article>
   `;
 }
