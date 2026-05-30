@@ -45,7 +45,7 @@ set status = 'approved', reviewed_at = now()
 where id = 'REQUEST_UUID_HERE';
 ```
 
-Only users with `status = 'approved'` for a career can create threads or replies in that career forum (enforced by Row Level Security).
+Posts store `is_verified_pro` at publish time so the checkmark stays accurate even if verification status changes later.
 
 ## Run locally
 

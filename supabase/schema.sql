@@ -35,6 +35,7 @@ create table if not exists public.forum_threads (
   body text not null check (char_length(body) between 20 and 4000),
   display_name text not null,
   years_label text,
+  is_verified_pro boolean not null default false,
   reply_count integer not null default 0,
   last_reply_at timestamptz,
   created_at timestamptz not null default now(),
@@ -48,6 +49,7 @@ create table if not exists public.forum_replies (
   body text not null check (char_length(body) between 5 and 3000),
   display_name text not null,
   years_label text,
+  is_verified_pro boolean not null default false,
   created_at timestamptz not null default now()
 );
 
@@ -112,17 +114,9 @@ create policy "Users update own pending verification requests"
 create policy "Forum threads are public"
   on public.forum_threads for select using (true);
 
-create policy "Verified professionals can start threads"
+create policy "Signed-in users can start threads"
   on public.forum_threads for insert
-  with check (
-    auth.uid() = user_id
-    and exists (
-      select 1 from public.verification_requests vr
-      where vr.user_id = auth.uid()
-        and vr.career_id = forum_threads.career_id
-        and vr.status = 'approved'
-    )
-  );
+  with check (auth.uid() = user_id);
 
 create policy "Authors can update own threads"
   on public.forum_threads for update
@@ -136,20 +130,9 @@ create policy "Authors can delete own threads"
 create policy "Forum replies are public"
   on public.forum_replies for select using (true);
 
-create policy "Verified professionals can reply in their career"
+create policy "Signed-in users can reply"
   on public.forum_replies for insert
-  with check (
-    auth.uid() = user_id
-    and exists (
-      select 1
-      from public.forum_threads ft
-      join public.verification_requests vr
-        on vr.career_id = ft.career_id
-       and vr.user_id = auth.uid()
-       and vr.status = 'approved'
-      where ft.id = forum_replies.thread_id
-    )
-  );
+  with check (auth.uid() = user_id);
 
 create policy "Authors can update own replies"
   on public.forum_replies for update
@@ -181,3 +164,7 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function public.handle_new_user();
+
+-- Migration for existing projects:
+-- alter table public.forum_threads add column if not exists is_verified_pro boolean not null default false;
+-- alter table public.forum_replies add column if not exists is_verified_pro boolean not null default false;

@@ -1145,10 +1145,39 @@ select:focus,
   background: #fdeaea;
 }
 
+.forum-author-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.pro-checkmark {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  border-radius: 999px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1d7f7a, #35a7a0);
+  box-shadow: 0 4px 10px rgba(29, 127, 122, 0.28);
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.pro-checkmark-inline {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 .verified-badge {
   display: inline-flex;
   align-items: center;
-  margin-left: 8px;
+  margin-left: 0;
   padding: 4px 8px;
   border-radius: 999px;
   color: #0f4f4b;

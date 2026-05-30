@@ -7,6 +7,7 @@ const DEMO_THREADS = [
     body: "I expected to write code all day. Instead I spent a lot of time reading documentation, asking questions in standups, and fixing small bugs that taught me how the system actually works.",
     display_name: "Jordan M.",
     years_label: "6 years in software",
+    is_verified_pro: true,
     reply_count: 2,
     last_reply_at: "2026-02-15T11:00:00.000Z",
     created_at: "2026-02-01T10:00:00.000Z"
@@ -19,7 +20,8 @@ const DEMO_THREADS = [
     body: "Short answer: logical thinking matters more than advanced calculus for most product teams. Helpful skills are breaking problems down, communicating clearly, and learning tools steadily.",
     display_name: "Priya K.",
     years_label: "3 years, frontend focus",
-    reply_count: 1,
+    is_verified_pro: true,
+    reply_count: 2,
     last_reply_at: "2026-02-12T09:30:00.000Z",
     created_at: "2026-02-10T14:30:00.000Z"
   },
@@ -31,6 +33,7 @@ const DEMO_THREADS = [
     body: "You are with people on hard days. The clinical tasks are learnable, but pacing yourself and debriefing with your team is part of staying effective long term.",
     display_name: "Alex R.",
     years_label: "8 years in acute care",
+    is_verified_pro: true,
     reply_count: 1,
     last_reply_at: "2026-02-08T16:00:00.000Z",
     created_at: "2026-02-02T09:15:00.000Z"
@@ -43,6 +46,7 @@ const DEMO_THREADS = [
     body: "On my team, research and facilitation are at least half the work. Wireframes matter, but the bigger skill is helping everyone agree on the real user problem first.",
     display_name: "Sam L.",
     years_label: "5 years in product design",
+    is_verified_pro: true,
     reply_count: 0,
     last_reply_at: null,
     created_at: "2026-02-10T16:45:00.000Z"
@@ -56,6 +60,7 @@ const DEMO_REPLIES = [
     user_id: "demo-user-2",
     display_name: "Priya K.",
     years_label: "3 years, frontend focus",
+    is_verified_pro: true,
     body: "Same here. My first useful skill was learning how to read error messages and search for them without panicking.",
     created_at: "2026-02-08T12:00:00.000Z"
   },
@@ -65,6 +70,7 @@ const DEMO_REPLIES = [
     user_id: "demo-user-5",
     display_name: "Chris T.",
     years_label: "10 years, backend",
+    is_verified_pro: true,
     body: "Mentorship helped. Find someone willing to review your small pull requests and explain why they suggested changes.",
     created_at: "2026-02-15T11:00:00.000Z"
   },
@@ -74,6 +80,7 @@ const DEMO_REPLIES = [
     user_id: "demo-user-1",
     display_name: "Jordan M.",
     years_label: "6 years in software",
+    is_verified_pro: true,
     body: "If you like puzzles and patience, you can grow the technical depth over time. Do not let imposter syndrome stop you from trying small projects.",
     created_at: "2026-02-12T09:30:00.000Z"
   },
@@ -83,8 +90,19 @@ const DEMO_REPLIES = [
     user_id: "demo-user-6",
     display_name: "Morgan P.",
     years_label: "5 years, med-surg",
+    is_verified_pro: true,
     body: "Having a routine after difficult shifts, even a short walk or journal note, made a big difference for me.",
     created_at: "2026-02-08T16:00:00.000Z"
+  },
+  {
+    id: "demo-reply-5",
+    thread_id: "demo-thread-2",
+    user_id: "demo-explorer-1",
+    display_name: "Taylor S.",
+    years_label: null,
+    is_verified_pro: false,
+    body: "Thanks for answering this — I am still in school and trying to figure out if software is the right path for me.",
+    created_at: "2026-02-11T18:00:00.000Z"
   }
 ];
 
@@ -430,29 +448,45 @@ async function submitVerificationRequest(career, formData) {
   return data;
 }
 
-async function requireVerified(career) {
+async function requireSignedIn() {
   const user = await getCurrentUser();
   if (!user) {
-    throw new Error("Sign in to participate in the forum.");
+    throw new Error("Sign in to post in the forum.");
   }
+  return user;
+}
 
+async function getPostingContext(career) {
+  const user = await requireSignedIn();
   const verification = await fetchVerificationForCareer(user.id, career.id);
-  if (!isVerified(verification)) {
-    throw new Error("You need approved verification for this career before posting.");
+  const isVerifiedPro = isVerified(verification);
+
+  return {
+    user,
+    verification,
+    isVerifiedPro,
+    yearsLabel: isVerifiedPro ? verification.years_experience : ""
+  };
+}
+
+function renderVerifiedCheckmark(isVerifiedPro) {
+  if (!isVerifiedPro) {
+    return "";
   }
 
-  return { user, verification };
+  return `<span class="pro-checkmark" title="Verified professional">✓</span>`;
 }
 
 async function createThread(career, title, body, yearsLabel) {
-  const { user, verification } = await requireVerified(career);
+  const { user, verification, isVerifiedPro } = await getPostingContext(career);
   const payload = {
     career_id: career.id,
     user_id: user.id,
     title: title.trim(),
     body: body.trim(),
     display_name: getDisplayName(user),
-    years_label: yearsLabel.trim() || verification.years_experience,
+    years_label: isVerifiedPro ? yearsLabel.trim() || verification.years_experience : yearsLabel.trim() || null,
+    is_verified_pro: isVerifiedPro,
     reply_count: 0,
     last_reply_at: null
   };
@@ -480,13 +514,14 @@ async function createThread(career, title, body, yearsLabel) {
 }
 
 async function createReply(threadId, career, body, yearsLabel) {
-  const { user, verification } = await requireVerified(career);
+  const { user, verification, isVerifiedPro } = await getPostingContext(career);
   const payload = {
     thread_id: threadId,
     user_id: user.id,
     body: body.trim(),
     display_name: getDisplayName(user),
-    years_label: yearsLabel.trim() || verification.years_experience
+    years_label: isVerifiedPro ? yearsLabel.trim() || verification.years_experience : yearsLabel.trim() || null,
+    is_verified_pro: isVerifiedPro
   };
 
   if (isDemoMode()) {
@@ -538,7 +573,7 @@ function renderAuthPanel(user) {
   return `
     <form class="forum-form forum-auth-form" data-form="auth">
       <h4>Join the forum</h4>
-      <p class="form-hint">Sign in to request verification. Only verified professionals can start topics and reply.</p>
+      <p class="form-hint">Sign in to start topics and reply. Verified professionals get a checkmark on their posts.</p>
       <label>
         Display name
         <input name="displayName" type="text" required maxlength="80" placeholder="Alex Rivera" />
@@ -563,8 +598,9 @@ function renderVerificationPanel(career, verification) {
   if (isVerified(verification)) {
     return `
       <p class="verification-status approved">
+        <span class="pro-checkmark pro-checkmark-inline" title="Verified professional">✓</span>
         <span class="verified-badge">Verified ${escapeHtml(career.title)}</span>
-        You can start topics and reply in this forum.
+        Your posts show the verified pro checkmark in this forum.
       </p>
     `;
   }
@@ -572,7 +608,7 @@ function renderVerificationPanel(career, verification) {
   if (verification?.status === "pending") {
     return `
       <p class="verification-status pending">
-        Verification is under review. You can read the forum now and post after approval.
+        Verification is under review. You can still post now; the checkmark appears after approval.
       </p>
     `;
   }
@@ -587,8 +623,8 @@ function renderVerificationPanel(career, verification) {
 
   return `
     <form class="forum-form" data-form="verification">
-      <h4>Get verified to post</h4>
-      <p class="form-hint">Share your work email and experience so we can confirm you have done this job.</p>
+      <h4>Get the verified pro checkmark</h4>
+      <p class="form-hint">Anyone signed in can post. Verified professionals get a ✓ tag after we confirm your experience.</p>
       <label>
         Years of experience
         <input name="yearsExperience" type="text" required maxlength="80" placeholder="4 years in this role" />
@@ -618,10 +654,12 @@ function renderVerificationPanel(career, verification) {
   `;
 }
 
-function renderNewTopicForm(verification) {
-  if (!isVerified(verification)) {
+function renderNewTopicForm(user, verification) {
+  if (!user) {
     return "";
   }
+
+  const verified = isVerified(verification);
 
   return `
     <form class="forum-form" data-form="new-topic">
@@ -630,10 +668,14 @@ function renderNewTopicForm(verification) {
         Topic title
         <input name="title" type="text" required minlength="8" maxlength="160" placeholder="What is the job really like day to day?" />
       </label>
-      <label>
-        Experience label
+      ${
+        verified
+          ? `<label>
+        Experience label (shown on verified posts)
         <input name="yearsLabel" type="text" maxlength="80" value="${escapeHtml(verification.years_experience || "")}" />
-      </label>
+      </label>`
+          : ""
+      }
       <label>
         Opening post
         <textarea name="body" rows="6" required minlength="20" maxlength="4000" placeholder="Share advice, myths, or things you wish you knew earlier."></textarea>
@@ -645,7 +687,7 @@ function renderNewTopicForm(verification) {
 
 function renderThreadList(threads, career) {
   if (!threads.length) {
-    return `<p class="empty-state">No topics yet. Verified professionals can start the first discussion about ${escapeHtml(career.title)}.</p>`;
+    return `<p class="empty-state">No topics yet. Be the first to ask about ${escapeHtml(career.title)}.</p>`;
   }
 
   return `
@@ -671,7 +713,7 @@ function renderThreadList(threads, career) {
                   </td>
                   <td>
                     <span class="forum-author">${escapeHtml(thread.display_name)}</span>
-                    <span class="verified-badge">Verified</span>
+                    ${renderVerifiedCheckmark(thread.is_verified_pro)}
                   </td>
                   <td>${thread.reply_count || 0}</td>
                   <td>${formatDateTime(thread.last_reply_at || thread.created_at)}</td>
@@ -685,13 +727,13 @@ function renderThreadList(threads, career) {
   `;
 }
 
-function renderPostBlock({ author, yearsLabel, createdAt, body, isOriginal = false }) {
+function renderPostBlock({ author, yearsLabel, createdAt, body, isVerifiedPro = false, isOriginal = false }) {
   return `
     <article class="forum-post ${isOriginal ? "forum-post-original" : ""}">
       <header class="forum-post-header">
-        <div>
+        <div class="forum-author-row">
           <strong>${escapeHtml(author)}</strong>
-          <span class="verified-badge">Verified</span>
+          ${renderVerifiedCheckmark(isVerifiedPro)}
         </div>
         <time datetime="${createdAt}">${formatDateTime(createdAt)}</time>
       </header>
@@ -701,23 +743,28 @@ function renderPostBlock({ author, yearsLabel, createdAt, body, isOriginal = fal
   `;
 }
 
-function renderThreadDetail(thread, replies, verification) {
-  const replyForm = isVerified(verification)
+function renderThreadDetail(thread, replies, user, verification) {
+  const verified = isVerified(verification);
+  const replyForm = user
     ? `
       <form class="forum-form" data-form="reply">
         <h4>Reply to this topic</h4>
-        <label>
-          Experience label
+        ${
+          verified
+            ? `<label>
+          Experience label (optional, for verified posts)
           <input name="yearsLabel" type="text" maxlength="80" value="${escapeHtml(verification.years_experience || "")}" />
-        </label>
+        </label>`
+            : ""
+        }
         <label>
           Your reply
-          <textarea name="body" rows="5" required minlength="5" maxlength="3000" placeholder="Add your perspective or answer questions from explorers."></textarea>
+          <textarea name="body" rows="5" required minlength="5" maxlength="3000" placeholder="Ask a question, share your perspective, or add advice."></textarea>
         </label>
         <button class="button primary" type="submit">Post reply</button>
       </form>
     `
-    : `<p class="form-hint">Request verification to reply in this forum.</p>`;
+    : `<p class="form-hint">Sign in to reply in this forum.</p>`;
 
   return `
     <div class="forum-thread-view">
@@ -728,6 +775,7 @@ function renderThreadDetail(thread, replies, verification) {
         yearsLabel: thread.years_label,
         createdAt: thread.created_at,
         body: thread.body,
+        isVerifiedPro: thread.is_verified_pro,
         isOriginal: true
       })}
       <div class="forum-replies">
@@ -740,7 +788,8 @@ function renderThreadDetail(thread, replies, verification) {
                     author: reply.display_name,
                     yearsLabel: reply.years_label,
                     createdAt: reply.created_at,
-                    body: reply.body
+                    body: reply.body,
+                    isVerifiedPro: reply.is_verified_pro
                   })
                 )
                 .join("")
@@ -765,7 +814,7 @@ async function renderCareerForum(career, container) {
     const verification = user ? await fetchVerificationForCareer(user.id, career.id) : null;
 
     const modeNote = isDemoMode()
-      ? `<p class="demo-banner">Demo mode: sample topics are shown. Verification auto-approves locally so you can test posting. Add Supabase config for real review.</p>`
+      ? `<p class="demo-banner">Demo mode: sample topics are shown. Anyone can post after sign-in; request verification to test the ✓ checkmark. Add Supabase for production.</p>`
       : "";
 
     let mainContent = "";
@@ -780,7 +829,7 @@ async function renderCareerForum(career, container) {
         forumState.view = "list";
         forumState.activeThreadId = null;
       } else {
-        mainContent = renderThreadDetail(thread, replies, verification);
+        mainContent = renderThreadDetail(thread, replies, user, verification);
       }
     }
 
@@ -796,7 +845,7 @@ async function renderCareerForum(career, container) {
             <span><strong>${replyCount}</strong> replies</span>
           </div>
           ${renderThreadList(threads, career)}
-          ${renderNewTopicForm(verification)}
+          ${renderNewTopicForm(user, verification)}
         </div>
       `;
     }
@@ -806,7 +855,7 @@ async function renderCareerForum(career, container) {
         <div class="forum-intro">
           <p class="eyebrow">Career forum</p>
           <h3 id="career-forum-title">${escapeHtml(career.title)} forum</h3>
-          <p>Ask and learn from verified professionals who have actually done this job. Anyone can read; only verified members can post.</p>
+          <p>Anyone signed in can ask questions and join the discussion. Posts from verified professionals show a ✓ checkmark.</p>
           ${modeNote}
         </div>
         <div id="forum-feedback" class="form-status" role="status" aria-live="polite"></div>
@@ -872,7 +921,7 @@ function bindForumEvents(container, career, verification) {
     const form = authForm;
     try {
       await signUpWithEmail(form.email.value.trim(), form.password.value, form.displayName.value.trim());
-      feedback("Account created. Request verification to start posting.");
+      feedback("Account created. You can post now, or request verification for the ✓ checkmark.");
       await renderCareerForum(career, container);
     } catch (error) {
       feedback(error.message, true);
@@ -893,8 +942,8 @@ function bindForumEvents(container, career, verification) {
       });
       feedback(
         isDemoMode()
-          ? "Verified in demo mode. You can post topics and replies."
-          : "Verification submitted. You can post after approval."
+          ? "Verified in demo mode. Your posts will show the ✓ checkmark."
+          : "Verification submitted. You can keep posting; the checkmark appears after approval."
       );
       await renderCareerForum(career, container);
     } catch (error) {
