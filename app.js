@@ -2904,6 +2904,7 @@ const matchResults = document.querySelector("#match-results");
 const careerCount = document.querySelector("#career-count");
 const miniClassCount = document.querySelector("#mini-class-count");
 const exploreCount = document.querySelector("#explore-count");
+const careerForumSection = document.querySelector("#career-forum");
 
 function readProgress() {
   try {
@@ -3461,6 +3462,11 @@ function renderLessons() {
     button.addEventListener("click", () => toggleLesson(Number(button.dataset.lessonIndex)));
   });
 
+  if (window.PathDiscoverForum && careerForumSection) {
+    window.PathDiscoverForum.resetView();
+    window.PathDiscoverForum.renderForCareer(career, careerForumSection);
+  }
+
   renderCareers();
 }
 
@@ -3479,7 +3485,7 @@ function toggleLesson(index) {
   renderLessons();
 }
 
-function initialize() {
+async function initialize() {
   careerCount.textContent = careers.length;
   exploreCount.textContent = careers.length;
   miniClassCount.textContent = careers.reduce((total, career) => total + getCareerLessons(career).length, 0);
@@ -3488,6 +3494,13 @@ function initialize() {
   renderQuiz();
   renderCareers();
   renderLessons();
+
+  if (window.PathDiscoverForum) {
+    await window.PathDiscoverForum.init();
+    document.addEventListener("pathdiscover:forum-updated", () => {
+      renderLessons();
+    });
+  }
 
   careerSearch.addEventListener("input", renderCareers);
   fieldFilter.addEventListener("change", renderCareers);

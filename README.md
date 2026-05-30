@@ -9,8 +9,43 @@ career paths, and complete short class-style lessons for each role.
 - Browse 500 career paths by field, skills, traits, or keywords.
 - Take a personality quiz to get suggested starting points.
 - Learn through 2500 useful mini classes, including prerequisite guidance, reflection prompts, and proof-of-learning activities.
+- Join career forums where verified professionals discuss what jobs are really like.
 - Track class progress locally in the browser.
 - Run as a dependency-free static web app.
+
+## Career forums (verified professionals)
+
+Each career has its own forum under **Classes**. Anyone can read topics and replies. To post, members must:
+
+1. Sign in with email and password.
+2. Submit a verification request (work email, employer, years of experience, optional LinkedIn).
+3. Wait for PathDiscover to approve the request.
+4. Start topics and reply with a **Verified** badge.
+
+Without backend setup, the app runs in **demo mode** with sample threads and auto-approved local verification for testing.
+
+### Enable production forums (Supabase)
+
+1. Create a free [Supabase](https://supabase.com) project.
+2. Run `supabase/schema.sql` in the Supabase SQL editor.
+3. Enable **Email** auth under Authentication > Providers.
+4. Copy `config.example.js` to `config.js` and add your project URL and anon key:
+
+```html
+<script src="config.js"></script>
+```
+
+Add that line in `index.html` before `forum.js`.
+
+5. Approve verification requests in the Supabase Table Editor:
+
+```sql
+update public.verification_requests
+set status = 'approved', reviewed_at = now()
+where id = 'REQUEST_UUID_HERE';
+```
+
+Only users with `status = 'approved'` for a career can create threads or replies in that career forum (enforced by Row Level Security).
 
 ## Run locally
 

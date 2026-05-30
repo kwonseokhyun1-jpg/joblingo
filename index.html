@@ -8,8 +8,12 @@
       content="PathDiscover helps students and career explorers understand career paths through lessons and personality-based job matching."
     />
     <title>PathDiscover | Career paths in plain language</title>
-    <link rel="stylesheet" href="styles.css?v=class-images" />
-    <script src="app.js?v=class-images" defer></script>
+    <link rel="stylesheet" href="styles.css?v=career-forum" />
+    <script>
+      window.pathdiscoverConfig = window.pathdiscoverConfig || {};
+    </script>
+    <script src="forum.js?v=career-forum" defer></script>
+    <script src="app.js?v=career-forum" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -22,6 +26,7 @@
           <a href="#explore">Explore</a>
           <a href="#match">Match</a>
           <a href="#classroom">Classes</a>
+          <a href="#career-forum">Forum</a>
         </div>
       </nav>
     </header>
@@ -181,6 +186,12 @@
           </aside>
           <div id="lesson-list" class="lesson-list"></div>
         </div>
+
+        <section
+          id="career-forum"
+          class="career-forum"
+          aria-labelledby="career-forum-title"
+        ></section>
       </section>
     </main>
 
