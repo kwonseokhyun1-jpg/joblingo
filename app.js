@@ -2434,117 +2434,9 @@ function buildCareerFromBlueprint(blueprint) {
 careers.push(...additionalCareerBlueprints.map(buildCareerFromBlueprint));
 careers.sort((a, b) => a.title.localeCompare(b.title));
 
-const quizQuestions = [
-  {
-    text: "When you get a big assignment, what part do you enjoy most?",
-    answers: [
-      { text: "Breaking it into a clear plan", traits: ["structured", "practical"] },
-      { text: "Imagining a creative direction", traits: ["creative", "visual"] },
-      { text: "Finding patterns or hidden clues", traits: ["analytical", "curious"] },
-      { text: "Helping the group feel confident", traits: ["empathetic", "communicator"] }
-    ]
-  },
-  {
-    text: "Which environment sounds most energizing?",
-    answers: [
-      { text: "A quiet space where I can build or analyze", traits: ["independent", "analytical"] },
-      { text: "A hands-on site where every day is practical", traits: ["hands-on", "builder"] },
-      { text: "A team setting with lots of conversation", traits: ["communicator", "empathetic"] },
-      { text: "A creative room with sketches, ideas, and feedback", traits: ["creative", "visual"] }
-    ]
-  },
-  {
-    text: "What kind of problem do you naturally notice?",
-    answers: [
-      { text: "A process that is disorganized", traits: ["structured", "practical"] },
-      { text: "A tool or system that could work better", traits: ["builder", "analytical"] },
-      { text: "A person who needs clearer support", traits: ["empathetic", "communicator"] },
-      { text: "A question that needs evidence", traits: ["curious", "analytical"] }
-    ]
-  },
-  {
-    text: "Which compliment would mean the most to you?",
-    answers: [
-      { text: "You made this easier to understand", traits: ["communicator", "empathetic"] },
-      { text: "You made something useful", traits: ["builder", "hands-on"] },
-      { text: "You found the answer in the details", traits: ["analytical", "structured"] },
-      { text: "You came up with a fresh idea", traits: ["creative", "curious"] }
-    ]
-  },
-  {
-    text: "How do you prefer to learn a new skill?",
-    answers: [
-      { text: "Practice with tools and real examples", traits: ["hands-on", "practical"] },
-      { text: "Watch people, ask questions, and discuss", traits: ["communicator", "empathetic"] },
-      { text: "Read, compare, and test my understanding", traits: ["analytical", "independent"] },
-      { text: "Experiment until I find a style that works", traits: ["creative", "curious"] }
-    ]
-  },
-  {
-    text: "When a plan changes suddenly, what do you do first?",
-    answers: [
-      { text: "Rebuild the steps and priorities", traits: ["structured", "resilient"] },
-      { text: "Check what people need from me", traits: ["empathetic", "communicator"] },
-      { text: "Look for the root cause or missing data", traits: ["analytical", "curious"] },
-      { text: "Try a practical workaround quickly", traits: ["practical", "hands-on"] }
-    ]
-  },
-  {
-    text: "Which school or work project would you pick?",
-    answers: [
-      { text: "Build a useful tool or prototype", traits: ["builder", "hands-on"] },
-      { text: "Design a poster, interface, room, or story", traits: ["creative", "visual"] },
-      { text: "Analyze a dataset and explain the pattern", traits: ["analytical", "structured"] },
-      { text: "Interview people and turn needs into a plan", traits: ["communicator", "empathetic"] }
-    ]
-  },
-  {
-    text: "What kind of responsibility feels most motivating?",
-    answers: [
-      { text: "Keeping people safe or supported", traits: ["empathetic", "resilient"] },
-      { text: "Making a system reliable and organized", traits: ["structured", "practical"] },
-      { text: "Finding the smartest answer with evidence", traits: ["analytical", "curious"] },
-      { text: "Creating something people can see or use", traits: ["creative", "builder"] }
-    ]
-  },
-  {
-    text: "How do you like to spend most of your working time?",
-    answers: [
-      { text: "Mostly independent focus with clear goals", traits: ["independent", "analytical"] },
-      { text: "Moving around, fixing, building, or helping hands-on", traits: ["hands-on", "practical"] },
-      { text: "Talking with people, guiding, or coordinating", traits: ["communicator", "empathetic"] },
-      { text: "Exploring ideas, visuals, experiments, or stories", traits: ["creative", "curious"] }
-    ]
-  },
-  {
-    text: "Which detail do you notice before other people?",
-    answers: [
-      { text: "A risk, mistake, or inconsistency", traits: ["structured", "analytical"] },
-      { text: "A confusing experience someone is having", traits: ["empathetic", "communicator"] },
-      { text: "A better way to arrange or present something", traits: ["visual", "creative"] },
-      { text: "A tool, machine, or process that could work better", traits: ["hands-on", "builder"] }
-    ]
-  },
-  {
-    text: "What pace sounds most sustainable for you?",
-    answers: [
-      { text: "Fast, active days with urgent problems", traits: ["resilient", "hands-on"] },
-      { text: "Steady routines with room for accuracy", traits: ["structured", "practical"] },
-      { text: "Deep research or analysis before decisions", traits: ["analytical", "independent"] },
-      { text: "Project cycles with feedback and iteration", traits: ["creative", "communicator"] }
-    ]
-  },
-  {
-    text: "If someone asked for your help, what would you prefer to improve?",
-    answers: [
-      { text: "Their confidence, care, or next step", traits: ["empathetic", "communicator"] },
-      { text: "Their workflow, checklist, or operations", traits: ["structured", "practical"] },
-      { text: "Their numbers, evidence, or decision logic", traits: ["analytical", "curious"] },
-      { text: "Their product, message, design, or experience", traits: ["creative", "visual"] }
-    ]
-  }
-];
-
+if (window.PathDiscoverMatching) {
+  window.PathDiscoverMatching.initCareerProfiles(careers);
+}
 
 const careerPrerequisites = {
   "software-developer": {
@@ -3039,6 +2931,7 @@ function renderCareerCard(career) {
 }
 
 function renderQuiz() {
+  const quizQuestions = window.PathDiscoverMatching.quizQuestions;
   matchForm.innerHTML = quizQuestions
     .map(
       (question, questionIndex) => `
@@ -3067,40 +2960,8 @@ function renderQuiz() {
     .join("");
 }
 
-function calculateTraitScores() {
-  return quizQuestions.reduce((scores, question, questionIndex) => {
-    const selected = matchForm.querySelector(`input[name="question-${questionIndex}"]:checked`);
-    const answer = question.answers[Number(selected.value)];
-
-    answer.traits.forEach((trait) => {
-      scores[trait] = (scores[trait] || 0) + 1;
-    });
-
-    return scores;
-  }, {});
-}
-
-function calculateMatches() {
-  const traitScores = calculateTraitScores();
-  const highestPossible = Math.max(...Object.values(traitScores), 1);
-
-  return careers
-    .map((career) => {
-      const rawScore = career.traits.reduce((score, trait) => score + (traitScores[trait] || 0), 0);
-      const score = Math.round((rawScore / (career.traits.length * highestPossible)) * 100);
-
-      return {
-        ...career,
-        matchScore: Math.min(score + 35, 99),
-        sharedTraits: career.traits.filter((trait) => traitScores[trait])
-      };
-    })
-    .sort((a, b) => b.matchScore - a.matchScore)
-    .slice(0, 3);
-}
-
 function renderMatches() {
-  const matches = calculateMatches();
+  const matches = window.PathDiscoverMatching.calculateMatches(careers, matchForm, 8);
 
   matchResults.innerHTML = matches
     .map(
@@ -3112,6 +2973,7 @@ function renderMatches() {
           </div>
           <p>${career.fit}</p>
           <div class="card-meta">
+            <span class="tag field-tag">${career.matchedField}</span>
             ${career.sharedTraits.map((trait) => `<span class="tag">${trait}</span>`).join("")}
           </div>
           <button class="button secondary" type="button" data-match-career="${career.id}">

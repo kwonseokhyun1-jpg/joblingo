@@ -7,7 +7,7 @@ career paths, and complete short class-style lessons for each role.
 ## Features
 
 - Browse 500 career paths by field, skills, traits, or keywords.
-- Take a personality quiz to get suggested starting points.
+- Take a 15-question personality quiz that ranks all 500 careers by trait fit, work style, and field affinity.
 - Learn through 2500 useful mini classes, including prerequisite guidance, reflection prompts, and proof-of-learning activities.
 - Join career forums where verified professionals discuss what jobs are really like.
 - Track class progress locally in the browser.
