@@ -20,6 +20,7 @@
         </a>
         <div class="nav-links" role="list">
           <a href="#explore">Explore</a>
+          <a href="#jobs">Jobs</a>
           <a href="#match">Match</a>
           <a href="#classroom">Classes</a>
         </div>
@@ -121,6 +122,34 @@
         </div>
 
         <div id="career-grid" class="career-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="jobs" class="section panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Job catalog</p>
+            <h2>Look up open roles and compare next steps</h2>
+          </div>
+          <p>
+            Search by title, company, location, work type, salary range, or skill
+            tags to find starter jobs that match what you want to explore.
+          </p>
+        </div>
+
+        <div class="toolbar jobs-toolbar" aria-label="Job search">
+          <label class="search-label">
+            <span class="sr-only">Search jobs</span>
+            <input
+              id="job-search"
+              type="search"
+              placeholder="Search by title, company, location, or skill..."
+              autocomplete="off"
+            />
+          </label>
+          <p class="job-count" id="job-count" aria-live="polite">Loading jobs...</p>
+        </div>
+
+        <div id="job-grid" class="job-grid" aria-live="polite"></div>
       </section>
 
       <section id="match" class="section split-section">

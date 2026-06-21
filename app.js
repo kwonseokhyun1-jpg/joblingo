@@ -2902,6 +2902,10 @@ const matchResults = document.querySelector("#match-results");
 const careerCount = document.querySelector("#career-count");
 const miniClassCount = document.querySelector("#mini-class-count");
 const exploreCount = document.querySelector("#explore-count");
+const jobSearch = document.querySelector("#job-search");
+const jobGrid = document.querySelector("#job-grid");
+const jobCount = document.querySelector("#job-count");
+let jobs = [];
 
 function readProgress() {
   try {
@@ -3425,6 +3429,85 @@ function toggleLesson(index) {
   renderLessons();
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function jobMatchesQuery(job, query) {
+  if (!query) {
+    return true;
+  }
+
+  const searchableText = [
+    job.title,
+    job.company,
+    job.location,
+    job.type,
+    job.salaryRange,
+    ...job.tags
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  return searchableText.includes(query);
+}
+
+function renderJobs() {
+  const query = jobSearch.value.trim().toLowerCase();
+  const matches = jobs.filter((job) => jobMatchesQuery(job, query));
+
+  jobCount.textContent =
+    matches.length === 1 ? "1 job shown" : `${matches.length} jobs shown`;
+
+  if (!matches.length) {
+    jobGrid.innerHTML =
+      '<p class="empty-state">No jobs match that search yet. Try a different title, company, or skill.</p>';
+    return;
+  }
+
+  jobGrid.innerHTML = matches
+    .map(
+      (job) => `
+        <article class="job-card">
+          <div class="job-card-top">
+            <span class="tag">${escapeHtml(job.type)}</span>
+            <span class="tag field-tag">${escapeHtml(job.location)}</span>
+          </div>
+          <h3>${escapeHtml(job.title)}</h3>
+          <p class="job-company">${escapeHtml(job.company)}</p>
+          <p class="job-salary">${escapeHtml(job.salaryRange)}</p>
+          <div class="job-tags">
+            ${job.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+async function loadJobs() {
+  try {
+    const response = await fetch("data/jobs.json");
+
+    if (!response.ok) {
+      throw new Error(`Unable to load jobs: ${response.status}`);
+    }
+
+    jobs = await response.json();
+    renderJobs();
+  } catch (error) {
+    jobCount.textContent = "Jobs unavailable";
+    jobGrid.innerHTML =
+      '<p class="empty-state">The job catalog could not be loaded right now.</p>';
+    console.error(error);
+  }
+}
+
 function initialize() {
   careerCount.textContent = careers.length;
   exploreCount.textContent = careers.length;
@@ -3434,9 +3517,11 @@ function initialize() {
   renderQuiz();
   renderCareers();
   renderLessons();
+  loadJobs();
 
   careerSearch.addEventListener("input", renderCareers);
   fieldFilter.addEventListener("change", renderCareers);
+  jobSearch.addEventListener("input", renderJobs);
   careerSelect.addEventListener("change", (event) => {
     activeCareerId = event.target.value;
     renderLessons();
