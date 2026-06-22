@@ -3189,6 +3189,7 @@ function buildSupplementalCareer([id, title, field, traits, skills]) {
     id,
     title,
     field,
+    contentTier: "overview",
     summary: `As ${rolePhrase(title, "article")} in ${field}, you would ${role.verb} to improve ${fieldProfile.impact}. Day to day you would rely on ${skillPhrase}, often in settings such as ${workplaces}.`,
     fit: `You may enjoy this path if ${traitPhrase} work energizes you, you like ${fieldProfile.pace.toLowerCase()}, and you want a role where ${skills[2].toLowerCase()} creates visible results.`,
     traits,
@@ -3214,6 +3215,7 @@ function buildCareerFromBlueprint(blueprint) {
     id: blueprint.id,
     title: blueprint.title,
     field: blueprint.field,
+    contentTier: blueprint.contentTier || "guided",
     summary: blueprint.summary,
     fit: blueprint.fit,
     traits: blueprint.traits,
@@ -3259,8 +3261,42 @@ function buildCareerFromBlueprint(blueprint) {
   };
 }
 
+const contentTierMeta = {
+  curated: {
+    label: "Curated",
+    shortDescription: "Hand-written lessons with role-specific facts, examples, and takeaways.",
+    lessonNote:
+      "This path has curated classes with original lesson content written for this career."
+  },
+  guided: {
+    label: "Guided",
+    shortDescription: "Tailored career profile with structured practice activities and prerequisites.",
+    lessonNote:
+      "This guided path has a tailored profile and structured activities. Classes use a guided template rather than hand-written lessons."
+  },
+  overview: {
+    label: "Overview",
+    shortDescription: "Quick orientation with field context, skills, and exploration prompts.",
+    lessonNote:
+      "This overview path helps you orient quickly. Classes focus on exploration prompts rather than deep role-specific teaching content."
+  }
+};
+
+function getContentTierMeta(tier) {
+  return contentTierMeta[tier] || contentTierMeta.overview;
+}
+
+function getContentTierSortOrder(tier) {
+  const order = { curated: 0, guided: 1, overview: 2 };
+  return order[tier] ?? 2;
+}
+
 function enrichCareerDetails(career) {
   const context = buildCareerContext(career);
+
+  if (!career.contentTier) {
+    career.contentTier = "curated";
+  }
 
   career.workplaces = context.workplaces;
   career.collaborators = context.collaborators;
@@ -3797,6 +3833,7 @@ let lessonProgress = readProgress();
 const careerGrid = document.querySelector("#career-grid");
 const careerSearch = document.querySelector("#career-search");
 const fieldFilter = document.querySelector("#field-filter");
+const tierFilter = document.querySelector("#tier-filter");
 const careerSelect = document.querySelector("#career-select");
 const lessonList = document.querySelector("#lesson-list");
 const lessonCareerTitle = document.querySelector("#lesson-career-title");
@@ -3808,6 +3845,9 @@ const matchButton = document.querySelector("#match-button");
 const matchResults = document.querySelector("#match-results");
 const careerCount = document.querySelector("#career-count");
 const miniClassCount = document.querySelector("#mini-class-count");
+const curatedCount = document.querySelector("#curated-count");
+const guidedCount = document.querySelector("#guided-count");
+const overviewCount = document.querySelector("#overview-count");
 const exploreCount = document.querySelector("#explore-count");
 const jobSearch = document.querySelector("#job-search");
 const jobGrid = document.querySelector("#job-grid");
@@ -3850,10 +3890,70 @@ function renderFields() {
 }
 
 function renderCareerOptions() {
-  careerSelect.innerHTML = careers
-    .map((career) => `<option value="${career.id}">${career.title}</option>`)
+  const groupedTiers = ["curated", "guided", "overview"];
+
+  careerSelect.innerHTML = groupedTiers
+    .map((tier) => {
+      const options = careers
+        .filter((career) => career.contentTier === tier)
+        .map(
+          (career) =>
+            `<option value="${career.id}">${career.title} (${getContentTierMeta(tier).label})</option>`
+        )
+        .join("");
+
+      if (!options) {
+        return "";
+      }
+
+      return `<optgroup label="${getContentTierMeta(tier).label} paths">${options}</optgroup>`;
+    })
     .join("");
   careerSelect.value = activeCareerId;
+}
+
+function countCareersByTier(tier) {
+  return careers.filter((career) => career.contentTier === tier).length;
+}
+
+function renderTierBadge(tier) {
+  const meta = getContentTierMeta(tier);
+
+  return `<span class="tag tier-tag tier-${tier}" title="${meta.shortDescription}">${meta.label}</span>`;
+}
+
+function renderTierNotice(career) {
+  const meta = getContentTierMeta(career.contentTier);
+
+  if (career.contentTier === "curated") {
+    return "";
+  }
+
+  const curatedInField = careers.filter(
+    (item) => item.field === career.field && item.contentTier === "curated"
+  );
+
+  const curatedSuggestion =
+    curatedInField.length > 0
+      ? `<p class="tier-notice-links">For deeper lessons in ${career.field}, try: ${curatedInField
+          .slice(0, 3)
+          .map(
+            (item) =>
+              `<button class="text-link" type="button" data-career-id="${item.id}">${item.title}</button>`
+          )
+          .join(", ")}.</p>`
+      : "";
+
+  return `
+    <aside class="tier-notice tier-notice-${career.contentTier}" aria-label="Path content level">
+      <div class="tier-notice-header">
+        ${renderTierBadge(career.contentTier)}
+        <strong>${meta.label} path</strong>
+      </div>
+      <p>${meta.lessonNote}</p>
+      ${curatedSuggestion}
+    </aside>
+  `;
 }
 
 function careerMatchesQuery(career, query) {
@@ -3879,15 +3979,22 @@ function careerMatchesQuery(career, query) {
 function renderCareers() {
   const query = careerSearch.value.trim().toLowerCase();
   const selectedField = fieldFilter.value;
-  const filtered = careers.filter((career) => {
-    const matchesField = selectedField === "all" || career.field === selectedField;
-    const matchesQuery = !query || careerMatchesQuery(career, query);
-    return matchesField && matchesQuery;
-  });
+  const selectedTier = tierFilter ? tierFilter.value : "all";
+  const filtered = careers
+    .filter((career) => {
+      const matchesField = selectedField === "all" || career.field === selectedField;
+      const matchesTier = selectedTier === "all" || career.contentTier === selectedTier;
+      const matchesQuery = !query || careerMatchesQuery(career, query);
+      return matchesField && matchesTier && matchesQuery;
+    })
+    .sort((a, b) => {
+      const tierDiff = getContentTierSortOrder(a.contentTier) - getContentTierSortOrder(b.contentTier);
+      return tierDiff !== 0 ? tierDiff : a.title.localeCompare(b.title);
+    });
 
   careerGrid.innerHTML = filtered.length
     ? filtered.map(renderCareerCard).join("")
-    : `<p class="empty-state">No career paths match that search yet. Try a different word or field.</p>`;
+    : `<p class="empty-state">No career paths match that search yet. Try a different word, field, or content level.</p>`;
 
   careerGrid.querySelectorAll("[data-career-id]").forEach((button) => {
     button.addEventListener("click", () => setActiveCareer(button.dataset.careerId));
@@ -3906,10 +4013,11 @@ function renderCareerCard(career) {
     .join("");
 
   return `
-    <article class="career-card">
+    <article class="career-card career-card-${career.contentTier}">
       <div class="career-card-top">
         <div class="card-meta">
           <span class="tag field-tag">${career.field}</span>
+          ${renderTierBadge(career.contentTier)}
           <span class="tag">${total} classes</span>
         </div>
       </div>
@@ -4031,6 +4139,10 @@ function renderMatches() {
           <div class="match-card-header">
             <h3>${career.title}</h3>
             <span class="score-pill">${career.matchScore}% match</span>
+          </div>
+          <div class="card-meta">
+            ${renderTierBadge(career.contentTier)}
+            <span class="tag field-tag">${career.field}</span>
           </div>
           <p>${career.fit}</p>
           <div class="card-meta">
@@ -4207,7 +4319,9 @@ function renderLessons() {
   progressLabel.textContent = `${progress}%`;
   pathProgressBar.style.width = `${progress}%`;
 
-  lessonList.innerHTML = lessons
+  const tierNotice = renderTierNotice(career);
+
+  lessonList.innerHTML = `${tierNotice}${lessons
     .map((lesson, index) => {
       const lessonId = `${career.id}-${index}`;
       const isComplete = completedLessons.includes(index);
@@ -4326,7 +4440,11 @@ function renderLessons() {
         </article>
       `;
     })
-    .join("");
+    .join("")}`;
+
+  lessonList.querySelectorAll("[data-career-id]").forEach((button) => {
+    button.addEventListener("click", () => setActiveCareer(button.dataset.careerId));
+  });
 
   lessonList.querySelectorAll("[data-lesson-index]").forEach((button) => {
     button.addEventListener("click", () => toggleLesson(Number(button.dataset.lessonIndex)));
@@ -4433,6 +4551,15 @@ function initialize() {
   careerCount.textContent = careers.length;
   exploreCount.textContent = careers.length;
   miniClassCount.textContent = careers.reduce((total, career) => total + getCareerLessons(career).length, 0);
+  if (curatedCount) {
+    curatedCount.textContent = countCareersByTier("curated");
+  }
+  if (guidedCount) {
+    guidedCount.textContent = countCareersByTier("guided");
+  }
+  if (overviewCount) {
+    overviewCount.textContent = countCareersByTier("overview");
+  }
   renderFields();
   renderCareerOptions();
   renderQuiz();
@@ -4442,6 +4569,9 @@ function initialize() {
 
   careerSearch.addEventListener("input", renderCareers);
   fieldFilter.addEventListener("change", renderCareers);
+  if (tierFilter) {
+    tierFilter.addEventListener("change", renderCareers);
+  }
   jobSearch.addEventListener("input", renderJobs);
   careerSelect.addEventListener("change", (event) => {
     activeCareerId = event.target.value;
