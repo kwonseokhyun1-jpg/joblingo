@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PathDiscover helps students and career explorers understand career paths through lessons and personality-based job matching."
+    />
+    <title>PathDiscover | Career paths in plain language</title>
+    <link rel="stylesheet" href="styles.css?v=500-jobs" />
+    <script src="app.js?v=500-jobs" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="PathDiscover home">
+          <span class="brand-mark">PD</span>
+          <span>PathDiscover</span>
+        </a>
+        <div class="nav-links" role="list">
+          <a href="#explore">Explore</a>
+          <a href="#jobs">Jobs</a>
+          <a href="#match">Match</a>
+          <a href="#classroom">Classes</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">Career paths in plain language</p>
+          <h1>Find a career that sounds like you.</h1>
+          <p class="hero-text">
+            PathDiscover turns confusing job titles into short classes, practical
+            activities, and personality-based starting points for people who
+            are not sure where to begin.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#match">Take the match quiz</a>
+            <a class="button secondary" href="#explore">Browse careers</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Learning path preview">
+          <div class="lesson-preview">
+            <span class="status-pill">4 class path</span>
+            <h2 id="preview-title">What does the job actually do?</h2>
+            <p>
+              Learn the day-to-day work, tools, skills, and first steps before
+              deciding if a career is worth exploring further.
+            </p>
+            <div class="progress-row">
+              <span>Example path progress</span>
+              <strong>75%</strong>
+            </div>
+            <div class="progress-bar" aria-hidden="true">
+              <span style="width: 75%"></span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section stats-grid" aria-label="PathDiscover highlights">
+        <article>
+          <strong id="career-count">0</strong>
+          <span>career paths</span>
+        </article>
+        <article>
+          <strong id="mini-class-count">0</strong>
+          <span>mini classes</span>
+        </article>
+        <article>
+          <strong>5 min</strong>
+          <span>match quiz</span>
+        </article>
+      </section>
+
+      <section id="explore" class="section panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Explore</p>
+            <h2>Career paths you can understand quickly</h2>
+          </div>
+          <p>
+            Search by job name, skill, or keyword. Each path explains what the
+            role is, who it fits, and what you will learn in class.
+          </p>
+        </div>
+
+        <div class="finder-spotlight" aria-label="Career finder highlights">
+          <div>
+            <span class="spotlight-kicker">Career finder</span>
+            <strong>Start with the job card that feels closest to your energy.</strong>
+            <p>
+              Each card now shows the field, first skill cluster, learning length,
+              and a quick-fit clue before you open the full class path.
+            </p>
+          </div>
+          <div class="spotlight-stats">
+            <span><strong id="explore-count">500</strong> paths</span>
+            <span><strong>2500</strong> classes</span>
+          </div>
+        </div>
+
+        <div class="toolbar" aria-label="Career filters">
+          <label class="search-label">
+            <span class="sr-only">Search careers</span>
+            <input
+              id="career-search"
+              type="search"
+              placeholder="Search careers, skills, or interests"
+              autocomplete="off"
+            />
+          </label>
+          <label>
+            <span class="sr-only">Filter by field</span>
+            <select id="field-filter">
+              <option value="all">All fields</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="career-grid" class="career-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="jobs" class="section panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Job catalog</p>
+            <h2>Look up open roles and compare next steps</h2>
+          </div>
+          <p>
+            Search by title, company, location, work type, salary range, or skill
+            tags to find starter jobs that match what you want to explore.
+          </p>
+        </div>
+
+        <div class="toolbar jobs-toolbar" aria-label="Job search">
+          <label class="search-label">
+            <span class="sr-only">Search jobs</span>
+            <input
+              id="job-search"
+              type="search"
+              placeholder="Search by title, company, location, or skill..."
+              autocomplete="off"
+            />
+          </label>
+          <p class="job-count" id="job-count" aria-live="polite">Loading jobs...</p>
+        </div>
+
+        <div id="job-grid" class="job-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="match" class="section split-section">
+        <div class="panel quiz-panel">
+          <p class="eyebrow">Personality match</p>
+          <h2>Not sure where to start?</h2>
+          <p>
+            Answer a few simple questions. PathDiscover will suggest careers based
+            on how you like to solve problems, work with people, and learn.
+          </p>
+          <form id="match-form" class="quiz-form"></form>
+          <button class="button primary" id="match-button" type="button">
+            Show my matches
+          </button>
+        </div>
+
+        <aside class="panel results-panel" aria-live="polite">
+          <p class="eyebrow">Your starting point</p>
+          <h2>Suggested careers</h2>
+          <div id="match-results" class="match-results">
+            <p class="empty-state">
+              Take the quiz to see the career paths that fit your personality.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="classroom" class="section panel classroom">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Classes</p>
+            <h2 id="lesson-career-title">Choose a career path to start class</h2>
+          </div>
+          <p id="lesson-career-summary">
+            Each path has short lessons that explain the career through plain
+            language, real tasks, vocabulary, and reflection prompts.
+          </p>
+        </div>
+
+        <div class="lesson-layout">
+          <aside class="lesson-sidebar">
+            <h3>Current path</h3>
+            <select id="career-select" aria-label="Choose a career path"></select>
+            <div class="path-progress">
+              <div class="progress-row">
+                <span>Class progress</span>
+                <strong id="progress-label">0%</strong>
+              </div>
+              <div class="progress-bar" aria-hidden="true">
+                <span id="path-progress-bar"></span>
+              </div>
+            </div>
+          </aside>
+          <div id="lesson-list" class="lesson-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Built for curious beginners, students, career changers, and anyone
+        translating job titles into real life.
+      </p>
+    </footer>
+  </body>
+</html>
