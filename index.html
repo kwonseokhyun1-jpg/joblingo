@@ -71,6 +71,10 @@
           <span>mini classes</span>
         </article>
         <article>
+          <strong id="curated-count">0</strong>
+          <span>curated paths</span>
+        </article>
+        <article>
           <strong>5 min</strong>
           <span>match quiz</span>
         </article>
@@ -83,23 +87,25 @@
             <h2>Career paths you can understand quickly</h2>
           </div>
           <p>
-            Search by job name, skill, or keyword. Each path explains what the
-            role is, who it fits, and what you will learn in class.
+            Search by job name, skill, or keyword. Each path is labeled by content
+            level so you know whether it has curated lessons, guided activities,
+            or a quick overview.
           </p>
         </div>
 
         <div class="finder-spotlight" aria-label="Career finder highlights">
           <div>
             <span class="spotlight-kicker">Career finder</span>
-            <strong>Start with the job card that feels closest to your energy.</strong>
+            <strong>Start with curated paths for the deepest lessons.</strong>
             <p>
-              Each card now shows the field, first skill cluster, learning length,
-              and a quick-fit clue before you open the full class path.
+              Curated paths have hand-written classes. Guided and overview paths
+              help you explore more careers with structured prompts and field context.
             </p>
           </div>
           <div class="spotlight-stats">
-            <span><strong id="explore-count">500</strong> paths</span>
-            <span><strong>2500</strong> classes</span>
+            <span><strong id="explore-count">0</strong> paths</span>
+            <span><strong id="guided-count">0</strong> guided</span>
+            <span><strong id="overview-count">0</strong> overview</span>
           </div>
         </div>
 
@@ -117,6 +123,15 @@
             <span class="sr-only">Filter by field</span>
             <select id="field-filter">
               <option value="all">All fields</option>
+            </select>
+          </label>
+          <label>
+            <span class="sr-only">Filter by content level</span>
+            <select id="tier-filter">
+              <option value="all">All levels</option>
+              <option value="curated">Curated</option>
+              <option value="guided">Guided</option>
+              <option value="overview">Overview</option>
             </select>
           </label>
         </div>
@@ -184,8 +199,8 @@
             <h2 id="lesson-career-title">Choose a career path to start class</h2>
           </div>
           <p id="lesson-career-summary">
-            Each path has short lessons that explain the career through plain
-            language, real tasks, vocabulary, and reflection prompts.
+            Each path is labeled Curated, Guided, or Overview so you know how
+            deep the lesson content goes before you start.
           </p>
         </div>
 
