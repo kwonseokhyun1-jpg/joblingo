@@ -6,7 +6,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$45,000-$58,000",
-    "tags": ["customer support", "communication", "remote"]
+    "tags": [
+      "customer support",
+      "communication",
+      "remote"
+    ],
+    "careerId": "customer-support-specialist"
   },
   {
     "id": "job-002",
@@ -15,7 +20,12 @@
     "location": "Austin, TX",
     "type": "Full-time",
     "salaryRange": "$58,000-$72,000",
-    "tags": ["data analysis", "sql", "excel"]
+    "tags": [
+      "data analysis",
+      "sql",
+      "excel"
+    ],
+    "careerId": "data-analyst"
   },
   {
     "id": "job-003",
@@ -24,7 +34,12 @@
     "location": "Chicago, IL",
     "type": "Full-time",
     "salaryRange": "$50,000-$63,000",
-    "tags": ["marketing", "campaigns", "content"]
+    "tags": [
+      "marketing",
+      "campaigns",
+      "content"
+    ],
+    "careerId": "marketing-manager"
   },
   {
     "id": "job-004",
@@ -33,7 +48,12 @@
     "location": "San Francisco, CA",
     "type": "Internship",
     "salaryRange": "$28-$36/hour",
-    "tags": ["software engineering", "internship", "javascript"]
+    "tags": [
+      "software engineering",
+      "internship",
+      "javascript"
+    ],
+    "careerId": "software-developer"
   },
   {
     "id": "job-005",
@@ -42,7 +62,12 @@
     "location": "Boston, MA",
     "type": "Full-time",
     "salaryRange": "$42,000-$54,000",
-    "tags": ["administration", "scheduling", "office"]
+    "tags": [
+      "administration",
+      "scheduling",
+      "office"
+    ],
+    "careerId": "administrative-assistant"
   },
   {
     "id": "job-006",
@@ -51,7 +76,12 @@
     "location": "Remote",
     "type": "Contract",
     "salaryRange": "$35-$48/hour",
-    "tags": ["ux research", "interviews", "usability"]
+    "tags": [
+      "ux research",
+      "interviews",
+      "usability"
+    ],
+    "careerId": "ux-designer"
   },
   {
     "id": "job-007",
@@ -60,7 +90,12 @@
     "location": "Denver, CO",
     "type": "Full-time",
     "salaryRange": "$52,000-$66,000",
-    "tags": ["operations", "logistics", "coordination"]
+    "tags": [
+      "operations",
+      "logistics",
+      "coordination"
+    ],
+    "careerId": "operations-coordinator"
   },
   {
     "id": "job-008",
@@ -69,7 +104,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$48,000-$62,000 plus commission",
-    "tags": ["sales", "prospecting", "saas"]
+    "tags": [
+      "sales",
+      "prospecting",
+      "saas"
+    ],
+    "careerId": "sales-representative"
   },
   {
     "id": "job-009",
@@ -78,7 +118,12 @@
     "location": "Portland, OR",
     "type": "Full-time",
     "salaryRange": "$55,000-$70,000",
-    "tags": ["design", "branding", "figma"]
+    "tags": [
+      "design",
+      "branding",
+      "figma"
+    ],
+    "careerId": "graphic-designer"
   },
   {
     "id": "job-010",
@@ -87,7 +132,12 @@
     "location": "Remote",
     "type": "Part-time",
     "salaryRange": "$26-$34/hour",
-    "tags": ["bookkeeping", "quickbooks", "finance"]
+    "tags": [
+      "bookkeeping",
+      "quickbooks",
+      "finance"
+    ],
+    "careerId": "bookkeeper"
   },
   {
     "id": "job-011",
@@ -96,7 +146,12 @@
     "location": "Phoenix, AZ",
     "type": "Full-time",
     "salaryRange": "$48,000-$61,000",
-    "tags": ["it support", "troubleshooting", "hardware"]
+    "tags": [
+      "it support",
+      "troubleshooting",
+      "hardware"
+    ],
+    "careerId": "it-help-desk-technician"
   },
   {
     "id": "job-012",
@@ -105,7 +160,12 @@
     "location": "Cleveland, OH",
     "type": "Full-time",
     "salaryRange": "$60,000-$78,000",
-    "tags": ["hr", "employee relations", "benefits"]
+    "tags": [
+      "hr",
+      "employee relations",
+      "benefits"
+    ],
+    "careerId": "human-resources-specialist"
   },
   {
     "id": "job-013",
@@ -114,7 +174,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$56,000-$72,000",
-    "tags": ["social media", "content strategy", "analytics"]
+    "tags": [
+      "social media",
+      "content strategy",
+      "analytics"
+    ],
+    "careerId": "social-media-coordinator"
   },
   {
     "id": "job-014",
@@ -123,7 +188,12 @@
     "location": "Nashville, TN",
     "type": "Full-time",
     "salaryRange": "$54,000-$68,000",
-    "tags": ["project management", "construction", "scheduling"]
+    "tags": [
+      "project management",
+      "construction",
+      "scheduling"
+    ],
+    "careerId": "project-manager"
   },
   {
     "id": "job-015",
@@ -132,7 +202,12 @@
     "location": "Madison, WI",
     "type": "Full-time",
     "salaryRange": "$39,000-$50,000",
-    "tags": ["healthcare", "patient care", "clinic"]
+    "tags": [
+      "healthcare",
+      "patient care",
+      "clinic"
+    ],
+    "careerId": "medical-assistant"
   },
   {
     "id": "job-016",
@@ -141,7 +216,12 @@
     "location": "Remote",
     "type": "Contract",
     "salaryRange": "$30-$45/hour",
-    "tags": ["writing", "seo", "editorial"]
+    "tags": [
+      "writing",
+      "seo",
+      "editorial"
+    ],
+    "careerId": "writer"
   },
   {
     "id": "job-017",
@@ -150,7 +230,12 @@
     "location": "Atlanta, GA",
     "type": "Full-time",
     "salaryRange": "$62,000-$76,000",
-    "tags": ["business analysis", "requirements", "reporting"]
+    "tags": [
+      "business analysis",
+      "requirements",
+      "reporting"
+    ],
+    "careerId": "business-analyst"
   },
   {
     "id": "job-018",
@@ -159,7 +244,12 @@
     "location": "Columbus, OH",
     "type": "Full-time",
     "salaryRange": "$46,000-$59,000",
-    "tags": ["warehouse", "leadership", "inventory"]
+    "tags": [
+      "warehouse",
+      "leadership",
+      "inventory"
+    ],
+    "careerId": "warehouse-team-lead"
   },
   {
     "id": "job-019",
@@ -168,7 +258,12 @@
     "location": "Charlotte, NC",
     "type": "Full-time",
     "salaryRange": "$64,000-$82,000",
-    "tags": ["account management", "client success", "benefits"]
+    "tags": [
+      "account management",
+      "client success",
+      "benefits"
+    ],
+    "careerId": "account-manager"
   },
   {
     "id": "job-020",
@@ -177,7 +272,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$57,000-$73,000",
-    "tags": ["qa", "testing", "software"]
+    "tags": [
+      "qa",
+      "testing",
+      "software"
+    ],
+    "careerId": "quality-assurance-tester"
   },
   {
     "id": "job-021",
@@ -186,7 +286,12 @@
     "location": "Minneapolis, MN",
     "type": "Full-time",
     "salaryRange": "$68,000-$86,000",
-    "tags": ["finance", "forecasting", "excel"]
+    "tags": [
+      "finance",
+      "forecasting",
+      "excel"
+    ],
+    "careerId": "investment-analyst"
   },
   {
     "id": "job-022",
@@ -195,7 +300,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$52,000-$67,000",
-    "tags": ["community", "moderation", "events"]
+    "tags": [
+      "community",
+      "moderation",
+      "events"
+    ],
+    "careerId": "social-media-coordinator"
   },
   {
     "id": "job-023",
@@ -204,7 +314,12 @@
     "location": "Salt Lake City, UT",
     "type": "Full-time",
     "salaryRange": "$55,000-$69,000",
-    "tags": ["product support", "customer success", "troubleshooting"]
+    "tags": [
+      "product support",
+      "customer success",
+      "troubleshooting"
+    ],
+    "careerId": "product-support-analyst"
   },
   {
     "id": "job-024",
@@ -213,7 +328,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$70,000-$88,000",
-    "tags": ["frontend", "react", "css"]
+    "tags": [
+      "frontend",
+      "react",
+      "css"
+    ],
+    "careerId": "software-developer"
   },
   {
     "id": "job-025",
@@ -222,7 +342,12 @@
     "location": "New York, NY",
     "type": "Full-time",
     "salaryRange": "$56,000-$70,000",
-    "tags": ["recruiting", "scheduling", "hr"]
+    "tags": [
+      "recruiting",
+      "scheduling",
+      "hr"
+    ],
+    "careerId": "recruiting-coordinator"
   },
   {
     "id": "job-026",
@@ -231,7 +356,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$58,000-$75,000",
-    "tags": ["email marketing", "crm", "copywriting"]
+    "tags": [
+      "email marketing",
+      "crm",
+      "copywriting"
+    ],
+    "careerId": "email-marketing-specialist"
   },
   {
     "id": "job-027",
@@ -240,7 +370,12 @@
     "location": "Philadelphia, PA",
     "type": "Full-time",
     "salaryRange": "$45,000-$57,000",
-    "tags": ["facilities", "operations", "vendor management"]
+    "tags": [
+      "facilities",
+      "operations",
+      "vendor management"
+    ],
+    "careerId": "facilities-coordinator"
   },
   {
     "id": "job-028",
@@ -249,7 +384,12 @@
     "location": "Remote",
     "type": "Temporary",
     "salaryRange": "$20-$26/hour",
-    "tags": ["data entry", "accuracy", "administration"]
+    "tags": [
+      "data entry",
+      "accuracy",
+      "administration"
+    ],
+    "careerId": "data-entry-specialist"
   },
   {
     "id": "job-029",
@@ -258,7 +398,12 @@
     "location": "Seattle, WA",
     "type": "Full-time",
     "salaryRange": "$82,000-$105,000",
-    "tags": ["product management", "roadmaps", "fintech"]
+    "tags": [
+      "product management",
+      "roadmaps",
+      "fintech"
+    ],
+    "careerId": "product-manager"
   },
   {
     "id": "job-030",
@@ -267,7 +412,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$72,000-$92,000",
-    "tags": ["technical writing", "documentation", "engineering"]
+    "tags": [
+      "technical writing",
+      "documentation",
+      "engineering"
+    ],
+    "careerId": "technical-writer"
   },
   {
     "id": "job-031",
@@ -276,7 +426,12 @@
     "location": "Miami, FL",
     "type": "Full-time",
     "salaryRange": "$52,000-$67,000",
-    "tags": ["legal", "research", "case management"]
+    "tags": [
+      "legal",
+      "research",
+      "case management"
+    ],
+    "careerId": "paralegal"
   },
   {
     "id": "job-032",
@@ -285,7 +440,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$61,000-$79,000",
-    "tags": ["paid media", "analytics", "google ads"]
+    "tags": [
+      "paid media",
+      "analytics",
+      "google ads"
+    ],
+    "careerId": "data-analyst"
   },
   {
     "id": "job-033",
@@ -294,7 +454,12 @@
     "location": "Dallas, TX",
     "type": "Full-time",
     "salaryRange": "$65,000-$83,000",
-    "tags": ["supply chain", "forecasting", "logistics"]
+    "tags": [
+      "supply chain",
+      "forecasting",
+      "logistics"
+    ],
+    "careerId": "supply-chain-manager"
   },
   {
     "id": "job-034",
@@ -303,7 +468,12 @@
     "location": "Raleigh, NC",
     "type": "Full-time",
     "salaryRange": "$34,000-$43,000",
-    "tags": ["education", "classroom", "child development"]
+    "tags": [
+      "education",
+      "classroom",
+      "child development"
+    ],
+    "careerId": "teacher"
   },
   {
     "id": "job-035",
@@ -312,7 +482,12 @@
     "location": "San Diego, CA",
     "type": "Full-time",
     "salaryRange": "$50,000-$64,000",
-    "tags": ["events", "planning", "vendor coordination"]
+    "tags": [
+      "events",
+      "planning",
+      "vendor coordination"
+    ],
+    "careerId": "event-planner"
   },
   {
     "id": "job-036",
@@ -321,7 +496,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$78,000-$102,000",
-    "tags": ["cybersecurity", "monitoring", "incident response"]
+    "tags": [
+      "cybersecurity",
+      "monitoring",
+      "incident response"
+    ],
+    "careerId": "cybersecurity-analyst"
   },
   {
     "id": "job-037",
@@ -330,7 +510,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$54,000-$70,000",
-    "tags": ["customer success", "onboarding", "saas"]
+    "tags": [
+      "customer success",
+      "onboarding",
+      "saas"
+    ],
+    "careerId": "customer-onboarding-specialist"
   },
   {
     "id": "job-038",
@@ -339,7 +524,12 @@
     "location": "Research Triangle Park, NC",
     "type": "Full-time",
     "salaryRange": "$46,000-$60,000",
-    "tags": ["laboratory", "biology", "quality control"]
+    "tags": [
+      "laboratory",
+      "biology",
+      "quality control"
+    ],
+    "careerId": "medical-laboratory-scientist"
   },
   {
     "id": "job-039",
@@ -348,7 +538,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$58,000-$74,000",
-    "tags": ["seo", "content", "analytics"]
+    "tags": [
+      "seo",
+      "content",
+      "analytics"
+    ],
+    "careerId": "content-strategist"
   },
   {
     "id": "job-040",
@@ -357,7 +552,12 @@
     "location": "Tampa, FL",
     "type": "Full-time",
     "salaryRange": "$55,000-$71,000",
-    "tags": ["insurance", "claims", "investigation"]
+    "tags": [
+      "insurance",
+      "claims",
+      "investigation"
+    ],
+    "careerId": "insurance-claims-adjuster"
   },
   {
     "id": "job-041",
@@ -366,7 +566,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$60,000-$77,000",
-    "tags": ["training", "learning design", "facilitation"]
+    "tags": [
+      "training",
+      "learning design",
+      "facilitation"
+    ],
+    "careerId": "training-specialist"
   },
   {
     "id": "job-042",
@@ -375,7 +580,12 @@
     "location": "Orlando, FL",
     "type": "Full-time",
     "salaryRange": "$47,000-$62,000",
-    "tags": ["hospitality", "management", "customer service"]
+    "tags": [
+      "hospitality",
+      "management",
+      "customer service"
+    ],
+    "careerId": "restaurant-manager"
   },
   {
     "id": "job-043",
@@ -384,7 +594,12 @@
     "location": "Sacramento, CA",
     "type": "Full-time",
     "salaryRange": "$48,000-$63,000",
-    "tags": ["environmental", "field work", "sampling"]
+    "tags": [
+      "environmental",
+      "field work",
+      "sampling"
+    ],
+    "careerId": "environmental-field-technician"
   },
   {
     "id": "job-044",
@@ -393,7 +608,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$62,000-$80,000",
-    "tags": ["crm", "salesforce", "data quality"]
+    "tags": [
+      "crm",
+      "salesforce",
+      "data quality"
+    ],
+    "careerId": "crm-administrator"
   },
   {
     "id": "job-045",
@@ -402,7 +622,12 @@
     "location": "Los Angeles, CA",
     "type": "Contract",
     "salaryRange": "$38-$55/hour",
-    "tags": ["video editing", "premiere pro", "storytelling"]
+    "tags": [
+      "video editing",
+      "premiere pro",
+      "storytelling"
+    ],
+    "careerId": "video-producer"
   },
   {
     "id": "job-046",
@@ -411,7 +636,12 @@
     "location": "St. Louis, MO",
     "type": "Full-time",
     "salaryRange": "$57,000-$73,000",
-    "tags": ["procurement", "vendor management", "negotiation"]
+    "tags": [
+      "procurement",
+      "vendor management",
+      "negotiation"
+    ],
+    "careerId": "procurement-specialist"
   },
   {
     "id": "job-047",
@@ -420,7 +650,12 @@
     "location": "Remote",
     "type": "Full-time",
     "salaryRange": "$92,000-$118,000",
-    "tags": ["mobile", "react native", "ios"]
+    "tags": [
+      "mobile",
+      "react native",
+      "ios"
+    ],
+    "careerId": "mobile-app-developer"
   },
   {
     "id": "job-048",
@@ -429,7 +664,12 @@
     "location": "Washington, DC",
     "type": "Full-time",
     "salaryRange": "$54,000-$69,000",
-    "tags": ["public relations", "media", "communications"]
+    "tags": [
+      "public relations",
+      "media",
+      "communications"
+    ],
+    "careerId": "public-relations-specialist"
   },
   {
     "id": "job-049",
@@ -438,7 +678,12 @@
     "location": "Las Vegas, NV",
     "type": "Full-time",
     "salaryRange": "$44,000-$58,000",
-    "tags": ["maintenance", "repair", "facilities"]
+    "tags": [
+      "maintenance",
+      "repair",
+      "facilities"
+    ],
+    "careerId": "maintenance-technician"
   },
   {
     "id": "job-050",
@@ -447,6 +692,11 @@
     "location": "Remote",
     "type": "Part-time",
     "salaryRange": "$32-$45/hour",
-    "tags": ["career coaching", "resume review", "interview prep"]
+    "tags": [
+      "career coaching",
+      "resume review",
+      "interview prep"
+    ],
+    "careerId": "career-coach"
   }
 ]

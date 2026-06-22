@@ -461,7 +461,55 @@ select:focus,
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.job-career-link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.job-career-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.job-card-highlight {
+  border-color: rgba(29, 127, 122, 0.55);
+  box-shadow: 0 0 0 3px rgba(29, 127, 122, 0.16);
+}
+
+.related-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.related-jobs-panel {
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(29, 127, 122, 0.05);
+}
+
+.related-jobs-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.related-jobs-list li + li {
+  margin-top: 6px;
+}
+
+.related-job-link {
+  text-align: left;
 }
 
 .career-card,

@@ -3853,6 +3853,7 @@ const jobSearch = document.querySelector("#job-search");
 const jobGrid = document.querySelector("#job-grid");
 const jobCount = document.querySelector("#job-count");
 let jobs = [];
+let jobsByCareerId = Object.create(null);
 
 function readProgress() {
   try {
@@ -3879,6 +3880,193 @@ function setActiveCareer(careerId) {
   careerSelect.value = careerId;
   renderLessons();
   document.querySelector("#classroom").scrollIntoView({ behavior: "smooth" });
+}
+
+function scrollToJobs(highlightJobId) {
+  document.querySelector("#jobs").scrollIntoView({ behavior: "smooth" });
+
+  if (!highlightJobId) {
+    return;
+  }
+
+  jobGrid.querySelectorAll(".job-card").forEach((card) => {
+    card.classList.toggle("job-card-highlight", card.dataset.jobId === highlightJobId);
+  });
+}
+
+const jobTitleNoiseWords = new Set([
+  "a",
+  "an",
+  "and",
+  "assistant",
+  "associate",
+  "coordinator",
+  "developer",
+  "entry",
+  "for",
+  "generalist",
+  "intern",
+  "internship",
+  "junior",
+  "lead",
+  "level",
+  "manager",
+  "of",
+  "representative",
+  "senior",
+  "specialist",
+  "team",
+  "technician",
+  "the"
+]);
+
+function tokenizeCareerText(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter((word) => word.length > 2);
+}
+
+function getCoreTitleWords(title) {
+  return tokenizeCareerText(title).filter((word) => !jobTitleNoiseWords.has(word));
+}
+
+function scoreJobCareerMatch(job, career) {
+  const jobTitle = job.title.toLowerCase();
+  const careerTitle = career.title.toLowerCase();
+  const jobCore = getCoreTitleWords(job.title);
+  const careerCore = getCoreTitleWords(career.title);
+  const jobTags = (job.tags || []).join(" ").toLowerCase();
+  const careerSearch = [
+    career.title,
+    career.field,
+    ...(career.skills || []),
+    ...(career.traits || [])
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  let score = 0;
+
+  if (jobTitle === careerTitle) {
+    score += 120;
+  }
+
+  if (jobCore.length && careerCore.length && jobCore.join(" ") === careerCore.join(" ")) {
+    score += 90;
+  }
+
+  jobCore.forEach((word) => {
+    if (careerCore.includes(word)) {
+      score += 18;
+    }
+  });
+
+  if (jobCore.length >= 2 && careerTitle.includes(jobCore.join(" "))) {
+    score += 40;
+  }
+
+  if (careerCore.length >= 2 && jobTitle.includes(careerCore.join(" "))) {
+    score += 40;
+  }
+
+  (job.tags || []).forEach((tag) => {
+    const normalizedTag = tag.toLowerCase();
+
+    if (careerTitle.includes(normalizedTag)) {
+      score += 24;
+    }
+
+    if (careerSearch.includes(normalizedTag)) {
+      score += 12;
+    }
+  });
+
+  score += (2 - getContentTierSortOrder(career.contentTier)) * 3;
+
+  return score;
+}
+
+function findBestCareerForJob(job) {
+  if (job.careerId) {
+    const linkedCareer = careers.find((career) => career.id === job.careerId);
+
+    if (linkedCareer) {
+      return linkedCareer;
+    }
+  }
+
+  let bestCareer = null;
+  let bestScore = 0;
+
+  careers.forEach((career) => {
+    const score = scoreJobCareerMatch(job, career);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestCareer = career;
+    }
+  });
+
+  return bestScore >= 35 ? bestCareer : null;
+}
+
+function buildJobsByCareerIndex(jobList) {
+  const index = Object.create(null);
+
+  jobList.forEach((job) => {
+    const career = findBestCareerForJob(job);
+
+    if (!career) {
+      return;
+    }
+
+    if (!index[career.id]) {
+      index[career.id] = [];
+    }
+
+    index[career.id].push(job);
+  });
+
+  return index;
+}
+
+function getJobsForCareer(careerId, limit = 2) {
+  return (jobsByCareerId[careerId] || []).slice(0, limit);
+}
+
+function renderRelatedJobs(career, limit = 2) {
+  const relatedJobs = getJobsForCareer(career.id, limit);
+
+  if (!relatedJobs.length) {
+    return "";
+  }
+
+  return `
+    <div class="related-jobs" aria-label="Sample open roles for ${career.title}">
+      <span class="mini-label">Sample open roles</span>
+      <ul class="related-jobs-list">
+        ${relatedJobs
+          .map(
+            (job) => `
+              <li>
+                <button class="text-link related-job-link" type="button" data-job-id="${job.id}">
+                  ${escapeHtml(job.title)} at ${escapeHtml(job.company)}
+                </button>
+              </li>
+            `
+          )
+          .join("")}
+      </ul>
+    </div>
+  `;
+}
+
+function bindRelatedJobLinks(root) {
+  root.querySelectorAll("[data-job-id]").forEach((button) => {
+    button.addEventListener("click", () => scrollToJobs(button.dataset.jobId));
+  });
 }
 
 function renderFields() {
@@ -3999,6 +4187,7 @@ function renderCareers() {
   careerGrid.querySelectorAll("[data-career-id]").forEach((button) => {
     button.addEventListener("click", () => setActiveCareer(button.dataset.careerId));
   });
+  bindRelatedJobLinks(careerGrid);
 }
 
 function renderCareerCard(career) {
@@ -4052,6 +4241,7 @@ function renderCareerCard(career) {
         <span class="mini-label">Try first</span>
         <p>${career.startingPoint}</p>
       </div>
+      ${renderRelatedJobs(career)}
       <div class="career-card-footer">
         <div class="progress-summary">
           <span class="mini-label">Progress</span>
@@ -4320,8 +4510,12 @@ function renderLessons() {
   pathProgressBar.style.width = `${progress}%`;
 
   const tierNotice = renderTierNotice(career);
+  const relatedJobsPanel = renderRelatedJobs(career, 3).replace(
+    'class="related-jobs"',
+    'class="related-jobs related-jobs-panel"'
+  );
 
-  lessonList.innerHTML = `${tierNotice}${lessons
+  lessonList.innerHTML = `${tierNotice}${relatedJobsPanel}${lessons
     .map((lesson, index) => {
       const lessonId = `${career.id}-${index}`;
       const isComplete = completedLessons.includes(index);
@@ -4445,6 +4639,7 @@ function renderLessons() {
   lessonList.querySelectorAll("[data-career-id]").forEach((button) => {
     button.addEventListener("click", () => setActiveCareer(button.dataset.careerId));
   });
+  bindRelatedJobLinks(lessonList);
 
   lessonList.querySelectorAll("[data-lesson-index]").forEach((button) => {
     button.addEventListener("click", () => toggleLesson(Number(button.dataset.lessonIndex)));
@@ -4510,9 +4705,24 @@ function renderJobs() {
   }
 
   jobGrid.innerHTML = matches
-    .map(
-      (job) => `
-        <article class="job-card">
+    .map((job) => {
+      const matchedCareer = findBestCareerForJob(job);
+      const careerLink = matchedCareer
+        ? `
+          <div class="job-career-link">
+            <span class="mini-label">Related path</span>
+            <div class="job-career-link-row">
+              ${renderTierBadge(matchedCareer.contentTier)}
+              <button class="text-link" type="button" data-career-id="${matchedCareer.id}">
+                Explore ${escapeHtml(matchedCareer.title)} classes
+              </button>
+            </div>
+          </div>
+        `
+        : "";
+
+      return `
+        <article class="job-card" data-job-id="${job.id}">
           <div class="job-card-top">
             <span class="tag">${escapeHtml(job.type)}</span>
             <span class="tag field-tag">${escapeHtml(job.location)}</span>
@@ -4523,10 +4733,15 @@ function renderJobs() {
           <div class="job-tags">
             ${job.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
           </div>
+          ${careerLink}
         </article>
-      `
-    )
+      `;
+    })
     .join("");
+
+  jobGrid.querySelectorAll("[data-career-id]").forEach((button) => {
+    button.addEventListener("click", () => setActiveCareer(button.dataset.careerId));
+  });
 }
 
 async function loadJobs() {
@@ -4538,7 +4753,10 @@ async function loadJobs() {
     }
 
     jobs = await response.json();
+    jobsByCareerId = buildJobsByCareerIndex(jobs);
     renderJobs();
+    renderCareers();
+    renderLessons();
   } catch (error) {
     jobCount.textContent = "Jobs unavailable";
     jobGrid.innerHTML =
