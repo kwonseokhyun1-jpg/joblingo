@@ -2763,21 +2763,444 @@ const supplementalCareerRows = [
   ["forecasting-analyst", "Forecasting Analyst", "Science", ["analytical", "structured", "curious", "independent"], ["Statistical modeling", "Data analysis", "Study design", "Communication"]]
 ];
 
+const fieldProfiles = {
+  Healthcare: {
+    workplaces: "hospitals, clinics, labs, home health agencies, pharmacies, and community health programs",
+    impact: "patient health, safety, and recovery",
+    pace: "patient-centered days that can move quickly and require careful attention",
+    pathNote: "Clinical training, certifications, supervised hours, or licenses are common entry requirements"
+  },
+  Technology: {
+    workplaces: "software companies, IT departments, startups, consulting firms, and remote product teams",
+    impact: "reliable systems, secure data, and useful digital tools",
+    pace: "project cycles with focused building, testing, and team coordination",
+    pathNote: "Portfolios, certifications, internships, and self-directed projects often matter as much as formal degrees"
+  },
+  Business: {
+    workplaces: "corporations, small businesses, consulting firms, nonprofits, and government agencies",
+    impact: "clearer decisions, smoother operations, and stronger results",
+    pace: "meeting-driven days balanced with analysis, planning, and follow-through",
+    pathNote: "Degrees help for some roles, but internships, case studies, and operational experience also open doors"
+  },
+  Finance: {
+    workplaces: "banks, accounting firms, investment companies, corporate finance teams, and advisory offices",
+    impact: "financial clarity, risk management, and trustworthy money decisions",
+    pace: "deadline-aware work that rewards accuracy and careful documentation",
+    pathNote: "Credentials such as CPA, CFP, or finance certifications vary by specialty and region"
+  },
+  Engineering: {
+    workplaces: "engineering firms, manufacturers, construction sites, utilities, and research labs",
+    impact: "safer, more efficient physical systems and infrastructure",
+    pace: "design reviews, testing, site work, and technical documentation across project phases",
+    pathNote: "An engineering degree plus internships or co-ops is the most common path; licensure matters for some roles"
+  },
+  Science: {
+    workplaces: "labs, field sites, universities, government agencies, and industry research teams",
+    impact: "evidence-based understanding of natural and human systems",
+    pace: "mix of observation, experimentation, analysis, and reporting",
+    pathNote: "Research roles often expect strong math and science preparation; field and lab experience helps early"
+  },
+  Education: {
+    workplaces: "schools, colleges, tutoring centers, training programs, and online learning platforms",
+    impact: "learning, confidence, and skill growth for students of all ages",
+    pace: "people-centered days with planning, teaching, feedback, and reflection",
+    pathNote: "Teaching credentials vary by level and location; tutoring and mentoring can be early entry points"
+  },
+  Design: {
+    workplaces: "studios, agencies, in-house brand teams, architecture firms, and freelance clients",
+    impact: "clearer, more usable, and more meaningful experiences and spaces",
+    pace: "creative iteration with feedback, deadlines, and production handoffs",
+    pathNote: "Portfolios and project case studies usually matter more than titles alone"
+  },
+  Media: {
+    workplaces: "newsrooms, studios, production companies, streaming platforms, and independent creators",
+    impact: "stories, information, and experiences that reach wide audiences",
+    pace: "deadline-driven production with research, creation, editing, and publishing",
+    pathNote: "Reels, writing samples, and published work often count more than a single degree path"
+  },
+  Marketing: {
+    workplaces: "agencies, brand teams, startups, nonprofits, and e-commerce companies",
+    impact: "messages that help the right people discover and trust a product or cause",
+    pace: "creative testing paired with campaign planning and performance review",
+    pathNote: "Sample campaigns, analytics projects, and content portfolios help beginners stand out"
+  },
+  Hospitality: {
+    workplaces: "restaurants, hotels, resorts, event venues, airlines, and tourism companies",
+    pace: "service-focused shifts with teamwork, timing, and guest experience pressure",
+    impact: "memorable guest experiences and smooth operations",
+    pathNote: "Hands-on experience, food safety training, and customer service skills often come first"
+  },
+  "Human Services": {
+    workplaces: "nonprofits, community centers, shelters, counseling programs, and public agencies",
+    impact: "stability, support, and practical help for people in difficult situations",
+    pace: "relationship-centered work with documentation, boundaries, and team coordination",
+    pathNote: "Volunteering, supervised practice, and social-service credentials vary by role and state"
+  },
+  "Human Resources": {
+    workplaces: "corporate HR departments, staffing firms, consulting groups, and growing startups",
+    impact: "fairer hiring, clearer policies, and healthier workplaces",
+    pace: "confidential people work mixed with process design and employee support",
+    pathNote: "HR certificates and people-operations internships are useful early steps"
+  },
+  "Skilled Trades": {
+    workplaces: "job sites, workshops, plants, homes, and maintenance teams",
+    impact: "safe, working systems people rely on every day",
+    pace: "hands-on problem solving with safety rules, tools, and physical precision",
+    pathNote: "Apprenticeships, trade school, and licensing paths vary by trade and location"
+  },
+  Operations: {
+    workplaces: "warehouses, logistics hubs, manufacturing plants, service companies, and corporate ops teams",
+    impact: "reliable delivery, efficient processes, and fewer costly mistakes",
+    pace: "process-focused days with coordination, monitoring, and continuous improvement",
+    pathNote: "Operational experience, safety training, and process certifications help early applicants"
+  },
+  Government: {
+    workplaces: "city halls, state agencies, federal departments, public utilities, and policy offices",
+    impact: "public programs, regulations, and services that affect communities",
+    pace: "structured work with policy review, stakeholder communication, and compliance",
+    pathNote: "Public administration, policy, or domain expertise plus internships are common paths in"
+  },
+  "Law & Public Service": {
+    workplaces: "law firms, courts, public defender offices, advocacy groups, and government legal teams",
+    impact: "rights, fairness, and responsible resolution of conflicts",
+    pace: "research-heavy work with writing, negotiation, and high-stakes communication",
+    pathNote: "Law school is required for attorney roles; paralegal and policy paths have different timelines"
+  },
+  Legal: {
+    workplaces: "law firms, corporate legal departments, compliance teams, and government agencies",
+    impact: "legal clarity, risk reduction, and enforceable agreements",
+    pace: "document review, research, client communication, and deadline-driven filings",
+    pathNote: "Paralegal certificates, legal internships, and specialized compliance training vary by role"
+  },
+  "Public Safety": {
+    workplaces: "police departments, fire stations, dispatch centers, emergency services, and security teams",
+    impact: "community safety, emergency response, and crisis coordination",
+    pace: "shift-based work that can be urgent, physical, and emotionally demanding",
+    pathNote: "Academy training, certifications, fitness standards, and background checks are typical requirements"
+  },
+  Transportation: {
+    workplaces: "airlines, railroads, trucking companies, transit agencies, ports, and logistics networks",
+    impact: "safe, timely movement of people and goods",
+    pace: "schedule-driven operations with safety checks, routing, and coordination",
+    pathNote: "Commercial licenses, safety certifications, and supervised operating hours are common"
+  },
+  Manufacturing: {
+    workplaces: "factories, production lines, quality labs, and industrial supply chains",
+    impact: "consistent products built to spec with minimal waste",
+    pace: "shift work with equipment monitoring, quality checks, and teamwork",
+    pathNote: "Technical certificates, on-the-job training, and safety credentials often matter more than four-year degrees"
+  },
+  Energy: {
+    workplaces: "utilities, power plants, renewable installers, grid operators, and energy consultancies",
+    impact: "reliable power, efficiency, and safer energy transitions",
+    pace: "technical monitoring, field work, compliance, and emergency readiness",
+    pathNote: "Trade credentials, engineering paths, and safety certifications vary widely by specialty"
+  },
+  Agriculture: {
+    workplaces: "farms, greenhouses, cooperatives, food processors, and agricultural research stations",
+    impact: "food production, land stewardship, and rural community livelihoods",
+    pace: "seasonal and weather-dependent work with hands-on monitoring and planning",
+    pathNote: "Hands-on farm experience, agricultural science programs, and equipment training are common paths"
+  },
+  "Animal Care": {
+    workplaces: "veterinary clinics, shelters, zoos, wildlife centers, and boarding facilities",
+    impact: "animal health, welfare, and safe human-animal interactions",
+    pace: "hands-on care with observation, cleaning routines, and client or keeper communication",
+    pathNote: "Veterinary paths require advanced degrees; assistant and technician roles use certificates and supervised hours"
+  },
+  Arts: {
+    workplaces: "galleries, theaters, studios, museums, festivals, and independent creative practice",
+    impact: "cultural expression, audience connection, and creative community",
+    pace: "project-based work with rehearsal, creation, performance, or exhibition cycles",
+    pathNote: "Portfolios, performances, and networking often matter as much as formal training"
+  },
+  Sports: {
+    workplaces: "teams, gyms, schools, recreation centers, sports medicine clinics, and event venues",
+    impact: "athlete performance, health, and positive competition experiences",
+    pace: "active days with coaching, training plans, events, and recovery support",
+    pathNote: "Coaching licenses, athletic training credentials, and sport-specific experience vary by role"
+  },
+  Sales: {
+    workplaces: "retail stores, B2B companies, real estate brokerages, dealerships, and inside-sales teams",
+    impact: "matching products and services to real customer needs",
+    pace: "goal-driven days with outreach, demos, follow-up, and relationship building",
+    pathNote: "Product knowledge, communication practice, and early quota experience often matter more than one fixed degree"
+  },
+  "Real Estate": {
+    workplaces: "brokerages, property management firms, development companies, and appraisal offices",
+    impact: "housing decisions, property value clarity, and successful transactions",
+    pace: "client-facing days with showings, negotiations, paperwork, and market research",
+    pathNote: "Licensing exams and supervised sales experience are standard in most regions"
+  },
+  Nonprofit: {
+    workplaces: "charities, foundations, community organizations, and advocacy groups",
+    impact: "mission-driven programs that serve people and communities in need",
+    pace: "resourceful work with fundraising, program delivery, and stakeholder engagement",
+    pathNote: "Volunteering, grant writing samples, and program coordination experience are strong early signals"
+  },
+  "Language & Communication": {
+    workplaces: "schools, courts, hospitals, publishers, media companies, and remote language services",
+    impact: "clear meaning across languages, cultures, and audiences",
+    pace: "careful reading, listening, writing, and live communication under accuracy pressure",
+    pathNote: "Fluency tests, translation samples, and interpreting practice hours vary by credential path"
+  },
+  "Creative Technology": {
+    workplaces: "game studios, interactive agencies, XR labs, and digital product teams",
+    impact: "engaging interactive experiences that blend art, systems, and technology",
+    pace: "prototype-driven iteration with playtesting, tuning, and cross-disciplinary collaboration",
+    pathNote: "Playable prototypes and design write-ups often matter more than a single traditional major"
+  },
+  "Customer Experience": {
+    workplaces: "call centers, SaaS companies, retail brands, airlines, and support operations teams",
+    impact: "customer trust, problem resolution, and smoother service journeys",
+    pace: "conversation-heavy days with ticketing systems, escalation paths, and quality review",
+    pathNote: "Communication samples, product knowledge, and support simulations help beginners prove fit"
+  }
+};
+
+const rolePatterns = [
+  {
+    test: (title) => /\b(engineer|engineering)\b/i.test(title),
+    verb: "design, test, and improve technical systems",
+    tasks: (career, field) => [
+      `Use ${career.skills[0]} and ${career.skills[1]} to solve design or performance problems`,
+      `Document requirements, tests, and results for ${field.impact}`,
+      `Review work with specialists to confirm safety, cost, and feasibility`
+    ],
+    collaborators: "engineers, technicians, project managers, and clients",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} often grow through specialty areas, project leadership, licensure where required, or senior technical roles.`
+  },
+  {
+    test: (title) => /\b(developer|programmer|coder)\b/i.test(title),
+    verb: "build and maintain software that people rely on",
+    tasks: (career) => [
+      `Write and test code focused on ${career.skills[0]}`,
+      `Debug issues, review changes, and improve reliability`,
+      `Collaborate on features, documentation, and release planning`
+    ],
+    collaborators: "product managers, designers, QA testers, and other developers",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} often advance through deeper technical specialization, team leadership, or architecture responsibilities.`
+  },
+  {
+    test: (title) => /\b(analyst|actuary|economist|statistician)\b/i.test(title),
+    verb: "turn data and evidence into recommendations",
+    tasks: (career) => [
+      `Gather and check information using ${career.skills[0]}`,
+      `Identify patterns, risks, or opportunities others might miss`,
+      `Explain findings clearly so decision makers can act with confidence`
+    ],
+    collaborators: "managers, subject-matter experts, finance teams, and operations leaders",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} can move into senior analysis, strategy, consulting, or leadership roles that shape bigger decisions.`
+  },
+  {
+    test: (title) => /\b(technician|technologist|operator)\b/i.test(title),
+    verb: "perform hands-on technical work with precision and safety",
+    tasks: (career) => [
+      `Set up, monitor, or repair equipment using ${career.skills[0]}`,
+      `Follow safety procedures and quality checks throughout each shift`,
+      `Record results and flag issues before they become bigger problems`
+    ],
+    collaborators: "supervisors, engineers, quality teams, and maintenance staff",
+    advancement: (title) =>
+      `Experienced ${rolePhrase(title, "professionals")} may specialize, train others, move into lead roles, or pursue related engineering or supervisory paths.`
+  },
+  {
+    test: (title) => /\b(manager|director|supervisor|lead|coordinator)\b/i.test(title),
+    verb: "keep people, schedules, and priorities aligned",
+    tasks: (career) => [
+      `Plan work, assign tasks, and track progress toward goals`,
+      `Resolve bottlenecks using ${career.skills[0]} and clear communication`,
+      `Report status, risks, and next steps to stakeholders`
+    ],
+    collaborators: "team members, executives, vendors, and cross-functional partners",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} often grow into broader department leadership, operations strategy, or executive roles with larger budgets.`
+  },
+  {
+    test: (title) => /\b(therapist|counselor|social worker|psychologist)\b/i.test(title),
+    verb: "support people through assessment, guidance, and care plans",
+    tasks: (career) => [
+      `Listen carefully and assess needs using ${career.skills[0]}`,
+      `Create plans, sessions, or referrals that match each person's situation`,
+      `Document progress while maintaining ethical boundaries and confidentiality`
+    ],
+    collaborators: "physicians, case managers, families, schools, and community partners",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} may specialize clinically, supervise others, move into program leadership, or focus on research and training.`
+  },
+  {
+    test: (title) => /\b(designer|architect|illustrator|animator)\b/i.test(title),
+    verb: "shape visual or spatial experiences that solve real user problems",
+    tasks: (career) => [
+      `Research audience needs and translate them into design directions`,
+      `Create drafts, prototypes, or layouts using ${career.skills[0]}`,
+      `Iterate based on feedback until the solution is clear and usable`
+    ],
+    collaborators: "clients, writers, developers, marketers, and production teams",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} often build stronger portfolios, lead creative direction, or move into principal or freelance practice.`
+  },
+  {
+    test: (title) => /\b(teacher|instructor|professor|coach|tutor)\b/i.test(title),
+    verb: "help others learn skills, concepts, and confidence",
+    tasks: (career) => [
+      `Plan lessons or sessions around ${career.skills[0]}`,
+      `Explain ideas in multiple ways and check for understanding`,
+      `Give feedback, adjust pacing, and support learners who struggle`
+    ],
+    collaborators: "students, parents, administrators, and fellow educators",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} may specialize by subject or age group, lead programs, train other educators, or move into curriculum design.`
+  },
+  {
+    test: (title) => /\b(nurse|physician|doctor|dentist|surgeon|pharmacist|paramedic)\b/i.test(title),
+    verb: "deliver direct care, assessment, and treatment support",
+    tasks: (career) => [
+      `Assess symptoms or needs and apply ${career.skills[0]}`,
+      `Coordinate with the care team and explain next steps to patients`,
+      `Monitor outcomes, document carefully, and respond when conditions change`
+    ],
+    collaborators: "physicians, nurses, therapists, technicians, and patient families",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} can advance through specialty training, leadership roles, education, or advanced practice credentials.`
+  },
+  {
+    test: (title) => /\b(writer|editor|journalist|reporter|copywriter)\b/i.test(title),
+    verb: "research, write, and refine information for an audience",
+    tasks: (career) => [
+      `Find sources and verify facts before publishing`,
+      `Draft and revise content using ${career.skills[0]} and ${career.skills[1]}`,
+      `Work with editors or stakeholders to improve clarity and accuracy`
+    ],
+    collaborators: "editors, producers, subject experts, and legal reviewers",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} often specialize by beat or format, move into editing, or build independent publishing brands.`
+  },
+  {
+    test: (title) => /\b(scientist|researcher|biologist|chemist|geologist|epidemiologist)\b/i.test(title),
+    verb: "investigate questions with careful methods and evidence",
+    tasks: (career) => [
+      `Design observations or experiments using ${career.skills[0]}`,
+      `Collect reliable data and check it for errors or bias`,
+      `Report findings in writing and presentations for technical and non-technical audiences`
+    ],
+    collaborators: "lab teams, field partners, statisticians, and funding or policy stakeholders",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} may lead research projects, publish more widely, move into industry R&D, or teach at advanced levels.`
+  },
+  {
+    test: (title) => /\b(lawyer|attorney|paralegal|judge|prosecutor)\b/i.test(title),
+    verb: "apply legal rules, evidence, and advocacy to real disputes",
+    tasks: (career) => [
+      `Research laws and facts relevant to a case or client question`,
+      `Draft documents or arguments using ${career.skills[0]}`,
+      `Negotiate, advise, or represent clients with careful preparation`
+    ],
+    collaborators: "clients, paralegals, judges, opposing counsel, and expert witnesses",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} can specialize by practice area, move into partnership or judiciary paths, or shift into compliance and policy roles.`
+  },
+  {
+    test: (title) => /\b(chef|cook|baker|barista)\b/i.test(title),
+    verb: "prepare food and beverage experiences with consistency and craft",
+    tasks: (career) => [
+      `Prep ingredients and execute recipes using ${career.skills[0]}`,
+      `Maintain food safety, timing, and quality during busy service`,
+      `Adjust seasoning, plating, and workflow based on feedback and demand`
+    ],
+    collaborators: "kitchen staff, servers, suppliers, and restaurant managers",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} may lead stations, develop menus, open their own businesses, or move into culinary education.`
+  },
+  {
+    test: (title) => /\b(sales|representative|agent|broker)\b/i.test(title),
+    verb: "connect products and services with the people who need them",
+    tasks: (career) => [
+      `Research prospects and explain value using ${career.skills[0]}`,
+      `Answer questions, handle objections, and follow up consistently`,
+      `Track conversations, quotes, and outcomes in CRM or sales tools`
+    ],
+    collaborators: "customers, account managers, marketing teams, and operations staff",
+    advancement: (title) =>
+      `${rolePhrase(title, "professionals")} often grow through larger accounts, team leadership, specialization, or entrepreneurship.`
+  }
+];
+
+const defaultRolePattern = {
+  verb: "apply specialized skills to solve practical problems",
+  tasks: (career, field) => [
+    `Use ${career.skills[0]} and ${career.skills[1]} in day-to-day ${career.field.toLowerCase()} work`,
+    `Coordinate with others to deliver reliable results for ${field.impact}`,
+    `Document work, follow procedures, and improve quality over time`
+  ],
+  collaborators: "teammates, supervisors, clients, and specialists in the same field",
+  advancement: (title) =>
+    `${rolePhrase(title, "professionals")} can deepen expertise, earn credentials, lead projects, or move into adjacent roles with more responsibility.`
+};
+
+function rolePhrase(title, style = "professional") {
+  if (style === "article") {
+    const article = /^[aeiou]/i.test(title) ? "an" : "a";
+    return `${article} ${title}`;
+  }
+
+  if (style === "professionals") {
+    return `${title} professionals`;
+  }
+
+  return title;
+}
+
+function getFieldProfile(field) {
+  return fieldProfiles[field] || fieldProfiles.Business;
+}
+
+function getRolePattern(title) {
+  return rolePatterns.find((pattern) => pattern.test(title)) || defaultRolePattern;
+}
+
+function buildCareerContext(career) {
+  const field = getFieldProfile(career.field);
+  const role = getRolePattern(career.title);
+
+  return {
+    field,
+    role,
+    workplaces: career.setting || career.workplaces || field.workplaces,
+    collaborators: career.collaborators || role.collaborators,
+    dailyTasks:
+      career.dailyTasks ||
+      role.tasks(career, field),
+    advancementPath:
+      career.advancementPath || role.advancement(career.title)
+  };
+}
+
 function buildSupplementalCareer([id, title, field, traits, skills]) {
-  const primarySkill = skills[0];
+  const careerSeed = { title, field, skills, traits };
+  const { field: fieldProfile, role, workplaces } = buildCareerContext(careerSeed);
+  const traitPhrase = traits.slice(0, 2).join(" and ");
+  const skillPhrase = `${skills[0]} and ${skills[1]}`;
 
   return {
     id,
     title,
     field,
-    summary: `Uses ${primarySkill.toLowerCase()} and practical judgment to solve real problems in ${field.toLowerCase()} settings.`,
-    fit: `You may like this path if you enjoy ${traits.slice(0, 2).join(" and ")} work and want a role with clear real-world impact.`,
+    summary: `As ${rolePhrase(title, "article")} in ${field}, you would ${role.verb} to improve ${fieldProfile.impact}. Day to day you would rely on ${skillPhrase}, often in settings such as ${workplaces}.`,
+    fit: `You may enjoy this path if ${traitPhrase} work energizes you, you like ${fieldProfile.pace.toLowerCase()}, and you want a role where ${skills[2].toLowerCase()} creates visible results.`,
     traits,
     skills,
-    workStyle: `${primarySkill}, collaboration, documentation, and steady improvement across changing priorities`,
-    startingPoint: `Find one entry-level ${title} posting and list the skills, tools, credentials, and first project you could practice.`,
-    setting: `${field.toLowerCase()} teams, service organizations, public agencies, private companies, and specialized workplaces`,
-    problem: `a person or organization needs ${title} support to make a safer, clearer, faster, or more reliable decision`,
+    workStyle: `${skills[0]}, ${skills[1].toLowerCase()}, teamwork with ${role.collaborators}, and steady attention to ${fieldProfile.impact}`,
+    startingPoint: `Find one entry-level ${title} posting, compare three requirements that repeat across employers, and complete a small practice task focused on ${skills[0].toLowerCase()}.`,
+    setting: workplaces,
+    workplaces,
+    collaborators: role.collaborators,
+    dailyTasks: role.tasks({ title, field, skills }, fieldProfile),
+    advancementPath: role.advancement(title),
+    problem: `a person or organization needs ${title} support to make a safer, clearer, faster, or more reliable decision about ${fieldProfile.impact}`,
     deliverable: `a ${title} starter brief with user need, key tasks, tools, risks, success measure, and next step`
   };
 }
@@ -2785,6 +3208,8 @@ function buildSupplementalCareer([id, title, field, traits, skills]) {
 additionalCareerBlueprints.push(...supplementalCareerRows.map(buildSupplementalCareer));
 
 function buildCareerFromBlueprint(blueprint) {
+  const context = buildCareerContext(blueprint);
+
   return {
     id: blueprint.id,
     title: blueprint.title,
@@ -2795,36 +3220,70 @@ function buildCareerFromBlueprint(blueprint) {
     skills: blueprint.skills,
     workStyle: blueprint.workStyle,
     startingPoint: blueprint.startingPoint,
+    workplaces: context.workplaces,
+    collaborators: context.collaborators,
+    dailyTasks: context.dailyTasks,
+    advancementPath: context.advancementPath,
     lessons: [
       {
-        title: `What ${blueprint.title}s really do`,
-        objective: `Understand the daily responsibilities, settings, and decisions that define ${blueprint.title}.`,
-        activity: `List three places ${blueprint.title}s work, then choose one and describe what a normal day might include.`,
-        takeaway: `${blueprint.title}s create value in ${blueprint.setting} by combining skill, judgment, and communication.`
+        title: `What ${blueprint.title} work really involves`,
+        objective: `Understand the daily responsibilities, common workplaces, and decisions that define ${blueprint.title}.`,
+        activity: `Choose one setting from ${context.workplaces}, then write a hour-by-hour outline of what a ${blueprint.title} might handle there.`,
+        takeaway: `${rolePhrase(blueprint.title, "professionals")} create value in ${blueprint.setting} by combining ${blueprint.skills.slice(0, 2).join(", ")}, judgment, and communication with ${context.collaborators}.`
       },
       {
         title: "Core skills and tools",
-        objective: `Connect this career to practical skills such as ${blueprint.skills.slice(0, 3).join(", ")}.`,
-        activity: `Pick one skill from ${blueprint.skills.join(", ")} and find a beginner exercise that would let you practice it this week.`,
-        takeaway: `Career confidence grows when you can name the skill, practice it, and explain how it helps solve real problems.`
+        objective: `Connect this career to practical skills such as ${blueprint.skills.join(", ")} and learn which ones appear in real job postings.`,
+        activity: `Search two entry-level ${blueprint.title} postings and highlight every mention of ${blueprint.skills.slice(0, 3).join(", ")}. Then pick one skill to practice this week.`,
+        takeaway: `Career confidence grows when you can name the skill, practice it, and explain how it improves ${context.field.impact}.`
+      },
+      {
+        title: "A day on the job",
+        objective: `Picture the pace, tasks, and teamwork that shape a typical ${blueprint.title} shift or project cycle.`,
+        activity: `Turn these daily tasks into a checklist: ${context.dailyTasks.join("; ")}. Mark which tasks sound energizing and which sound draining.`,
+        takeaway: `Fit is about daily reality. ${blueprint.workStyle} is the rhythm you would live with most weeks.`
       },
       {
         title: "Solving a real workplace problem",
         objective: `Practice how a ${blueprint.title} might think through ${blueprint.problem}.`,
-        activity: `Write the problem, what information you need, who is affected, two possible options, and one risk to watch.`,
+        activity: `Write the problem, stakeholders, information you need, two options, one risk, and how you would explain your recommendation to ${context.collaborators}.`,
         takeaway: `Most careers involve structured judgment: gathering facts, weighing tradeoffs, and choosing a responsible next step.`
       },
       {
-        title: "First project or proof of interest",
-        objective: `Create a concrete artifact that shows you understand the basics of ${blueprint.title}.`,
-        activity: `Build ${blueprint.deliverable}, then ask someone for feedback on clarity and usefulness.`,
-        takeaway: `A small finished artifact helps you test interest and gives you something real to discuss with mentors, teachers, or employers.`
+        title: "First project and next steps",
+        objective: `Create a concrete artifact that shows you understand the basics of ${blueprint.title} and know how people usually grow in the field.`,
+        activity: `Build ${blueprint.deliverable}. Then add one sentence about advancement: ${context.advancementPath}`,
+        takeaway: `A small finished artifact helps you test interest, discuss the path with mentors, and compare it with nearby roles in ${blueprint.field}.`
       }
     ]
   };
 }
 
+function enrichCareerDetails(career) {
+  const context = buildCareerContext(career);
+
+  career.workplaces = context.workplaces;
+  career.collaborators = context.collaborators;
+  career.dailyTasks = context.dailyTasks;
+  career.advancementPath = context.advancementPath;
+
+  if (!career.setting) {
+    career.setting = context.workplaces;
+  }
+
+  if (career.summary.split(" ").length < 18) {
+    career.summary = `${career.summary} This ${career.field.toLowerCase()} role usually involves ${career.skills[0].toLowerCase()} and ${career.skills[1].toLowerCase()} in settings such as ${context.workplaces}.`;
+  }
+
+  if (!career.fit.includes("day") && !career.fit.includes("week")) {
+    career.fit = `${career.fit} The work is often ${context.field.pace.toLowerCase()}, and you would collaborate with ${context.collaborators}.`;
+  }
+
+  return career;
+}
+
 careers.push(...additionalCareerBlueprints.map(buildCareerFromBlueprint));
+careers.forEach(enrichCareerDetails);
 careers.sort((a, b) => a.title.localeCompare(b.title));
 
 const quizQuestions = [
@@ -3254,8 +3713,63 @@ const defaultPrerequisites = {
   start: "Find three job postings and compare their education, experience, and skill requirements."
 };
 
+const fieldPrerequisiteTemplates = {
+  Healthcare: {
+    education: "Many healthcare roles require approved training programs, clinical hours, or advanced degrees depending on scope of care.",
+    timeline: "Entry support roles may take months; licensed clinical roles often require 2-8 years of preparation.",
+    credentials: "Certifications, clinical rotations, board exams, state licenses, CPR, and specialty credentials vary by role.",
+    start: "Shadow a professional, volunteer in a care setting, or complete a basic health-science course to test fit."
+  },
+  Technology: {
+    education: "Computer science degrees are common, but bootcamps, certificates, self-study, and strong portfolios also open doors.",
+    timeline: "Focused beginners often need 3-12 months of project practice after initial training to become job-ready.",
+    credentials: "GitHub projects, internships, coding assessments, cloud certificates, and clear technical write-ups.",
+    start: "Build one small app or script, then explain the user problem, tools used, and what you would improve next."
+  },
+  "Skilled Trades": {
+    education: "Most trades emphasize apprenticeships or trade-school programs rather than four-year degrees.",
+    timeline: "Apprenticeships commonly take 3-5 years of supervised work plus classroom instruction.",
+    credentials: "Trade licenses, safety certifications, apprenticeship completion, and tool proficiency.",
+    start: "Research one local apprenticeship or trade program and list age, education, and application requirements."
+  },
+  Education: {
+    education: "School-based teaching usually requires a bachelor's degree, teacher preparation, and state certification.",
+    timeline: "Typical paths take about 4 years for a degree plus student teaching and licensing exams.",
+    credentials: "Teaching license, background checks, student-teaching evaluations, and subject endorsements.",
+    start: "Tutor, coach, or lead a short lesson to test whether explaining ideas to others energizes you."
+  },
+  Finance: {
+    education: "Accounting and finance roles often expect degrees in business, economics, or related fields; some paths use certificates.",
+    timeline: "Degree paths take 2-4 years; specialized credentials such as CPA or CFP add additional study time.",
+    credentials: "Internships, Excel and modeling skills, licensing exams, and clear analysis samples.",
+    start: "Track a personal or mock budget and write one recommendation based on the numbers."
+  },
+  Science: {
+    education: "Lab and research roles usually require strong science and math preparation, often through a bachelor's degree or higher.",
+    timeline: "Entry lab support may take 2-4 years of study; research scientist paths often require graduate training.",
+    credentials: "Lab techniques, field experience, data analysis samples, safety training, and research writing.",
+    start: "Complete a small observation or data-collection exercise and summarize what the evidence suggests."
+  },
+  Design: {
+    education: "Design degrees help, but portfolios showing process, critique, and results are often the deciding factor.",
+    timeline: "Portfolio-focused training can take 3 months to 4 years depending on depth and specialization.",
+    credentials: "Case studies, prototypes, software skill, client feedback, and internship or freelance work.",
+    start: "Redesign one real object or screen and document the problem, users, options, and final choice."
+  },
+  Media: {
+    education: "Journalism, film, and media programs help, but published samples and production reels matter heavily.",
+    timeline: "Many creators build skills over 1-4 years through school projects, internships, and independent work.",
+    credentials: "Writing samples, audio or video reels, editing skill, fact-checking discipline, and deadline experience.",
+    start: "Produce one short piece—a story, clip, or episode outline—and get feedback on clarity and structure."
+  }
+};
+
 function getPrerequisites(career) {
-  return careerPrerequisites[career.id] || defaultPrerequisites;
+  return (
+    careerPrerequisites[career.id] ||
+    fieldPrerequisiteTemplates[career.field] ||
+    defaultPrerequisites
+  );
 }
 
 function buildPrerequisiteLesson(career) {
@@ -3349,6 +3863,10 @@ function careerMatchesQuery(career, query) {
     career.summary,
     career.fit,
     career.workStyle,
+    career.workplaces,
+    career.collaborators,
+    career.advancementPath,
+    ...(career.dailyTasks || []),
     career.skills.join(" "),
     career.traits.join(" ")
   ]
@@ -3400,6 +3918,16 @@ function renderCareerCard(career) {
         <h3>${career.title}</h3>
       </div>
       <p class="career-summary">${career.summary}</p>
+      <div class="career-section" aria-label="${career.title} daily work">
+        <span class="mini-label">Daily work</span>
+        <ul class="detail-list">
+          ${(career.dailyTasks || []).slice(0, 2).map((task) => `<li>${task}</li>`).join("")}
+        </ul>
+      </div>
+      <div class="career-section" aria-label="${career.title} workplaces">
+        <span class="mini-label">Where they work</span>
+        <p class="detail-text">${career.workplaces}</p>
+      </div>
       <div class="career-section" aria-label="${career.title} fit">
         <span class="mini-label">Best for</span>
         <div class="fit-chips">
@@ -3675,7 +4203,7 @@ function renderLessons() {
   const progress = Math.round((completedLessons.length / lessons.length) * 100);
 
   lessonCareerTitle.textContent = `${career.title} class path`;
-  lessonCareerSummary.textContent = `${career.summary} Start here: ${career.startingPoint}`;
+  lessonCareerSummary.textContent = `${career.summary} Work style: ${career.workStyle}. Typical workplaces: ${career.workplaces}. Start here: ${career.startingPoint}`;
   progressLabel.textContent = `${progress}%`;
   pathProgressBar.style.width = `${progress}%`;
 

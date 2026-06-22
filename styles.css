@@ -554,6 +554,25 @@ select:focus,
   margin: 18px 0 20px;
 }
 
+.detail-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #4f5d6b;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.detail-list li + li {
+  margin-top: 6px;
+}
+
+.detail-text {
+  margin: 0;
+  color: #4f5d6b;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 .card-meta {
   display: flex;
   flex-wrap: wrap;
